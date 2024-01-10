@@ -38,6 +38,12 @@
                         <a href="{{ route('frontend.comments.index') }}" class="text-gray-600 border-transparent border-b-2 hover:border-orange-600 px-3 py-2 text-base font-medium transition ease-out duration-300">
                             {{__('Comments')}}
                         </a>
+                        <a href="{{ route('frontend.subjects.index') }}" class="text-gray-600 border-transparent border-b-2 hover:border-orange-600 px-3 py-2 text-base font-medium transition ease-out duration-300">
+                            {{__('Subjects')}}
+                        </a>
+                        <a href="{{ route('frontend.taxons.index') }}" class="text-gray-600 border-transparent border-b-2 hover:border-orange-600 px-3 py-2 text-base font-medium transition ease-out duration-300">
+                            {{__('Taxons')}}
+                        </a>
                     </div>
                 </div>
             </div>
@@ -126,6 +132,12 @@
             </a>
             <a href="{{ route('frontend.comments.index') }}" class="text-gray-500 block px-3 py-2 rounded-md text-base font-medium">
                 {{__('Comments')}}
+            </a>
+            <a href="{{ route('frontend.subjects.index') }}" class="text-gray-500 block px-3 py-2 rounded-md text-base font-medium">
+                {{__('Subjects')}}
+            </a>
+            <a href="{{ route('frontend.taxons.index') }}" class="text-gray-500 block px-3 py-2 rounded-md text-base font-medium">
+                {{__('Taxons')}}
             </a>
 
             @can('view_backend')

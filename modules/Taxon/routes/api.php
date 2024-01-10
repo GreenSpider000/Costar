@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/categories', function (Request $request) {
+Route::middleware('auth:api')->get('/taxons', function (Request $request) {
     return $request->user();
 });

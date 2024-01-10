@@ -1,24 +1,24 @@
 <?php
 
-namespace Modules\Category\Console\Commands;
+namespace Modules\Taxon\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class CategoryCommand extends Command
+class TaxonCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:CategoryCommand';
+    protected $signature = 'command:TaxonCommand';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Category Command description';
+    protected $description = 'Taxon Command description';
 
     /**
      * Execute the console command.

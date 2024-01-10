@@ -2,6 +2,8 @@
     "Page": true,
     "Article": true,
     "Category": true,
+    "Collection": true,
     "Tag": true,
+    "Taxon": true,
     "Comment": true
 }

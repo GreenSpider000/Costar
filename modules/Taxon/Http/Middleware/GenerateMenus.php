@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Category\Http\Middleware;
+namespace Modules\Taxon\Http\Middleware;
 
 use Closure;
 
@@ -21,15 +21,15 @@ class GenerateMenus
          * *********************************************************************
          */
         \Menu::make('admin_sidebar', function ($menu) {
-            // Categories
-            $menu->add('<i class="nav-icon fa-solid fa-sitemap"></i> '.__('Categories'), [
-                'route' => 'backend.categories.index',
+            // Taxons
+            $menu->add('<i class="nav-icon fa-solid fa-sitemap"></i> '.__('Taxons'), [
+                'route' => 'backend.taxons.index',
                 'class' => 'nav-item',
             ])
                 ->data([
                     'order' => 83,
-                    'activematches' => ['admin/categories*'],
-                    'permission' => ['view_categories'],
+                    'activematches' => ['admin/taxons*'],
+                    'permission' => ['view_taxons'],
                 ])
                 ->link->attr([
                     'class' => 'nav-link',

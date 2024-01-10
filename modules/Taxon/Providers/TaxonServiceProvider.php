@@ -1,22 +1,22 @@
 <?php
 
-namespace Modules\Category\Providers;
+namespace Modules\Taxon\Providers;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\Finder\Finder;
 
-class CategoryServiceProvider extends ServiceProvider
+class TaxonServiceProvider extends ServiceProvider
 {
     /**
      * @var string
      */
-    protected $moduleName = 'Category';
+    protected $moduleName = 'Taxon';
 
     /**
      * @var string
      */
-    protected $moduleNameLower = 'category';
+    protected $moduleNameLower = 'taxon';
 
     /**
      * Boot the application events.
@@ -28,14 +28,14 @@ class CategoryServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
-        $this->loadMigrationsFrom(base_path('modules/Category/Database/migrations'));
+        $this->loadMigrationsFrom(base_path('modules/Taxon/Database/migrations'));
 
         // adding global middleware
         $kernel = $this->app->make('Illuminate\Contracts\Http\Kernel');
-        $kernel->pushMiddleware('Modules\Category\Http\Middleware\GenerateMenus');
+        $kernel->pushMiddleware('Modules\Taxon\Http\Middleware\GenerateMenus');
 
         // register commands
-        $this->registerCommands('\Modules\Category\Console\Commands');
+        $this->registerCommands('\Modules\Taxon\Console\Commands');
     }
 
     /**
@@ -75,7 +75,7 @@ class CategoryServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'category');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'taxon');
     }
 
     /**
@@ -96,10 +96,10 @@ class CategoryServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            base_path('modules/Category/Config/config.php') => config_path($this->moduleNameLower.'.php'),
+            base_path('modules/Taxon/Config/config.php') => config_path($this->moduleNameLower.'.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            base_path('modules/Category/Config/config.php'),
+            base_path('modules/Taxon/Config/config.php'),
             $this->moduleNameLower
         );
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Category\Database\factories;
+namespace Modules\Taxon\Database\factories;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class CategoryFactory extends Factory
+class TaxonFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = \Modules\Category\Models\Category::class;
+    protected $model = \Modules\Taxon\Models\Taxon::class;
 
     /**
      * Define the model's default state.

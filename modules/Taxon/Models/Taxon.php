@@ -1,24 +1,24 @@
 <?php
 
-namespace Modules\Category\Models;
+namespace Modules\Taxon\Models;
 
 use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends BaseModel
+class Taxon extends BaseModel
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'categories';
+    protected $table = 'taxons';
 
     /**
-     * Caegories has Many posts.
+     * Caegories has Many subjects.
      */
-    public function posts()
+    public function subjects()
     {
-        return $this->hasMany('Modules\Article\Models\Post');
+        return $this->hasMany('Modules\Collection\Models\Subject');
     }
 
     /**
@@ -28,6 +28,6 @@ class Category extends BaseModel
      */
     protected static function newFactory()
     {
-        return \Modules\Category\Database\factories\CategoryFactory::new();
+        return \Modules\Taxon\Database\factories\TaxonFactory::new();
     }
 }

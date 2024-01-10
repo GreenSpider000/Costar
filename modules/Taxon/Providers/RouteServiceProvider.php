@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Category\Providers;
+namespace Modules\Taxon\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -41,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-            ->group(base_path('modules/Category/routes/web.php'));
+            ->group(base_path('modules/Taxon/routes/web.php'));
     }
 
     /**
@@ -55,6 +55,6 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('api')
-            ->group(base_path('modules/Category/routes/api.php'));
+            ->group(base_path('modules/Taxon/routes/api.php'));
     }
 }

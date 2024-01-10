@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Modules\Article\Models\Post;
 use Modules\Category\Models\Category;
+use Modules\Collection\Models\Subject;
+use Modules\Taxon\Models\Taxon;
 use Modules\Comment\Models\Comment;
 use Modules\Tag\Models\Tag;
 
@@ -22,7 +24,7 @@ class InsertDemoData extends Command
     /**
      * The console command description.
      */
-    protected $description = 'Insert demo data for posts, categories, tags, and comments. --fresh option will truncate the tables.';
+    protected $description = 'Insert demo data for posts, categories, tags, comments, subjects, taxons. --fresh option will truncate the tables.';
 
     /**
      * Execute the console command.
@@ -70,6 +72,22 @@ class InsertDemoData extends Command
         $this->info('Inserting Comments');
         Comment::factory()->count(25)->create();
 
+        /**
+         * Taxons.
+         */
+        $this->info('Inserting Taxons');
+        Taxon::factory()->count(5)->create();
+
+        /**
+         * Subjects.
+         */
+        $this->info('Inserting Subjects');
+        Subject::factory()->count(25)->create()->each(function ($subject) {
+            $subject->tags()->attach(
+                Tag::inRandomOrder()->limit(rand(5, 10))->pluck('id')->toArray()
+            );
+        });
+
         $this->newLine(2);
         $this->info('-- Completed --');
         $this->newLine();
@@ -82,11 +100,13 @@ class InsertDemoData extends Command
             'categories',
             'tags',
             'comments',
+            'subjects',
+            'taxons'
             'activity_log',
         ];
 
         $confirmed = confirm(
-            label: 'Database tables (posts, categories, tags, comments) will become empty. Confirm truncate tables?',
+            label: 'Database tables (posts, categories, tags, comments, subjects, taxons) will become empty. Confirm truncate tables?',
             default: false,
         );
 

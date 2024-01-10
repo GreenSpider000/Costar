@@ -1,11 +1,11 @@
 {
-    "name": "Category",
-    "alias": "category",
-    "description": "Category module",
+    "name": "Taxon",
+    "alias": "taxon",
+    "description": "Taxon module",
     "keywords": [],
     "priority": 0,
     "providers": [
-        "Modules\\Category\\Providers\\CategoryServiceProvider"
+        "Modules\\Taxon\\Providers\\TaxonServiceProvider"
     ],
     "aliases": {},
     "files": [],

@@ -1,32 +1,32 @@
 <?php
 
-namespace Modules\Category\Http\Controllers\Backend;
+namespace Modules\Taxon\Http\Controllers\Backend;
 
 use App\Authorizable;
 use App\Http\Controllers\Backend\BackendBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class CategoriesController extends BackendBaseController
+class TaxonsController extends BackendBaseController
 {
     use Authorizable;
 
     public function __construct()
     {
         // Page Title
-        $this->module_title = 'Categories';
+        $this->module_title = 'Taxons';
 
         // module name
-        $this->module_name = 'categories';
+        $this->module_name = 'taxons';
 
         // directory path of the module
-        $this->module_path = 'category::backend';
+        $this->module_path = 'taxon::backend';
 
         // module icon
         $this->module_icon = 'fa-solid fa-sitemap';
 
         // module model name, path
-        $this->module_model = "Modules\Category\Models\Category";
+        $this->module_model = "Modules\Taxon\Models\Taxon";
     }
 
     /**
@@ -84,13 +84,13 @@ class CategoriesController extends BackendBaseController
 
         $$module_name_singular = $module_model::findOrFail($id);
 
-        $posts = $$module_name_singular->posts()->latest()->paginate();
+        $subjects = $$module_name_singular->subjects()->latest()->paginate();
 
         logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
 
         return view(
             "{$module_path}.{$module_name}.show",
-            compact('module_title', 'module_name', 'module_path', 'module_icon', 'module_name_singular', 'module_action', "{$module_name_singular}", 'posts')
+            compact('module_title', 'module_name', 'module_path', 'module_icon', 'module_name_singular', 'module_action', "{$module_name_singular}", 'subjects')
         );
     }
 

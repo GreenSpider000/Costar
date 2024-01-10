@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Category\Database\seeders;
+namespace Modules\Taxon\Database\seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Modules\Tag\Models\Category;
+use Modules\Tag\Models\Taxon;
 
-class CategoryDatabaseSeeder extends Seeder
+class TaxonDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,16 +19,16 @@ class CategoryDatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
         /*
-         * Categories Seed
+         * taxons Seed
          * ------------------
          */
 
-        // DB::table('categories')->truncate();
-        // echo "Truncate: categories \n";
+        // DB::table('taxons')->truncate();
+        // echo "Truncate: taxons \n";
 
-        Category::factory()->count(20)->create();
-        $rows = Category::all();
-        echo " Insert: categories \n\n";
+        Taxon::factory()->count(20)->create();
+        $rows = Taxon::all();
+        echo " Insert: taxons \n\n";
 
         // Enable foreign key checks!
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');

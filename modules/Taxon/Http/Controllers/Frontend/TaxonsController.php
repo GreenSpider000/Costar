@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Category\Http\Controllers\Frontend;
+namespace Modules\Taxon\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
-class CategoriesController extends Controller
+class TaxonsController extends Controller
 {
     public $module_title;
 
@@ -21,19 +21,19 @@ class CategoriesController extends Controller
     public function __construct()
     {
         // Page Title
-        $this->module_title = 'Categories';
+        $this->module_title = 'Taxons';
 
         // module name
-        $this->module_name = 'categories';
+        $this->module_name = 'taxons';
 
         // directory path of the module
-        $this->module_path = 'category::frontend';
+        $this->module_path = 'taxon::frontend';
 
         // module icon
         $this->module_icon = 'fa-regular fa-sun';
 
         // module model name, path
-        $this->module_model = "Modules\Category\Models\Category";
+        $this->module_model = "Modules\Taxon\Models\Taxon";
     }
 
     /**
@@ -80,11 +80,11 @@ class CategoriesController extends Controller
         $module_action = 'Show';
 
         $$module_name_singular = $module_model::findOrFail($id);
-        $posts = $$module_name_singular->posts()->with('category', 'tags', 'comments')->paginate();
+        $subjects = $$module_name_singular->subjects()->with('taxon', 'tags', 'comments')->paginate();
 
         return view(
             "{$module_path}.{$module_name}.show",
-            compact('module_title', 'module_name', 'module_icon', 'module_action', 'module_name_singular', "{$module_name_singular}", 'posts')
+            compact('module_title', 'module_name', 'module_icon', 'module_action', 'module_name_singular', "{$module_name_singular}", 'subjects')
         );
     }
 }

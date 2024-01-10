@@ -112,6 +112,10 @@
     "Tags": "标签",
     "Comments": "评论",
 
+    "Collection": "Collection",
+    "Subjects": "Subjects",
+    "Taxons": "Taxons",
+
     "Draft": "Draft",
     "Published": "Published",
     "Unpublished": "Unpublished"

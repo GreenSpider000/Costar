@@ -112,6 +112,10 @@
     "Tags": "Tags",
     "Comments": "Comments",
 
+    "Collection": "Collection",
+    "Subjects": "Subjects",
+    "Taxons": "Taxons",
+
     "Draft": "Draft",
     "Published": "Published",
     "Unpublished": "Unpublished"

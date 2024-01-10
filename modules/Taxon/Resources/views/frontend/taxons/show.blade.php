@@ -26,25 +26,25 @@
 
 <section class="bg-white text-gray-600 p-6 sm:p-20">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        @foreach ($posts as $post)
+        @foreach ($subjects as $subject)
         @php
-        $details_url = route("frontend.posts.show",[encode_id($post->id), $post->slug]);
+        $details_url = route("frontend.subjects.show",[encode_id($subject->id), $subject->slug]);
         @endphp
         <div class="">
             <div class=" bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                @if($post->featured_image != "")
+                @if($subject->featured_image != "")
                 <a href="{{$details_url}}">
-                    <img class="rounded-t-lg" src="{{$post->featured_image}}" alt="{{$post->name}}" />
+                    <img class="rounded-t-lg" src="{{$subject->featured_image}}" alt="{{$subject->name}}" />
                 </a>
                 @endif
                 <div class="p-5 flex flex-col items-stretch">
                     <a href="{{$details_url}}">
                         <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">
-                            {{$post->name}}
+                            {{$subject->name}}
                         </h2>
                     </a>
                     <p class="flex-1 h-full mb-3 font-normal text-gray-700 dark:text-gray-400">
-                        {{$post->intro}}
+                        {{$subject->intro}}
                     </p>
 
                     <div class="text-end">
@@ -62,7 +62,7 @@
         @endforeach
     </div>
     <div class="d-flex justify-content-center w-100 mt-4">
-        {{$posts->links()}}
+        {{$subjects->links()}}
     </div>
 </section>
 

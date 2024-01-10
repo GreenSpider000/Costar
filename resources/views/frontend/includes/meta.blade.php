@@ -10,7 +10,6 @@ $meta_page_type = 'website';
 @break
 
 @case('article')
-{{-- Facebook Meta --}}
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="{{$$module_name_singular->published_at}}" />
 <meta property="article:modified_time" content="{{$$module_name_singular->updated_at}}" />
@@ -21,6 +20,19 @@ $meta_page_type = 'website';
 @endforeach
 
 @break
+
+@case('collection')
+<meta property="og:type" content="collection" />
+<meta property="collection:published_time" content="{{$$module_name_singular->published_at}}" />
+<meta property="collection:modified_time" content="{{$$module_name_singular->updated_at}}" />
+<meta property="collection:author" content="{{isset($$module_name_singular->created_by_alias)? $$module_name_singular->created_by_alias : $$module_name_singular->created_by_name}}" />
+<meta property="collection:section" content="{{$$module_name_singular->taxon_name}}" />
+@foreach ($$module_name_singular->tags as $tag)
+<meta property="collection:tag" content="{{$tag->name}}" />
+@endforeach
+
+@break
+
 
 @case('profile')
 <meta property="og:type" content="profile" />

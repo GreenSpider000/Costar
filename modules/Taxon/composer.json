@@ -1,5 +1,5 @@
 {
-    "name": "localstore/category",
+    "name": "localstore/taxon",
     "description": "",
     "type": "laravel-module",
     "authors": [
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Category\\": ""
+            "Modules\\Taxon\\": ""
         }
     }
 }
