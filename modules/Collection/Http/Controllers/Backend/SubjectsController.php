@@ -196,9 +196,16 @@ class SubjectsController extends Controller
 
         $module_action = 'Store';
 
+        $data = $request->except('');
+        $data['created_by_name'] = auth()->user()->name;
+
+        $$module_name_singular = $module_model::create($data);
+
+        event(new SubjectCreated($$module_name_singular));
+
         Flash::success("<i class='fas fa-check'></i> New '".Str::singular($module_title)."' Added")->important();
 
-        Log::info(label_case($module_title.' '.$module_action).' | User:'.Auth::user()->name.'(ID:'.Auth::user()->id.')');
+        Log::info(label_case($module_title.' '.$module_action)." | '".$$module_name_singular->name.'(ID:'.$$module_name_singular->id.") ' by User:".Auth::user()->name.'(ID:'.Auth::user()->id.')');
 
         return redirect("admin/{$module_name}");
     }
@@ -284,6 +291,8 @@ class SubjectsController extends Controller
         $module_action = 'Update';
 
         $$module_name_singular = $module_model::findOrFail($id);
+
+        $$module_name_singular->update($request->except(''));
 
         event(new SubjectUpdated($$module_name_singular));
 
