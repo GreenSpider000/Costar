@@ -1,0 +1,14 @@
+{
+  "name": "Collection",
+  "alias": "collection",
+  "description": "Collection module",
+  "keywords": [],
+  "order": 0,
+  "providers": [
+    "Modules\\Collection\\Providers\\CollectionServiceProvider",
+    "Modules\\Collection\\Providers\\EventServiceProvider"
+  ],
+  "aliases": {},
+  "files": [],
+  "requires": []
+}
