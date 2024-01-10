@@ -101,7 +101,7 @@ class InsertDemoData extends Command
             'tags',
             'comments',
             'subjects',
-            'taxons'
+            'taxons',
             'activity_log',
         ];
 
