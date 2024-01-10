@@ -11,7 +11,7 @@
     "src": "resources/js/app-backend.js"
   },
   "resources/js/app-frontend.js": {
-    "file": "assets/app-frontend-0f035dd3.js",
+    "file": "assets/app-frontend-da82f6cf.js",
     "imports": [
       "_livewire.esm-b7f01f64.js"
     ],
@@ -19,12 +19,12 @@
     "src": "resources/js/app-frontend.js"
   },
   "resources/sass/app-backend.scss": {
-    "file": "assets/app-backend-35408d26.css",
+    "file": "assets/app-backend-d0a9ffcf.css",
     "isEntry": true,
     "src": "resources/sass/app-backend.scss"
   },
   "resources/sass/app-frontend.scss": {
-    "file": "assets/app-frontend-0c222c8f.css",
+    "file": "assets/app-frontend-c4bc2ebd.css",
     "isEntry": true,
     "src": "resources/sass/app-frontend.scss"
   },
