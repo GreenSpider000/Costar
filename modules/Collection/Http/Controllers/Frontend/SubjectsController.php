@@ -52,7 +52,7 @@ class SubjectsController extends Controller
 
         $module_action = 'List';
 
-        $$module_name = $module_model::latest()->with(['taxon', 'tags', 'comments'])->paginate();
+        $$module_name = $module_model::latest()->with(['taxon'])->paginate();
 
         return view(
             "collection::frontend.{$module_path}.index",

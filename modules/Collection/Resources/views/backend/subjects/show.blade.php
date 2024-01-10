@@ -53,26 +53,6 @@
                 </ul>
                 <hr>
 
-                <h4>Tags</h4>
-                <ul>
-                    @foreach($$module_name_singular->tags as $row)
-                    <li>
-                        <a href="{{route('backend.tags.show', $row->id)}}">{{$row->name}}</a>
-                    </li>
-                    @endforeach
-                </ul>
-                <hr>
-
-                <h4>Comments</h4>
-                <ul>
-                    @foreach($$module_name_singular->comments as $row)
-                    <li>
-                        <a href="{{route('backend.comments.show', $row->id)}}">{{$row->name}}</a> by {{$row->user_name}}
-                    </li>
-                    @endforeach
-                </ul>
-                <hr>
-
                 @include('backend.includes.activitylog')
 
             </div>

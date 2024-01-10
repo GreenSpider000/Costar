@@ -80,7 +80,7 @@ class TaxonsController extends Controller
         $module_action = 'Show';
 
         $$module_name_singular = $module_model::findOrFail($id);
-        $subjects = $$module_name_singular->subjects()->with('taxon', 'tags', 'comments')->paginate();
+        $subjects = $$module_name_singular->subjects()->with('taxon')->paginate();
 
         return view(
             "{$module_path}.{$module_name}.show",

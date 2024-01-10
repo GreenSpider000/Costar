@@ -1,6 +1,6 @@
 {
   "name": "localstore/collection-module",
-  "description": "Collection module with Subjects, Taxons, Tags, Comments.",
+  "description": "Collection module with Subjects, Taxons.",
   "type": "laravel-module",
   "version": "v1.0.0",
   "authors": [

@@ -11,7 +11,6 @@ return [
     'taxon_id' => 'Taxon',
     'type' => 'Type',
     'is_featured' => 'Is Featured',
-    'tags' => 'Tags',
     'status' => 'Status',
     'published_at' => 'Published At',
     'meta_title' => 'Meta Title',

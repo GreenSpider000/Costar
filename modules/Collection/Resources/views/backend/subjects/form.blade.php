@@ -148,24 +148,6 @@
     </div>
 </div>
 <div class="row mb-3">
-    <div class="col">
-        <div class="form-group">
-            <?php
-            $field_name = 'tags_list[]';
-            $field_label = __("collection::$module_name.tags");
-            $field_relation = "tags";
-            $field_placeholder = __("Select an option");
-            $required = "";
-            ?>
-            {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->multiselect($field_name,
-                isset($$module_name_singular)?optional($$module_name_singular->$field_relation)->pluck('name', 'id'):'',
-                isset($$module_name_singular)?optional($$module_name_singular->$field_relation)->pluck('id')->toArray():''
-                )->class('form-control select2-tags')->attributes(["$required"]) }}
-        </div>
-    </div>
-</div>
-<div class="row mb-3">
     <div class="col-6">
         <div class="form-group">
             <?php
@@ -351,28 +333,6 @@
             allowClear: true,
             ajax: {
                 url: '{{route("backend.taxons.index_list")}}',
-                dataType: 'json',
-                data: function(params) {
-                    return {
-                        q: $.trim(params.term)
-                    };
-                },
-                processResults: function(data) {
-                    return {
-                        results: data
-                    };
-                },
-                cache: true
-            }
-        });
-
-        $('.select2-tags').select2({
-            // theme: "bootstrap4",
-            placeholder: '@lang("Select an option")',
-            minimumInputLength: 2,
-            allowClear: true,
-            ajax: {
-                url: '{{route("backend.tags.index_list")}}',
                 dataType: 'json',
                 data: function(params) {
                     return {

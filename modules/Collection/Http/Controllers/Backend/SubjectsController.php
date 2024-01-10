@@ -196,17 +196,9 @@ class SubjectsController extends Controller
 
         $module_action = 'Store';
 
-        $data = $request->except('tags_list');
-        $data['created_by_name'] = auth()->user()->name;
-
-        $$module_name_singular = $module_model::create($data);
-        $$module_name_singular->tags()->attach($request->input('tags_list'));
-
-        event(new SubjectCreated($$module_name_singular));
-
         Flash::success("<i class='fas fa-check'></i> New '".Str::singular($module_title)."' Added")->important();
 
-        Log::info(label_case($module_title.' '.$module_action)." | '".$$module_name_singular->name.'(ID:'.$$module_name_singular->id.") ' by User:".Auth::user()->name.'(ID:'.Auth::user()->id.')');
+        Log::info(label_case($module_title.' '.$module_action).' | User:'.Auth::user()->name.'(ID:'.Auth::user()->id.')');
 
         return redirect("admin/{$module_name}");
     }
@@ -292,15 +284,6 @@ class SubjectsController extends Controller
         $module_action = 'Update';
 
         $$module_name_singular = $module_model::findOrFail($id);
-
-        $$module_name_singular->update($request->except('tags_list'));
-
-        if ($request->input('tags_list') === null) {
-            $tags_list = [];
-        } else {
-            $tags_list = $request->input('tags_list');
-        }
-        $$module_name_singular->tags()->sync($tags_list);
 
         event(new SubjectUpdated($$module_name_singular));
 

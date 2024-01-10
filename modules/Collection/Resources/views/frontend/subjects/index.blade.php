@@ -53,11 +53,6 @@
             <p>
                 <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
             </p>
-            <p>
-                @foreach ($$module_name_singular->tags as $tag)
-                <x-frontend.badge :url="route('frontend.tags.show', [encode_id($tag->id), $tag->slug])" :text="$tag->name" />
-                @endforeach
-            </p>
         </x-frontend.card>
         @endforeach
     </div>

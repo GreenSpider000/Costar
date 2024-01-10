@@ -36,27 +36,6 @@ class Subject extends BaseModel
         return $this->belongsTo('Modules\Taxon\Models\Taxon');
     }
 
-    public function tags()
-    {
-        return $this->morphToMany('Modules\Tag\Models\Tag', 'taggable');
-    }
-
-    /**
-     * Get all of the subject's comments.
-     */
-    public function comments()
-    {
-        return $this->morphMany('Modules\Comment\Models\Comment', 'commentable')->where('status', '=', 1);
-    }
-
-    /**
-     * All the Published and Unpublished Comments.
-     */
-    public function comments_all()
-    {
-        return $this->hasMany('Modules\Collection\Models\Comment');
-    }
-
     public function setTaxonIdAttribute($value)
     {
         $this->attributes['taxon_id'] = $value;

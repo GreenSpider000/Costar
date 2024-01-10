@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Modules\Collection\Models\Subject;
 use Modules\Taxon\Models\Taxon;
-use Modules\Tag\Models\Tag;
 
 class CollectionDatabaseSeeder extends Seeder
 {
@@ -41,10 +40,7 @@ class CollectionDatabaseSeeder extends Seeder
         echo "Truncate: subjects \n";
 
         // Populate the pivot table
-        Subject::factory()
-            ->has(Tag::factory()->count(rand(1, 5)))
-            ->count(25)
-            ->create();
+        Subject::factory()->count(25)->create();
         echo " Insert: subjects \n\n";
 
         // Artisan::call('auth:permission', [
@@ -52,9 +48,6 @@ class CollectionDatabaseSeeder extends Seeder
         // ]);
         // Artisan::call('auth:permission', [
         //     'name' => 'taxons',
-        // ]);
-        // Artisan::call('auth:permission', [
-        //     'name' => 'tags',
         // ]);
 
         // Enable foreign key checks!

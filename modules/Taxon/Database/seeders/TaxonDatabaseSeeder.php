@@ -4,7 +4,6 @@ namespace Modules\Taxon\Database\seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Modules\Tag\Models\Taxon;
 
 class TaxonDatabaseSeeder extends Seeder
 {
