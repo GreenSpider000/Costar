@@ -1,29 +1,29 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Controllers;
+namespace Costar\LaravelFileManager\Controllers;
 
 use Illuminate\Support\Facades\Storage;
-use Costar\LaravelFilemanager\Events\FolderIsRenaming;
-use Costar\LaravelFilemanager\Events\FolderWasRenamed;
-use Costar\LaravelFilemanager\Events\FileIsRenaming;
-use Costar\LaravelFilemanager\Events\FileWasRenamed;
-use Costar\LaravelFilemanager\Events\ImageIsRenaming;
-use Costar\LaravelFilemanager\Events\ImageWasRenamed;
+use Costar\LaravelFileManager\Events\FolderIsRenaming;
+use Costar\LaravelFileManager\Events\FolderWasRenamed;
+use Costar\LaravelFileManager\Events\FileIsRenaming;
+use Costar\LaravelFileManager\Events\FileWasRenamed;
+use Costar\LaravelFileManager\Events\ImageIsRenaming;
+use Costar\LaravelFileManager\Events\ImageWasRenamed;
 
-class RenameController extends LfmController
+class RenameController extends FileManagerController
 {
     public function getRename()
     {
         $old_name = $this->helper->input('file');
         $new_name = $this->helper->input('new_name');
 
-        $file = $this->lfm->setName($old_name);
+        $file = $this->fileManager->setName($old_name);
 
         if (!Storage::disk($this->helper->config('disk'))->exists($file->path('storage'))) {
             abort(404);
         }
 
-        $old_file = $this->lfm->pretty($old_name);
+        $old_file = $this->fileManager->pretty($old_name);
 
         $is_directory = $file->isDirectory();
 
@@ -35,11 +35,11 @@ class RenameController extends LfmController
             }
         }
 
-        if ($is_directory && config('lfm.alphanumeric_directory') && preg_match('/[^\w-]/i', $new_name)) {
+        if ($is_directory && config('fileManager.alphanumeric_directory') && preg_match('/[^\w-]/i', $new_name)) {
             return parent::error('folder-alnum');
-        } elseif (config('lfm.alphanumeric_filename') && preg_match('/[^.\w-]/i', $new_name)) {
+        } elseif (config('fileManager.alphanumeric_filename') && preg_match('/[^.\w-]/i', $new_name)) {
             return parent::error('file-alnum');
-        } elseif ($this->lfm->setName($new_name)->exists()) {
+        } elseif ($this->fileManager->setName($new_name)->exists()) {
             return parent::error('rename');
         }
 
@@ -50,7 +50,7 @@ class RenameController extends LfmController
             }
         }
 
-        $new_path = $this->lfm->setName($new_name)->path('absolute');
+        $new_path = $this->fileManager->setName($new_name)->path('absolute');
 
         if ($is_directory) {
             event(new FolderIsRenaming($old_file->path(), $new_path));
@@ -62,12 +62,12 @@ class RenameController extends LfmController
         $old_path = $old_file->path();
 
         if ($old_file->hasThumb()) {
-            $this->lfm->setName($old_name)->thumb()
-                ->move($this->lfm->setName($new_name)->thumb());
+            $this->fileManager->setName($old_name)->thumb()
+                ->move($this->fileManager->setName($new_name)->thumb());
         }
 
-        $this->lfm->setName($old_name)
-            ->move($this->lfm->setName($new_name));
+        $this->fileManager->setName($old_name)
+            ->move($this->fileManager->setName($new_name));
 
         if ($is_directory) {
             event(new FolderWasRenamed($old_path, $new_path));

@@ -1,10 +1,10 @@
 <?php
 
-namespace Costar\LaravelFilemanager;
+namespace Costar\LaravelFileManager;
 
 use Illuminate\Support\Facades\Storage;
 
-class LfmStorageRepository
+class FileManagerStorageRepository
 {
     private $disk;
     private $path;
@@ -28,9 +28,9 @@ class LfmStorageRepository
         return $this->disk->path('');
     }
 
-    public function move($new_lfm_path)
+    public function move($new_fileManager_path)
     {
-        return $this->disk->move($this->path, $new_lfm_path->path('storage'));
+        return $this->disk->move($this->path, $new_fileManager_path->path('storage'));
     }
 
     public function save($file)

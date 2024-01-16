@@ -1,6 +1,6 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Events;
+namespace Costar\LaravelFileManager\Events;
 
 class ImageWasResized
 {

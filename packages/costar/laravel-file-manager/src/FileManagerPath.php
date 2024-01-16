@@ -1,17 +1,17 @@
 <?php
 
-namespace Costar\LaravelFilemanager;
+namespace Costar\LaravelFileManager;
 
 use Illuminate\Container\Container;
 use Intervention\Image\Facades\Image;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Costar\LaravelFilemanager\Events\FileIsUploading;
-use Costar\LaravelFilemanager\Events\FileWasUploaded;
-use Costar\LaravelFilemanager\Events\ImageIsUploading;
-use Costar\LaravelFilemanager\Events\ImageWasUploaded;
-use Costar\LaravelFilemanager\LfmUploadValidator;
+use Costar\LaravelFileManager\Events\FileIsUploading;
+use Costar\LaravelFileManager\Events\FileWasUploaded;
+use Costar\LaravelFileManager\Events\ImageIsUploading;
+use Costar\LaravelFileManager\Events\ImageWasUploaded;
+use Costar\LaravelFileManager\FileManagerUploadValidator;
 
-class LfmPath
+class FileManagerPath
 {
     private $working_dir;
     private $item_name;
@@ -19,9 +19,9 @@ class LfmPath
 
     private $helper;
 
-    public function __construct(Lfm $lfm = null)
+    public function __construct(FileManager $fileManager = null)
     {
-        $this->helper = $lfm;
+        $this->helper = $fileManager;
     }
 
     public function __get($var_name)
@@ -66,7 +66,7 @@ class LfmPath
     {
         if ($type == 'working_dir') {
             // working directory: /{user_slug}
-            return $this->translateToLfmPath($this->normalizeWorkingDir());
+            return $this->translateToFileManagerPath($this->normalizeWorkingDir());
         } elseif ($type == 'url') {
             // storage: files/{user_slug}
             // storage without folder: {user_slug}
@@ -76,7 +76,7 @@ class LfmPath
         } elseif ($type == 'storage') {
             // storage: files/{user_slug}
             // storage on windows: files\{user_slug}
-            return str_replace(Lfm::DS, $this->helper->ds(), $this->path('url'));
+            return str_replace(FileManager::DS, $this->helper->ds(), $this->path('url'));
         } else {
             // absolute: /var/www/html/project/storage/app/files/{user_slug}
             // absolute on windows: C:\project\storage\app\files\{user_slug}
@@ -84,9 +84,9 @@ class LfmPath
         }
     }
 
-    public function translateToLfmPath($path)
+    public function translateToFileManagerPath($path)
     {
-        return str_replace($this->helper->ds(), Lfm::DS, $path);
+        return str_replace($this->helper->ds(), FileManager::DS, $path);
     }
 
     public function url()
@@ -118,8 +118,8 @@ class LfmPath
 
     public function pretty($item_path, $isDirectory = false)
     {
-        return Container::getInstance()->makeWith(LfmItem::class, [
-            'lfm' => (clone $this)->setName($this->helper->getNameFromPath($item_path)),
+        return Container::getInstance()->makeWith(FileManagerItem::class, [
+            'fileManager' => (clone $this)->setName($this->helper->getNameFromPath($item_path)),
             'helper' => $this->helper,
             'isDirectory' => $isDirectory
         ]);
@@ -155,7 +155,7 @@ class LfmPath
         $parent_dir = substr($working_dir, 0, strrpos($working_dir, '/'));
 
         $parent_directories = array_map(function ($directory_path) {
-            return app(static::class)->translateToLfmPath($directory_path);
+            return app(static::class)->translateToFileManagerPath($directory_path);
         }, app(static::class)->dir($parent_dir)->directories());
 
         return in_array($this->path('url'), $parent_directories);
@@ -180,12 +180,12 @@ class LfmPath
 
         if ($this->is_thumb) {
             // Prevent if working dir is "/" normalizeWorkingDir will add double "//" that breaks S3 functionality
-            $path = rtrim($path, Lfm::DS) . Lfm::DS . $this->helper->getThumbFolderName();
+            $path = rtrim($path, FileManager::DS) . FileManager::DS . $this->helper->getThumbFolderName();
         }
 
         if ($this->getName()) {
             // Prevent if working dir is "/" normalizeWorkingDir will add double "//" that breaks S3 functionality
-            $path = rtrim($path, Lfm::DS) . Lfm::DS . $this->getName();
+            $path = rtrim($path, FileManager::DS) . FileManager::DS . $this->getName();
         }
 
         return $path;
@@ -243,25 +243,25 @@ class LfmPath
 
     public function validateUploadedFile($file)
     {
-        $validator = new LfmUploadValidator($file);
+        $validator = new FileManagerUploadValidator($file);
 
         $validator->sizeLowerThanIniMaximum();
 
         $validator->uploadWasSuccessful();
 
-        if (!config('lfm.over_write_on_duplicate')) {
+        if (!config('fileManager.over_write_on_duplicate')) {
             $validator->nameIsNotDuplicate($this->getNewName($file), $this);
         }
 
-        $validator->mimetypeIsNotExcutable(config('lfm.disallowed_mimetypes', ['text/x-php', 'text/html', 'text/plain']));
+        $validator->mimetypeIsNotExcutable(config('fileManager.disallowed_mimetypes', ['text/x-php', 'text/html', 'text/plain']));
 
-        $validator->extensionIsNotExcutable(config('lfm.disallowed_extensions', ['php', 'html']));
+        $validator->extensionIsNotExcutable(config('fileManager.disallowed_extensions', ['php', 'html']));
 
-        if (config('lfm.should_validate_mime', false)) {
+        if (config('fileManager.should_validate_mime', false)) {
             $validator->mimeTypeIsValid($this->helper->availableMimeTypes());
         }
 
-        if (config('lfm.should_validate_size', false)) {
+        if (config('fileManager.should_validate_size', false)) {
             $validator->sizeIsLowerThanConfiguredMaximum($this->helper->maxUploadSize());
         }
 
@@ -276,9 +276,9 @@ class LfmPath
 
         $extension = $file->getClientOriginalExtension();
 
-        if (config('lfm.rename_file') === true) {
+        if (config('fileManager.rename_file') === true) {
             $new_file_name = uniqid();
-        } elseif (config('lfm.alphanumeric_filename') === true) {
+        } elseif (config('fileManager.alphanumeric_filename') === true) {
             $new_file_name = preg_replace('/[^A-Za-z0-9\-\']/', '_', $new_file_name);
         }
 
@@ -286,11 +286,11 @@ class LfmPath
             $new_file_name_with_extention = $new_file_name . '.' . $extension;
         }
 
-        if (config('lfm.rename_duplicates') === true) {
+        if (config('fileManager.rename_duplicates') === true) {
             $counter = 1;
             $file_name_without_extentions = $new_file_name;
             while ($this->setName(($extension) ? $new_file_name_with_extention : $new_file_name)->exists()) {
-                if (config('lfm.alphanumeric_filename') === true) {
+                if (config('fileManager.alphanumeric_filename') === true) {
                     $suffix = '_'.$counter;
                 } else {
                     $suffix = " ({$counter})";
@@ -320,8 +320,8 @@ class LfmPath
 
         // generate cropped image content
         $this->setName($file_name)->thumb(true);
-        $thumbWidth = $this->helper->shouldCreateCategoryThumb() && $this->helper->categoryThumbWidth() ? $this->helper->categoryThumbWidth() : config('lfm.thumb_img_width', 200);
-        $thumbHeight = $this->helper->shouldCreateCategoryThumb() && $this->helper->categoryThumbHeight() ? $this->helper->categoryThumbHeight() : config('lfm.thumb_img_height', 200);
+        $thumbWidth = $this->helper->shouldCreateCategoryThumb() && $this->helper->categoryThumbWidth() ? $this->helper->categoryThumbWidth() : config('fileManager.thumb_img_width', 200);
+        $thumbHeight = $this->helper->shouldCreateCategoryThumb() && $this->helper->categoryThumbHeight() ? $this->helper->categoryThumbHeight() : config('fileManager.thumb_img_height', 200);
         $image = Image::make($original_image->get())
             ->fit($thumbWidth, $thumbHeight);
 

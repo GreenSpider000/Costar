@@ -1,14 +1,14 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Controllers;
+namespace Costar\LaravelFileManager\Controllers;
 
 use Illuminate\Support\Facades\Storage;
-use Costar\LaravelFilemanager\Events\FileIsMoving;
-use Costar\LaravelFilemanager\Events\FileWasMoving;
-use Costar\LaravelFilemanager\Events\FolderIsMoving;
-use Costar\LaravelFilemanager\Events\FolderWasMoving;
+use Costar\LaravelFileManager\Events\FileIsMoving;
+use Costar\LaravelFileManager\Events\FileWasMoving;
+use Costar\LaravelFileManager\Events\FolderIsMoving;
+use Costar\LaravelFileManager\Events\FolderWasMoving;
 
-class ItemsController extends LfmController
+class ItemsController extends FileManagerController
 {
     /**
      * Get the images to load for a selected folder.
@@ -20,7 +20,7 @@ class ItemsController extends LfmController
         $currentPage = self::getCurrentPageFromRequest();
 
         $perPage = $this->helper->getPaginationPerPage();
-        $items = array_merge($this->lfm->folders(), $this->lfm->files());
+        $items = array_merge($this->fileManager->folders(), $this->fileManager->files());
 
         return [
             'items' => array_map(function ($item) {
@@ -32,7 +32,7 @@ class ItemsController extends LfmController
                 'per_page' => $perPage,
             ],
             'display' => $this->helper->getDisplayMode(),
-            'working_dir' => $this->lfm->path('working_dir'),
+            'working_dir' => $this->fileManager->path('working_dir'),
         ];
     }
 
@@ -45,10 +45,10 @@ class ItemsController extends LfmController
         return view('laravel-file-manager::move')
             ->with([
                 'root_folders' => array_map(function ($type) use ($folder_types) {
-                    $path = $this->lfm->dir($this->helper->getRootFolder($type));
+                    $path = $this->fileManager->dir($this->helper->getRootFolder($type));
 
                     return (object) [
-                        'name' => trans('laravel-file-manager::lfm.title-' . $type),
+                        'name' => trans('laravel-file-manager::fileManager.title-' . $type),
                         'url' => $path->path('working_dir'),
                         'children' => $path->folders(),
                         'has_next' => ! ($type == end($folder_types)),
@@ -64,10 +64,10 @@ class ItemsController extends LfmController
         $items = $this->helper->input('items');
 
         foreach ($items as $item) {
-            $old_file = $this->lfm->pretty($item);
+            $old_file = $this->fileManager->pretty($item);
             $is_directory = $old_file->isDirectory();
 
-            $file = $this->lfm->setName($item);
+            $file = $this->fileManager->setName($item);
 
             if (!Storage::disk($this->helper->config('disk'))->exists($file->path('storage'))) {
                 abort(404);
@@ -76,16 +76,16 @@ class ItemsController extends LfmController
             $old_path = $old_file->path();
 
             if ($old_file->hasThumb()) {
-                $new_file = $this->lfm->setName($item)->thumb()->dir($target);
+                $new_file = $this->fileManager->setName($item)->thumb()->dir($target);
                 if ($is_directory) {
                     event(new FolderIsMoving($old_file->path(), $new_file->path()));
                 } else {
                     event(new FileIsMoving($old_file->path(), $new_file->path()));
                 }
-                $this->lfm->setName($item)->thumb()->move($new_file);
+                $this->fileManager->setName($item)->thumb()->move($new_file);
             }
-            $new_file = $this->lfm->setName($item)->dir($target);
-            $this->lfm->setName($item)->move($new_file);
+            $new_file = $this->fileManager->setName($item)->dir($target);
+            $this->fileManager->setName($item)->move($new_file);
             if ($is_directory) {
                 event(new FolderWasMoving($old_path, $new_file->path()));
             } else {

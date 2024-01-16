@@ -22,15 +22,15 @@
           2:3
         </label>
         <label class="btn btn-info btn-aspectRatio" onclick="changeAspectRatio(this, null)">
-          {{ trans('laravel-file-manager::lfm.btn-crop-free') }}
+          {{ trans('laravel-file-manager::fileManager.btn-crop-free') }}
         </label>
       </div>
       <br>
       <br>
       <div class="btn-group clearfix">
-        <button class="btn btn-secondary" onclick="loadItems()">{{ trans('laravel-file-manager::lfm.btn-cancel') }}</button>
-        <button class="btn btn-warning" onclick="performCropNew()">{{ trans('laravel-file-manager::lfm.btn-copy-crop') }}</button>
-        <button class="btn btn-primary" onclick="performCrop()">{{ trans('laravel-file-manager::lfm.btn-crop') }}</button>
+        <button class="btn btn-secondary" onclick="loadItems()">{{ trans('laravel-file-manager::fileManager.btn-cancel') }}</button>
+        <button class="btn btn-warning" onclick="performCropNew()">{{ trans('laravel-file-manager::fileManager.btn-copy-crop') }}</button>
+        <button class="btn btn-primary" onclick="performCrop()">{{ trans('laravel-file-manager::fileManager.btn-crop') }}</button>
       </div>
       <form id='cropForm'>
         <input type="hidden" id="img" name="img" value="{{ $img->name }}">
@@ -79,7 +79,7 @@
         return false;
     }
     function performCrop() {
-      performLfmRequest('cropimage', {
+      performFileManagerRequest('cropimage', {
         img: $("#img").val(),
         working_dir: $("#working_dir").val(),
         dataX: $("#dataX").val(),
@@ -91,7 +91,7 @@
     }
 
     function performCropNew() {
-      performLfmRequest('cropnewimage', {
+      performFileManagerRequest('cropnewimage', {
         img: $("#img").val(),
         working_dir: $("#working_dir").val(),
         dataX: $("#dataX").val(),

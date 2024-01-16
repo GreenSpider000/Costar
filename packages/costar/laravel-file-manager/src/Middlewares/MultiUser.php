@@ -1,10 +1,10 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Middlewares;
+namespace Costar\LaravelFileManager\Middlewares;
 
 use Closure;
 use Illuminate\Support\Str;
-use Costar\LaravelFilemanager\Lfm;
+use Costar\LaravelFileManager\FileManager;
 
 class MultiUser
 {
@@ -12,7 +12,7 @@ class MultiUser
 
     public function __construct()
     {
-        $this->helper = app(Lfm::class);
+        $this->helper = app(FileManager::class);
     }
 
     public function handle($request, Closure $next)

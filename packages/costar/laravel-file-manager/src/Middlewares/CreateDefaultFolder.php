@@ -1,20 +1,20 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Middlewares;
+namespace Costar\LaravelFileManager\Middlewares;
 
 use Closure;
-use Costar\LaravelFilemanager\Lfm;
-use Costar\LaravelFilemanager\LfmPath;
+use Costar\LaravelFileManager\FileManager;
+use Costar\LaravelFileManager\FileManagerPath;
 
 class CreateDefaultFolder
 {
-    private $lfm;
+    private $fileManager;
     private $helper;
 
     public function __construct()
     {
-        $this->lfm = app(LfmPath::class);
-        $this->helper = app(Lfm::class);
+        $this->fileManager = app(FileManagerPath::class);
+        $this->helper = app(FileManager::class);
     }
 
     public function handle($request, Closure $next)
@@ -31,6 +31,6 @@ class CreateDefaultFolder
             return;
         }
 
-        $this->lfm->dir($this->helper->getRootFolder($type))->createFolder();
+        $this->fileManager->dir($this->helper->getRootFolder($type))->createFolder();
     }
 }

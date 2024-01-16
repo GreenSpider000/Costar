@@ -1,6 +1,6 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Handlers;
+namespace Costar\LaravelFileManager\Handlers;
 
 class ConfigHandler
 {

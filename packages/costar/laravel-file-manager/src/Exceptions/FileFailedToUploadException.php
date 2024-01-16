@@ -1,6 +1,6 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Exceptions;
+namespace Costar\LaravelFileManager\Exceptions;
 
 class FileFailedToUploadException extends \Exception
 {

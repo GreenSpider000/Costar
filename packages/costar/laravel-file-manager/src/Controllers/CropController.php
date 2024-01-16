@@ -1,12 +1,12 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Controllers;
+namespace Costar\LaravelFileManager\Controllers;
 
 use Intervention\Image\Facades\Image;
-use Costar\LaravelFilemanager\Events\ImageIsCropping;
-use Costar\LaravelFilemanager\Events\ImageWasCropped;
+use Costar\LaravelFileManager\Events\ImageIsCropping;
+use Costar\LaravelFileManager\Events\ImageWasCropped;
 
-class CropController extends LfmController
+class CropController extends FileManagerController
 {
     /**
      * Show crop page.
@@ -18,7 +18,7 @@ class CropController extends LfmController
         return view('laravel-file-manager::crop')
             ->with([
                 'working_dir' => request('working_dir'),
-                'img' => $this->lfm->pretty(request('img'))
+                'img' => $this->fileManager->pretty(request('img'))
             ]);
     }
 
@@ -28,13 +28,13 @@ class CropController extends LfmController
     public function getCropimage($overWrite = true)
     {
         $image_name = request('img');
-        $image_path = $this->lfm->setName($image_name)->path('absolute');
+        $image_path = $this->fileManager->setName($image_name)->path('absolute');
         $crop_path = $image_path;
 
         if (! $overWrite) {
             $fileParts = explode('.', $image_name);
             $fileParts[count($fileParts) - 2] = $fileParts[count($fileParts) - 2] . '_cropped_' . time();
-            $crop_path = $this->lfm->setName(implode('.', $fileParts))->path('absolute');
+            $crop_path = $this->fileManager->setName(implode('.', $fileParts))->path('absolute');
         }
 
         event(new ImageIsCropping($image_path));
@@ -47,7 +47,7 @@ class CropController extends LfmController
             ->save($crop_path);
 
         // make new thumbnail
-        $this->lfm->generateThumbnail($image_name);
+        $this->fileManager->generateThumbnail($image_name);
 
         event(new ImageWasCropped($image_path));
     }

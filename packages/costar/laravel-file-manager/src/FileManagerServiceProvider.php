@@ -1,14 +1,14 @@
 <?php
 
-namespace Costar\LaravelFilemanager;
+namespace Costar\LaravelFileManager;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class LaravelFilemanagerServiceProvider.
+ * Class FileManagerServiceProvider.
  */
-class LaravelFilemanagerServiceProvider extends ServiceProvider
+class FileManagerServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -23,23 +23,23 @@ class LaravelFilemanagerServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/config/config.php' => base_path('config/file-manager.php'),
-        ], 'lfm_config');
+        ], 'fileManager_config');
 
         $this->publishes([
             __DIR__.'/../public' => public_path('vendor/laravel-file-manager'),
-        ], 'lfm_public');
+        ], 'fileManager_public');
 
         $this->publishes([
             __DIR__.'/views'  => base_path('resources/views/vendor/laravel-file-manager'),
-        ], 'lfm_view');
+        ], 'fileManager_view');
 
         $this->publishes([
-            __DIR__.'/Handlers/LfmConfigHandler.php' => base_path('app/Handlers/LfmConfigHandler.php'),
-        ], 'lfm_handler');
+            __DIR__.'/Handlers/FileManagerConfigHandler.php' => base_path('app/Handlers/FileManagerConfigHandler.php'),
+        ], 'fileManager_handler');
 
-        if (config('lfm.use_package_routes')) {
+        if (config('fileManager.use_package_routes')) {
             Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
-                \Costar\LaravelFilemanager\Lfm::routes();
+                \Costar\LaravelFileManager\FileManager::routes();
             });
         }
     }
@@ -51,7 +51,7 @@ class LaravelFilemanagerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'lfm-config');
+        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'fileManager-config');
 
         $this->app->singleton('laravel-file-manager', function () {
             return true;

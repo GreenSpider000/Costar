@@ -268,7 +268,7 @@
 
 @push('after-styles')
 <!-- File Manager -->
-<link rel="stylesheet" href="{{ asset('vendor/laravel-file-manager/css/lfm.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/laravel-file-manager/css/file-manager.css') }}">
 
 <link href="https://unpkg.com/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
 <style>
@@ -287,7 +287,7 @@
 <script type="module" src="https://unpkg.com/summernote@0.8.20/dist/summernote-lite.min.js"></script>
 <script type="module">
     // Define function to open filemanager window
-    var lfm = function(options, cb) {
+    var fileManager = function(options, cb) {
         var route_prefix = (options && options.prefix) ? options.prefix : '/laravel-file-manager';
         window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
         window.SetUrl = cb;
@@ -301,12 +301,12 @@
             tooltip: 'Insert image with filemanager',
             click: function() {
 
-                lfm({
+                fileManager({
                     type: 'image',
                     prefix: '/laravel-file-manager'
-                }, function(lfmItems, path) {
-                    lfmItems.forEach(function(lfmItem) {
-                        context.invoke('insertImage', lfmItem.url);
+                }, function(fileManagerItems, path) {
+                    fileManagerItems.forEach(function(fileManagerItem) {
+                        context.invoke('insertImage', fileManagerItem.url);
                     });
                 });
 
@@ -323,11 +323,11 @@
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['table', ['table']],
-            ['insert', ['link', 'lfm', 'video']],
+            ['insert', ['link', 'fileManager', 'video']],
             ['view', ['codeview', 'undo', 'redo', 'help']],
         ],
         buttons: {
-            lfm: LFMButton
+            fileManager: LFMButton
         }
     });
 </script>

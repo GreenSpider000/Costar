@@ -1,11 +1,11 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Controllers;
+namespace Costar\LaravelFileManager\Controllers;
 
-use Costar\LaravelFilemanager\Lfm;
-use Costar\LaravelFilemanager\LfmPath;
+use Costar\LaravelFileManager\FileManager;
+use Costar\LaravelFileManager\FileManagerPath;
 
-class LfmController extends Controller
+class FileManagerController extends Controller
 {
     protected static $success_response = 'OK';
 
@@ -21,10 +21,10 @@ class LfmController extends Controller
      */
     public function __get($var_name)
     {
-        if ($var_name === 'lfm') {
-            return app(LfmPath::class);
+        if ($var_name === 'fileManager') {
+            return app(FileManagerPath::class);
         } elseif ($var_name === 'helper') {
-            return app(Lfm::class);
+            return app(FileManager::class);
         }
     }
 
@@ -49,7 +49,7 @@ class LfmController extends Controller
         $arr_errors = [];
 
         if (! extension_loaded('gd') && ! extension_loaded('imagick')) {
-            array_push($arr_errors, trans('laravel-file-manager::lfm.message-extension_not_found'));
+            array_push($arr_errors, trans('laravel-file-manager::fileManager.message-extension_not_found'));
         }
 
         if (! extension_loaded('exif')) {
@@ -60,8 +60,8 @@ class LfmController extends Controller
             array_push($arr_errors, 'Fileinfo extension not found.');
         }
 
-        $mine_config_key = 'lfm.folder_categories.'
-            . $this->helper->currentLfmType()
+        $mine_config_key = 'fileManager.folder_categories.'
+            . $this->helper->currentFileManagerType()
             . '.valid_mime';
 
         if (! is_array(config($mine_config_key))) {
@@ -78,7 +78,7 @@ class LfmController extends Controller
      */
     public function applyIniOverrides()
     {
-        $overrides = config('lfm.php_ini_overrides', []);
+        $overrides = config('fileManager.php_ini_overrides', []);
 
         if ($overrides && is_array($overrides) && count($overrides) === 0) {
             return;

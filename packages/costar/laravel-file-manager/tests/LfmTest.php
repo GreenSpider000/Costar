@@ -6,11 +6,11 @@ use Illuminate\Contracts\Config\Repository as Config;
 use Illuminate\Http\Request;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use Costar\LaravelFilemanager\Lfm;
-use Costar\LaravelFilemanager\LfmFileRepository;
-use Costar\LaravelFilemanager\LfmStorageRepository;
+use Costar\LaravelFileManager\FileManager;
+use Costar\LaravelFileManager\FileManagerFileRepository;
+use Costar\LaravelFileManager\FileManagerStorageRepository;
 
-class LfmTest extends TestCase
+class FileManagerTest extends TestCase
 {
     public function tearDown()
     {
@@ -22,10 +22,10 @@ class LfmTest extends TestCase
     public function testGetStorage()
     {
         $config = m::mock(Config::class);
-        $config->shouldReceive('get')->with('lfm.disk')->once()->andReturn('local');
+        $config->shouldReceive('get')->with('fileManager.disk')->once()->andReturn('local');
 
-        $lfm = new Lfm($config);
-        $this->assertInstanceOf(LfmStorageRepository::class, $lfm->getStorage('foo/bar'));
+        $fileManager = new FileManager($config);
+        $this->assertInstanceOf(FileManagerStorageRepository::class, $fileManager->getStorage('foo/bar'));
     }
 
     public function testInput()
@@ -33,57 +33,57 @@ class LfmTest extends TestCase
         $request = m::mock(Request::class);
         $request->shouldReceive('input')->with('foo')->andReturn('bar');
 
-        $lfm = new Lfm(m::mock(Config::class), $request);
+        $fileManager = new FileManager(m::mock(Config::class), $request);
 
-        $this->assertEquals('bar', $lfm->input('foo'));
+        $this->assertEquals('bar', $fileManager->input('foo'));
     }
 
     public function testGetNameFromPath()
     {
-        $this->assertEquals('bar', (new Lfm)->getNameFromPath('foo/bar'));
+        $this->assertEquals('bar', (new FileManager)->getNameFromPath('foo/bar'));
     }
 
     public function testAllowFolderType()
     {
         $config = m::mock(Config::class);
-        $config->shouldReceive('get')->with('lfm.allow_private_folder')->once()->andReturn(true);
-        $config->shouldReceive('get')->with('lfm.allow_private_folder')->once()->andReturn(false);
-        $config->shouldReceive('get')->with('lfm.allow_private_folder')->once()->andReturn(true);
-        $config->shouldReceive('get')->with('lfm.allow_shared_folder')->once()->andReturn(false);
+        $config->shouldReceive('get')->with('fileManager.allow_private_folder')->once()->andReturn(true);
+        $config->shouldReceive('get')->with('fileManager.allow_private_folder')->once()->andReturn(false);
+        $config->shouldReceive('get')->with('fileManager.allow_private_folder')->once()->andReturn(true);
+        $config->shouldReceive('get')->with('fileManager.allow_shared_folder')->once()->andReturn(false);
 
-        $lfm = new Lfm($config);
+        $fileManager = new FileManager($config);
 
-        $this->assertTrue($lfm->allowFolderType('user'));
-        $this->assertTrue($lfm->allowFolderType('shared'));
-        $this->assertFalse($lfm->allowFolderType('shared'));
+        $this->assertTrue($fileManager->allowFolderType('user'));
+        $this->assertTrue($fileManager->allowFolderType('shared'));
+        $this->assertFalse($fileManager->allowFolderType('shared'));
     }
 
     public function testGetCategoryName()
     {
         $config = m::mock(Config::class);
         $config->shouldReceive('get')
-               ->with('lfm.folder_categories.file.folder_name', m::type('string'))
+               ->with('fileManager.folder_categories.file.folder_name', m::type('string'))
                ->once()
                ->andReturn('files');
         $config->shouldReceive('get')
-               ->with('lfm.folder_categories.image.folder_name', m::type('string'))
+               ->with('fileManager.folder_categories.image.folder_name', m::type('string'))
                ->once()
                ->andReturn('photos');
         $config->shouldReceive('get')
-            ->with('lfm.folder_categories')
+            ->with('fileManager.folder_categories')
             ->andReturn(['file' => [], 'image' => []]);
 
         $request = m::mock(Request::class);
         $request->shouldReceive('input')->with('type')->once()->andReturn('file');
         $request->shouldReceive('input')->with('type')->once()->andReturn('image');
 
-        $lfm = new Lfm($config, $request);
+        $fileManager = new FileManager($config, $request);
 
-        $this->assertEquals('files', $lfm->getCategoryName('file'));
-        $this->assertEquals('photos', $lfm->getCategoryName('image'));
+        $this->assertEquals('files', $fileManager->getCategoryName('file'));
+        $this->assertEquals('photos', $fileManager->getCategoryName('image'));
     }
 
-    public function testCurrentLfmType()
+    public function testCurrentFileManagerType()
     {
         $request = m::mock(Request::class);
         $request->shouldReceive('input')->with('type')->once()->andReturn('file');
@@ -92,92 +92,92 @@ class LfmTest extends TestCase
 
         $config = m::mock(Config::class);
         $config->shouldReceive('get')
-            ->with('lfm.folder_categories')
+            ->with('fileManager.folder_categories')
             ->andReturn(['file' => [], 'image' => []]);
 
-        $lfm = new Lfm($config, $request);
+        $fileManager = new FileManager($config, $request);
 
-        $this->assertEquals('file', $lfm->currentLfmType());
-        $this->assertEquals('image', $lfm->currentLfmType());
-        $this->assertEquals('file', $lfm->currentLfmType());
+        $this->assertEquals('file', $fileManager->currentFileManagerType());
+        $this->assertEquals('image', $fileManager->currentFileManagerType());
+        $this->assertEquals('file', $fileManager->currentFileManagerType());
     }
 
     public function testGetUserSlug()
     {
         $config = m::mock(Config::class);
-        $config->shouldReceive('get')->with('lfm.private_folder_name')->once()->andReturn(function () {
+        $config->shouldReceive('get')->with('fileManager.private_folder_name')->once()->andReturn(function () {
             return 'foo';
         });
 
-        $lfm = new Lfm($config);
+        $fileManager = new FileManager($config);
 
-        $this->assertEquals('foo', $lfm->getUserSlug());
+        $this->assertEquals('foo', $fileManager->getUserSlug());
     }
 
     public function testGetRootFolder()
     {
         $config = m::mock(Config::class);
-        $config->shouldReceive('get')->with('lfm.allow_private_folder')->andReturn(true);
-        $config->shouldReceive('get')->with('lfm.private_folder_name')->once()->andReturn(function () {
+        $config->shouldReceive('get')->with('fileManager.allow_private_folder')->andReturn(true);
+        $config->shouldReceive('get')->with('fileManager.private_folder_name')->once()->andReturn(function () {
             return 'foo';
         });
-        $config->shouldReceive('get')->with('lfm.shared_folder_name')->once()->andReturn('bar');
+        $config->shouldReceive('get')->with('fileManager.shared_folder_name')->once()->andReturn('bar');
 
-        $lfm = new Lfm($config);
+        $fileManager = new FileManager($config);
 
-        $this->assertEquals('/foo', $lfm->getRootFolder('user'));
-        $this->assertEquals('/bar', $lfm->getRootFolder('shared'));
+        $this->assertEquals('/foo', $fileManager->getRootFolder('user'));
+        $this->assertEquals('/bar', $fileManager->getRootFolder('shared'));
     }
 
     public function testGetThumbFolderName()
     {
         $config = m::mock(Config::class);
-        $config->shouldReceive('get')->with('lfm.thumb_folder_name')->once()->andReturn('foo');
+        $config->shouldReceive('get')->with('fileManager.thumb_folder_name')->once()->andReturn('foo');
 
-        $lfm = new Lfm($config);
+        $fileManager = new FileManager($config);
 
-        $this->assertEquals('foo', $lfm->getThumbFolderName());
+        $this->assertEquals('foo', $fileManager->getThumbFolderName());
     }
 
     public function testGetFileType()
     {
         $config = m::mock(Config::class);
-        $config->shouldReceive('get')->with('lfm.file_type_array.foo', m::type('string'))->once()->andReturn('foo');
+        $config->shouldReceive('get')->with('fileManager.file_type_array.foo', m::type('string'))->once()->andReturn('foo');
         $config->shouldReceive('get')->with(m::type('string'), m::type('string'))->once()->andReturn('File');
 
-        $lfm = new Lfm($config);
+        $fileManager = new FileManager($config);
 
-        $this->assertEquals('foo', $lfm->getFileType('foo'));
-        $this->assertEquals('File', $lfm->getFileType('bar'));
+        $this->assertEquals('foo', $fileManager->getFileType('foo'));
+        $this->assertEquals('File', $fileManager->getFileType('bar'));
     }
 
     public function testAllowMultiUser()
     {
         $config = m::mock(Config::class);
-        $config->shouldReceive('get')->with('lfm.allow_private_folder')->once()->andReturn(true);
+        $config->shouldReceive('get')->with('fileManager.allow_private_folder')->once()->andReturn(true);
 
-        $lfm = new Lfm($config);
+        $fileManager = new FileManager($config);
 
-        $this->assertTrue($lfm->allowMultiUser());
+        $this->assertTrue($fileManager->allowMultiUser());
     }
 
     public function testAllowShareFolder()
     {
         $config = m::mock(Config::class);
-        $config->shouldReceive('get')->with('lfm.allow_private_folder')->once()->andReturn(false);
-        $config->shouldReceive('get')->with('lfm.allow_private_folder')->once()->andReturn(true);
-        $config->shouldReceive('get')->with('lfm.allow_shared_folder')->once()->andReturn(false);
+        $config->shouldReceive('get')->with('fileManager.allow_private_folder')->once()->andReturn(false);
+        $config->shouldReceive('get')->with('fileManager.allow_private_folder')->once()->andReturn(true);
+        $config->shouldReceive('get')->with('fileManager.allow_shared_folder')->once()->andReturn(false);
 
-        $lfm = new Lfm($config);
+        $fileManager = new FileManager($config);
 
-        $this->assertTrue($lfm->allowShareFolder());
-        $this->assertFalse($lfm->allowShareFolder());
+        $this->assertTrue($fileManager->allowShareFolder());
+        $this->assertFalse($fileManager->allowShareFolder());
     }
 
     public function testTranslateFromUtf8()
     {
         $input = 'test/測試';
 
-        $this->assertEquals($input, (new Lfm)->translateFromUtf8($input));
+        $this->assertEquals($input, (new FileManager)->translateFromUtf8($input));
     }
 }

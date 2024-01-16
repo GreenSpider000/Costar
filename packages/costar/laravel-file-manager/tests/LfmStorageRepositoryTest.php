@@ -5,11 +5,11 @@ namespace Tests;
 use Illuminate\Support\Facades\Storage;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use Costar\LaravelFilemanager\Lfm;
-use Costar\LaravelFilemanager\LfmPath;
-use Costar\LaravelFilemanager\LfmStorageRepository;
+use Costar\LaravelFileManager\FileManager;
+use Costar\LaravelFileManager\FileManagerPath;
+use Costar\LaravelFileManager\FileManagerStorageRepository;
 
-class LfmStorageRepositoryTest extends TestCase
+class FileManagerStorageRepositoryTest extends TestCase
 {
     private $storage;
 
@@ -25,12 +25,12 @@ class LfmStorageRepositoryTest extends TestCase
         $disk->shouldReceive('directories')->with('foo')->andReturn(['foo/bar']);
         $disk->shouldReceive('move')->with('foo/bar', 'foo/bar/baz')->andReturn(true);
 
-        $helper = m::mock(Lfm::class);
+        $helper = m::mock(FileManager::class);
         $helper->shouldReceive('config')->with('disk')->andReturn('local');
 
         Storage::shouldReceive('disk')->with('local')->andReturn($disk);
 
-        $this->storage = new LfmStorageRepository('foo/bar', $helper);
+        $this->storage = new FileManagerStorageRepository('foo/bar', $helper);
     }
 
     public function tearDown()
@@ -50,9 +50,9 @@ class LfmStorageRepositoryTest extends TestCase
 
     public function testMove()
     {
-        $new_lfm_path = m::mock(LfmPath::class);
-        $new_lfm_path->shouldReceive('path')->with('storage')->andReturn('foo/bar/baz');
+        $new_fileManager_path = m::mock(FileManagerPath::class);
+        $new_fileManager_path->shouldReceive('path')->with('storage')->andReturn('foo/bar/baz');
 
-        $this->assertTrue($this->storage->move($new_lfm_path));
+        $this->assertTrue($this->storage->move($new_fileManager_path));
     }
 }

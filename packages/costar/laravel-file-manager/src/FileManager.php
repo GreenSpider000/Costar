@@ -1,15 +1,15 @@
 <?php
 
-namespace Costar\LaravelFilemanager;
+namespace Costar\LaravelFileManager;
 
 use Illuminate\Contracts\Config\Repository as Config;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
-use Costar\LaravelFilemanager\Middlewares\CreateDefaultFolder;
-use Costar\LaravelFilemanager\Middlewares\MultiUser;
+use Costar\LaravelFileManager\Middlewares\CreateDefaultFolder;
+use Costar\LaravelFileManager\Middlewares\MultiUser;
 
-class Lfm
+class FileManager
 {
     const PACKAGE_NAME = 'laravel-file-manager';
     const DS = '/';
@@ -25,7 +25,7 @@ class Lfm
 
     public function getStorage($storage_path)
     {
-        return new LfmStorageRepository($storage_path, $this);
+        return new FileManagerStorageRepository($storage_path, $this);
     }
 
     public function input($key)
@@ -35,7 +35,7 @@ class Lfm
 
     public function config($key)
     {
-        return $this->config->get('lfm.' . $key);
+        return $this->config->get('fileManager.' . $key);
     }
 
     /**
@@ -75,34 +75,34 @@ class Lfm
 
     public function getCategoryName()
     {
-        $type = $this->currentLfmType();
+        $type = $this->currentFileManagerType();
 
-        return $this->config->get('lfm.folder_categories.' . $type . '.folder_name', 'files');
+        return $this->config->get('fileManager.folder_categories.' . $type . '.folder_name', 'files');
     }
 
     /**
-     * Get current lfm type.
+     * Get current fileManager type.
      *
      * @return string
      */
-    public function currentLfmType()
+    public function currentFileManagerType()
     {
-        $lfm_type = 'file';
+        $fileManager_type = 'file';
 
         $request_type = lcfirst(Str::singular($this->input('type') ?: ''));
-        $available_types = array_keys($this->config->get('lfm.folder_categories') ?: []);
+        $available_types = array_keys($this->config->get('fileManager.folder_categories') ?: []);
 
         if (in_array($request_type, $available_types)) {
-            $lfm_type = $request_type;
+            $fileManager_type = $request_type;
         }
 
-        return $lfm_type;
+        return $fileManager_type;
     }
 
     public function getDisplayMode()
     {
-        $type_key = $this->currentLfmType();
-        $startup_view = $this->config->get('lfm.folder_categories.' . $type_key . '.startup_view');
+        $type_key = $this->currentFileManagerType();
+        $startup_view = $this->config->get('fileManager.folder_categories.' . $type_key . '.startup_view');
 
         $view_type = 'grid';
         $target_display_type = $this->input('show_list') ?: $startup_view;
@@ -116,7 +116,7 @@ class Lfm
 
     public function getUserSlug()
     {
-        $config = $this->config->get('lfm.private_folder_name');
+        $config = $this->config->get('fileManager.private_folder_name');
 
         if (is_callable($config)) {
             return call_user_func($config);
@@ -141,7 +141,7 @@ class Lfm
         if ($type === 'user') {
             $folder = $this->getUserSlug();
         } else {
-            $folder = $this->config->get('lfm.shared_folder_name');
+            $folder = $this->config->get('fileManager.shared_folder_name');
         }
 
         // the slash is for url, dont replace it with directory seperator
@@ -150,42 +150,42 @@ class Lfm
 
     public function getThumbFolderName()
     {
-        return $this->config->get('lfm.thumb_folder_name');
+        return $this->config->get('fileManager.thumb_folder_name');
     }
 
     public function getFileType($ext)
     {
-        return $this->config->get("lfm.file_type_array.{$ext}", 'File');
+        return $this->config->get("fileManager.file_type_array.{$ext}", 'File');
     }
 
     public function availableMimeTypes()
     {
-        return $this->config->get('lfm.folder_categories.' . $this->currentLfmType() . '.valid_mime');
+        return $this->config->get('fileManager.folder_categories.' . $this->currentFileManagerType() . '.valid_mime');
     }
     
     public function shouldCreateCategoryThumb()
     {
-        return $this->config->get('lfm.folder_categories.' . $this->currentLfmType() . '.thumb');
+        return $this->config->get('fileManager.folder_categories.' . $this->currentFileManagerType() . '.thumb');
     }
 
     public function categoryThumbWidth()
     {
-        return $this->config->get('lfm.folder_categories.' . $this->currentLfmType() . '.thumb_width');
+        return $this->config->get('fileManager.folder_categories.' . $this->currentFileManagerType() . '.thumb_width');
     }
 
     public function categoryThumbHeight()
     {
-        return $this->config->get('lfm.folder_categories.' . $this->currentLfmType() . '.thumb_height');
+        return $this->config->get('fileManager.folder_categories.' . $this->currentFileManagerType() . '.thumb_height');
     }
 
     public function maxUploadSize()
     {
-        return $this->config->get('lfm.folder_categories.' . $this->currentLfmType() . '.max_size');
+        return $this->config->get('fileManager.folder_categories.' . $this->currentFileManagerType() . '.max_size');
     }
 
     public function getPaginationPerPage()
     {
-        return $this->config->get("lfm.paginator.perPage", 30);
+        return $this->config->get("fileManager.paginator.perPage", 30);
     }
 
     /**
@@ -195,13 +195,13 @@ class Lfm
      */
     public function allowMultiUser()
     {
-        $type_key = $this->currentLfmType();
+        $type_key = $this->currentFileManagerType();
 
-        if ($this->config->has('lfm.folder_categories.' . $type_key . '.allow_private_folder')) {
-            return $this->config->get('lfm.folder_categories.' . $type_key . '.allow_private_folder') === true;
+        if ($this->config->has('fileManager.folder_categories.' . $type_key . '.allow_private_folder')) {
+            return $this->config->get('fileManager.folder_categories.' . $type_key . '.allow_private_folder') === true;
         }
 
-        return $this->config->get('lfm.allow_private_folder') === true;
+        return $this->config->get('fileManager.allow_private_folder') === true;
     }
 
     /**
@@ -216,13 +216,13 @@ class Lfm
             return true;
         }
 
-        $type_key = $this->currentLfmType();
+        $type_key = $this->currentFileManagerType();
 
-        if ($this->config->has('lfm.folder_categories.' . $type_key . '.allow_shared_folder')) {
-            return $this->config->get('lfm.folder_categories.' . $type_key . '.allow_shared_folder') === true;
+        if ($this->config->has('fileManager.folder_categories.' . $type_key . '.allow_shared_folder')) {
+            return $this->config->get('fileManager.folder_categories.' . $type_key . '.allow_shared_folder') === true;
         }
 
-        return $this->config->get('lfm.allow_shared_folder') === true;
+        return $this->config->get('fileManager.allow_shared_folder') === true;
     }
 
     /**
@@ -247,7 +247,7 @@ class Lfm
      */
     public function ds()
     {
-        $ds = Lfm::DS;
+        $ds = FileManager::DS;
         if ($this->isRunningOnWindows()) {
             $ds = '\\';
         }
@@ -274,7 +274,7 @@ class Lfm
      */
     public function error($error_type, $variables = [])
     {
-        throw new \Exception(trans(self::PACKAGE_NAME . '::lfm.error-' . $error_type, $variables));
+        throw new \Exception(trans(self::PACKAGE_NAME . '::fileManager.error-' . $error_type, $variables));
     }
 
     /**
@@ -285,20 +285,20 @@ class Lfm
     public static function routes()
     {
         $middleware = [ CreateDefaultFolder::class, MultiUser::class ];
-        $as = 'costar.lfm.';
-        $namespace = '\\Costar\\LaravelFilemanager\\Controllers\\';
+        $as = 'costar.fileManager.';
+        $namespace = '\\Costar\\LaravelFileManager\\Controllers\\';
 
         Route::group(compact('middleware', 'as', 'namespace'), function () {
 
             // display main layout
             Route::get('/', [
-                'uses' => 'LfmController@show',
+                'uses' => 'FileManagerController@show',
                 'as' => 'show',
             ]);
 
             // display integration error messages
             Route::get('/errors', [
-                'uses' => 'LfmController@getErrors',
+                'uses' => 'FileManagerController@getErrors',
                 'as' => 'getErrors',
             ]);
 

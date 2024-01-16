@@ -1,13 +1,13 @@
 <?php
 
-namespace Costar\LaravelFilemanager;
+namespace Costar\LaravelFileManager;
 
 use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class LfmItem
+class FileManagerItem
 {
-    private $lfm;
+    private $fileManager;
     private $helper;
     private $isDirectory;
     private $mimeType = null;
@@ -15,9 +15,9 @@ class LfmItem
     private $columns = [];
     public $attributes = [];
 
-    public function __construct(LfmPath $lfm, Lfm $helper, $isDirectory = false)
+    public function __construct(FileManagerPath $fileManager, FileManager $helper, $isDirectory = false)
     {
-        $this->lfm = $lfm->thumb(false);
+        $this->fileManager = $fileManager->thumb(false);
         $this->helper = $helper;
         $this->isDirectory = $isDirectory;
         $this->columns = $helper->config('item_columns') ?:
@@ -45,12 +45,12 @@ class LfmItem
 
     public function name()
     {
-        return $this->lfm->getName();
+        return $this->fileManager->getName();
     }
 
     public function path($type = 'absolute')
     {
-        return $this->lfm->path($type);
+        return $this->fileManager->path($type);
     }
 
     public function isDirectory()
@@ -83,7 +83,7 @@ class LfmItem
     public function mimeType()
     {
         if (is_null($this->mimeType)) {
-            $this->mimeType = $this->lfm->mimeType();
+            $this->mimeType = $this->fileManager->mimeType();
         }
 
         return $this->mimeType;
@@ -91,36 +91,36 @@ class LfmItem
 
     public function extension()
     {
-        return $this->lfm->extension();
+        return $this->fileManager->extension();
     }
 
     public function url()
     {
         if ($this->isDirectory()) {
-            return $this->lfm->path('working_dir');
+            return $this->fileManager->path('working_dir');
         }
 
-        return $this->lfm->url();
+        return $this->fileManager->url();
     }
 
     public function size()
     {
-        return $this->isFile() ? $this->humanFilesize($this->lfm->size()) : '';
+        return $this->isFile() ? $this->humanFilesize($this->fileManager->size()) : '';
     }
 
     public function time()
     {
-        return $this->lfm->lastModified();
+        return $this->fileManager->lastModified();
     }
 
     public function thumbUrl()
     {
         if ($this->isDirectory()) {
-            return asset('vendor/' . Lfm::PACKAGE_NAME . '/img/folder.png');
+            return asset('vendor/' . FileManager::PACKAGE_NAME . '/img/folder.png');
         }
 
         if ($this->isImage()) {
-            return $this->lfm->thumb($this->hasThumb())->url(true);
+            return $this->fileManager->thumb($this->hasThumb())->url(true);
         }
 
         return null;
@@ -142,7 +142,7 @@ class LfmItem
     public function type()
     {
         if ($this->isDirectory()) {
-            return trans(Lfm::PACKAGE_NAME . '::lfm.type-folder');
+            return trans(FileManager::PACKAGE_NAME . '::fileManager.type-folder');
         }
 
         if ($this->isImage()) {
@@ -158,7 +158,7 @@ class LfmItem
             return false;
         }
 
-        if (!$this->lfm->thumb()->exists()) {
+        if (!$this->fileManager->thumb()->exists()) {
             return false;
         }
 
@@ -184,7 +184,7 @@ class LfmItem
 
     public function get()
     {
-        return $this->lfm->get();
+        return $this->fileManager->get();
     }
 
     /**

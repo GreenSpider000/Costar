@@ -1,4 +1,4 @@
-var lfm_route = location.origin + location.pathname;
+var fileManager_route = location.origin + location.pathname;
 var show_list;
 var sort_type = 'alphabetic';
 var multi_selection_enabled = false;
@@ -72,7 +72,7 @@ $(document).ready(function () {
   });
 
   loadFolders();
-  performLfmRequest('errors')
+  performFileManagerRequest('errors')
     .done(function (response) {
       JSON.parse(response).forEach(function (message) {
         $('#alerts').append(
@@ -257,7 +257,7 @@ function setOpenFolders() {
 // ==  Ajax actions  ==
 // ====================
 
-function performLfmRequest(url, parameter, type) {
+function performFileManagerRequest(url, parameter, type) {
   var data = defaultParameters();
 
   if (parameter != null) {
@@ -275,7 +275,7 @@ function performLfmRequest(url, parameter, type) {
       }
     },
     dataType: type || 'text',
-    url: lfm_route + '/' + url,
+    url: fileManager_route + '/' + url,
     data: data,
     cache: false
   }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -303,7 +303,7 @@ var hideNavAndShowEditor = function (data) {
 }
 
 function loadFolders() {
-  performLfmRequest('folders', {}, 'html')
+  performFileManagerRequest('folders', {}, 'html')
     .done(function (data) {
       $('#tree').html(data);
       loadItems();
@@ -420,7 +420,7 @@ function createPagination(paginationSetting) {
 
 function loadItems(page) {
   loading(true);
-  performLfmRequest('jsonitems', {show_list: show_list, sort_type: sort_type, page: page || 1}, 'html')
+  performFileManagerRequest('jsonitems', {show_list: show_list, sort_type: sort_type, page: page || 1}, 'html')
     .done(function (data) {
       selected = [];
       var response = JSON.parse(data);
@@ -522,7 +522,7 @@ function loading(show_loading) {
 }
 
 function createFolder(folder_name) {
-  performLfmRequest('newfolder', {name: folder_name})
+  performFileManagerRequest('newfolder', {name: folder_name})
     .done(refreshFoldersAndItems);
 }
 
@@ -532,7 +532,7 @@ function createFolder(folder_name) {
 
 function rename(item) {
   dialog(lang['message-rename'], item.name, function (new_name) {
-    performLfmRequest('rename', {
+    performFileManagerRequest('rename', {
       file: item.name,
       new_name: new_name
     }).done(refreshFoldersAndItems);
@@ -541,19 +541,19 @@ function rename(item) {
 
 function trash(items) {
   notify(lang['message-delete'], function () {
-    performLfmRequest('delete', {
+    performFileManagerRequest('delete', {
       items: items.map(function (item) { return item.name; })
     }).done(refreshFoldersAndItems)
   });
 }
 
 function crop(item) {
-  performLfmRequest('crop', {img: item.name})
+  performFileManagerRequest('crop', {img: item.name})
     .done(hideNavAndShowEditor);
 }
 
 function resize(item) {
-  performLfmRequest('resize', {img: item.name})
+  performFileManagerRequest('resize', {img: item.name})
     .done(hideNavAndShowEditor);
 }
 
@@ -569,7 +569,7 @@ function download(items) {
     }
 
     setTimeout(function () {
-      location.href = lfm_route + '/download?' + $.param(data);
+      location.href = fileManager_route + '/download?' + $.param(data);
     }, index * 100);
   });
 }
@@ -639,7 +639,7 @@ function preview(items) {
 }
 
 function move(items) {
-  performLfmRequest('move', { items: items.map(function (item) { return item.name; }) })
+  performFileManagerRequest('move', { items: items.map(function (item) { return item.name; }) })
     .done(refreshFoldersAndItems);
 }
 

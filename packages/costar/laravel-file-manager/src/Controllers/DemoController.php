@@ -1,8 +1,8 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Controllers;
+namespace Costar\LaravelFileManager\Controllers;
 
-class DemoController extends LfmController
+class DemoController extends FileManagerController
 {
     public function index()
     {

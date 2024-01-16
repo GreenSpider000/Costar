@@ -1,25 +1,25 @@
 <?php
 
-namespace Costar\LaravelFilemanager;
+namespace Costar\LaravelFileManager;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Costar\LaravelFilemanager\Exceptions\DuplicateFileNameException;
-use Costar\LaravelFilemanager\Exceptions\EmptyFileException;
-use Costar\LaravelFilemanager\Exceptions\ExcutableFileException;
-use Costar\LaravelFilemanager\Exceptions\FileFailedToUploadException;
-use Costar\LaravelFilemanager\Exceptions\FileSizeExceedConfigurationMaximumException;
-use Costar\LaravelFilemanager\Exceptions\FileSizeExceedIniMaximumException;
-use Costar\LaravelFilemanager\Exceptions\InvalidMimeTypeException;
-use Costar\LaravelFilemanager\LfmPath;
+use Costar\LaravelFileManager\Exceptions\DuplicateFileNameException;
+use Costar\LaravelFileManager\Exceptions\EmptyFileException;
+use Costar\LaravelFileManager\Exceptions\ExcutableFileException;
+use Costar\LaravelFileManager\Exceptions\FileFailedToUploadException;
+use Costar\LaravelFileManager\Exceptions\FileSizeExceedConfigurationMaximumException;
+use Costar\LaravelFileManager\Exceptions\FileSizeExceedIniMaximumException;
+use Costar\LaravelFileManager\Exceptions\InvalidMimeTypeException;
+use Costar\LaravelFileManager\FileManagerPath;
 
-class LfmUploadValidator
+class FileManagerUploadValidator
 {
     private $file;
 
     public function __construct(UploadedFile $file)
     {
         // if (! $file instanceof UploadedFile) {
-        //     throw new \Exception(trans(self::PACKAGE_NAME . '::lfm.error-instance'));
+        //     throw new \Exception(trans(self::PACKAGE_NAME . '::fileManager.error-instance'));
         // }
 
         $this->file = $file;
@@ -52,9 +52,9 @@ class LfmUploadValidator
         return $this;
     }
 
-    public function nameIsNotDuplicate($new_file_name, LfmPath $lfm_path)
+    public function nameIsNotDuplicate($new_file_name, FileManagerPath $fileManager_path)
     {
-        if ($lfm_path->setName($new_file_name)->exists()) {
+        if ($fileManager_path->setName($new_file_name)->exists()) {
             throw new DuplicateFileNameException();
         }
 

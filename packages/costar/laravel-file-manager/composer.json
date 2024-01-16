@@ -39,7 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Costar\\LaravelFilemanager\\": "src/"
+            "Costar\\LaravelFileManager\\": "src/"
         }
     },
     "autoload-dev": {
@@ -50,7 +50,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Costar\\LaravelFilemanager\\LaravelFilemanagerServiceProvider"
+                "Costar\\LaravelFileManager\\FileManagerServiceProvider"
             ],
             "aliases": {}
         }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Costar\LaravelFilemanager\Controllers;
+namespace Costar\LaravelFileManager\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
-use Costar\LaravelFilemanager\Lfm;
+use Costar\LaravelFileManager\FileManager;
 
-class UploadController extends LfmController
+class UploadController extends FileManagerController
 {
     protected $errors;
 
@@ -31,9 +31,9 @@ class UploadController extends LfmController
 
         foreach (is_array($uploaded_files) ? $uploaded_files : [$uploaded_files] as $file) {
             try {
-                $this->lfm->validateUploadedFile($file);
+                $this->fileManager->validateUploadedFile($file);
 
-                $new_filename = $this->lfm->upload($file);
+                $new_filename = $this->fileManager->upload($file);
             } catch (\Exception $e) {
                 Log::error($e->getMessage(), [
                     'file' => $e->getFile(),
@@ -52,7 +52,7 @@ class UploadController extends LfmController
                     'error' => [ 'message' =>  $error_bag[0] ]
                 ];
             } else {
-                $url = $this->lfm->setName($new_filename)->url();
+                $url = $this->fileManager->setName($new_filename)->url();
 
                 $response = [
                     'url' => $url,
