@@ -27,13 +27,9 @@ class SubjectsRequest extends FormRequest
             'name' => 'required|max:191',
             'slug' => 'nullable|max:191',
             'intro' => 'nullable',
-            'content' => 'required',
             'type' => 'required|max:191',
             'taxon_id' => 'required|numeric',
-            'created_by_alias' => 'nullable|max:191',
-            'featured_image' => 'nullable|max:191',
             'type' => 'required',
-            'is_featured' => 'nullable',
             'order' => 'nullable|numeric',
             'status' => 'required',
         ];

@@ -60,9 +60,6 @@
                             <th>
                                 Type
                             </th>
-                            <th>
-                                Image
-                            </th>
                             <th class="text-end">
                                 Action
                             </th>
@@ -85,11 +82,6 @@
                             </td>
                             <td>
                                 {{ $module_name_singular->type }}
-                            </td>
-                            <td>
-                                @if($module_name_singular->featured_image != "")
-                                <img src="{{ asset($module_name_singular->featured_image) }}" class="img-fluid img-thumbnail" style="max-width:200px;" alt="{{ $module_name_singular->name }}">
-                                @endif
                             </td>
                             <td class="text-end">
                                 <a href='{!!route("backend.$module_name.edit", $module_name_singular)!!}' class='btn btn-sm btn-primary mt-1' data-toggle="tooltip" title="Edit {{ ucwords(Str::singular($module_name)) }}"><i class="fas fa-edit"></i></a>

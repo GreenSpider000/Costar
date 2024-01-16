@@ -25,9 +25,7 @@ class SubjectsRequest extends FormRequest
     {
         return [
             'name' => 'required|max:191',
-            'featured_image' => 'nullable',
             'type' => 'required',
-            'is_featured' => 'nullable',
             'status' => 'required',
         ];
     }

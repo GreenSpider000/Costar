@@ -21,7 +21,6 @@ return new class extends Migration
             $table->text('description')->nullable();
 
             $table->string('group_name')->nullable();
-            $table->string('image')->nullable();
 
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();

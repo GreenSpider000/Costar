@@ -23,11 +23,6 @@
 
             @include('frontend.includes.messages')
         </div>
-        @if($$module_name_singular->featured_image != "")
-        <div class="w-full sm:w-8/12 mb-4 sm:mb-0">
-            <img class="object-cover object-center rounded shadow-md" alt="{{$$module_name_singular->name}}" src="{{$$module_name_singular->featured_image}}">
-        </div>
-        @endif
     </div>
 </section>
 
@@ -45,7 +40,7 @@
             <div class="py-5 border-b">
                 <div class="flex flex-col sm:flex-row justify-between">
                     <div class="pb-2">
-                        {{__('Written by')}}: {{isset($$module_name_singular->created_by_alias)? $$module_name_singular->created_by_alias : $$module_name_singular->created_by_name}}
+                        {{__('Written by')}}: {{$$module_name_singular->created_by_name}}
                     </div>
                     <div class="pb-2">
                         {{__('Created at')}}: {{$$module_name_singular->created_at->isoFormat('llll')}}
@@ -55,9 +50,9 @@
 
             <div class="flex flex-row items-center py-5 border-b">
                 <span class="font-weight-bold">
-                        @lang('Taxon'):
-                    </span>
-                    <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
+                    @lang('Taxon'):
+                </span>
+                <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
             </div>
             
             <div class="py-5 border-b">

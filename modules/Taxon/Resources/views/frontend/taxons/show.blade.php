@@ -32,11 +32,6 @@
         @endphp
         <div class="">
             <div class=" bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                @if($subject->featured_image != "")
-                <a href="{{$details_url}}">
-                    <img class="rounded-t-lg" src="{{$subject->featured_image}}" alt="{{$subject->name}}" />
-                </a>
-                @endif
                 <div class="p-5 flex flex-col items-stretch">
                     <a href="{{$details_url}}">
                         <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">

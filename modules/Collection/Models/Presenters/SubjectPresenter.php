@@ -8,25 +8,6 @@ use Illuminate\Support\Str;
 trait SubjectPresenter
 {
     /**
-     * Get the featured image attribute.
-     *
-     * @param  mixed  $value  The value of the featured image attribute.
-     * @return string The modified featured image URL.
-     */
-    public function getFeaturedImageAttribute($value)
-    {
-        $featured_image = $value;
-
-        if (Str::startsWith($featured_image, 'https://picsum.photos')) {
-            $return_text = $featured_image.'?random='.$this->id;
-        } else {
-            $return_text = $featured_image;
-        }
-
-        return $return_text;
-    }
-
-    /**
      * Get the formatted published_at attribute.
      *
      * @return string

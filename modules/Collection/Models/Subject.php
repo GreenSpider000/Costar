@@ -88,25 +88,6 @@ class Subject extends BaseModel
     }
 
     /**
-     * Set the meta meta_og_image
-     * If no value submitted use the 'Title'.
-     *
-     * @param [type]
-     */
-    public function setMetaOgImageAttribute($value)
-    {
-        $this->attributes['meta_og_image'] = $value;
-
-        if (empty($value)) {
-            if (isset($this->attributes['featured_image'])) {
-                $this->attributes['meta_og_image'] = $this->attributes['featured_image'];
-            } else {
-                $this->attributes['meta_og_image'] = setting('meta_image');
-            }
-        }
-    }
-
-    /**
      * Set the published at
      * If no value submitted use the 'Title'.
      *
@@ -140,9 +121,7 @@ class Subject extends BaseModel
 
     public function scopeFeatured($query)
     {
-        return $query->where('is_featured', '=', 'Yes')
-            ->where('status', '=', '1')
-            ->where('published_at', '<=', Carbon::now());
+        return $query->where('status', '=', '1')->where('published_at', '<=', Carbon::now());
     }
 
     /**

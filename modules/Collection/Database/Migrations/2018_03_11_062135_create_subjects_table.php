@@ -18,12 +18,9 @@ class CreateSubjectsTable extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->text('intro')->nullable();
-            $table->text('content')->nullable();
             $table->string('type')->nullable();
             $table->integer('taxon_id')->unsigned()->nullable();
             $table->string('taxon_name')->nullable();
-            $table->integer('is_featured')->nullable();
-            $table->string('featured_image')->nullable();
 
             $table->string('meta_title')->nullable();
             $table->text('meta_keywords')->nullable();
@@ -40,7 +37,6 @@ class CreateSubjectsTable extends Migration
 
             $table->integer('created_by')->unsigned()->nullable();
             $table->string('created_by_name')->nullable();
-            $table->string('created_by_alias')->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
             $table->integer('deleted_by')->unsigned()->nullable();
 
