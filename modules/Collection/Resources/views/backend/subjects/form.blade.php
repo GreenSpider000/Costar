@@ -199,6 +199,7 @@
 <!-- Select2 Library -->
 <x-library.select2 />
 
+@push ('after-scripts')
 <script type="module">
     $(document).ready(function() {
         $(document).on('select2:open', () => {
