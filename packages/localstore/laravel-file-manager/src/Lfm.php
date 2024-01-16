@@ -11,7 +11,7 @@ use LocalStore\LaravelFilemanager\Middlewares\MultiUser;
 
 class Lfm
 {
-    const PACKAGE_NAME = 'laravel-filemanager';
+    const PACKAGE_NAME = 'laravel-file-manager';
     const DS = '/';
 
     protected $config;

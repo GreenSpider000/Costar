@@ -250,7 +250,7 @@
 
 @push('after-styles')
 <!-- File Manager -->
-<link rel="stylesheet" href="{{ asset('vendor/laravel-filemanager/css/lfm.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/laravel-file-manager/css/lfm.css') }}">
 
 <link href="https://unpkg.com/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
 <style>
@@ -270,7 +270,7 @@
 <script type="module">
     // Define function to open filemanager window
     var lfm = function(options, cb) {
-        var route_prefix = (options && options.prefix) ? options.prefix : '/laravel-filemanager';
+        var route_prefix = (options && options.prefix) ? options.prefix : '/laravel-file-manager';
         window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
         window.SetUrl = cb;
     };
@@ -285,7 +285,7 @@
 
                 lfm({
                     type: 'image',
-                    prefix: '/laravel-filemanager'
+                    prefix: '/laravel-file-manager'
                 }, function(lfmItems, path) {
                     lfmItems.forEach(function(lfmItem) {
                         context.invoke('insertImage', lfmItem.url);
@@ -314,7 +314,7 @@
     });
 </script>
 
-<script type="module" src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
+<script type="module" src="{{ asset('vendor/laravel-file-manager/js/stand-alone-button.js') }}"></script>
 <script type="module">
     $('#button-image').filemanager('image');
 </script>

@@ -35,7 +35,7 @@ class LfmController extends Controller
      */
     public function show()
     {
-        return view('laravel-filemanager::index')
+        return view('laravel-file-manager::index')
             ->withHelper($this->helper);
     }
 
@@ -49,7 +49,7 @@ class LfmController extends Controller
         $arr_errors = [];
 
         if (! extension_loaded('gd') && ! extension_loaded('imagick')) {
-            array_push($arr_errors, trans('laravel-filemanager::lfm.message-extension_not_found'));
+            array_push($arr_errors, trans('laravel-file-manager::lfm.message-extension_not_found'));
         }
 
         if (! extension_loaded('exif')) {

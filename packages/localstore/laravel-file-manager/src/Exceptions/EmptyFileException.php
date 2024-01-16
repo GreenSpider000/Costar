@@ -6,6 +6,6 @@ class EmptyFileException extends \Exception
 {
     public function __construct()
     {
-        $this->message = trans('laravel-filemanager::lfm.error-file-empty');
+        $this->message = trans('laravel-file-manager::lfm.error-file-empty');
     }
 }

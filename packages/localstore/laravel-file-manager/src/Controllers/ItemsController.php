@@ -42,13 +42,13 @@ class ItemsController extends LfmController
         $folder_types = array_filter(['user', 'share'], function ($type) {
             return $this->helper->allowFolderType($type);
         });
-        return view('laravel-filemanager::move')
+        return view('laravel-file-manager::move')
             ->with([
                 'root_folders' => array_map(function ($type) use ($folder_types) {
                     $path = $this->lfm->dir($this->helper->getRootFolder($type));
 
                     return (object) [
-                        'name' => trans('laravel-filemanager::lfm.title-' . $type),
+                        'name' => trans('laravel-file-manager::lfm.title-' . $type),
                         'url' => $path->path('working_dir'),
                         'children' => $path->folders(),
                         'has_next' => ! ($type == end($folder_types)),
