@@ -1,12 +1,12 @@
 {
-    "name": "costar/comment-module",
+    "name": "localstore/comment-module",
     "description": "Comment module for Laravel Starter. It can be used with any other Models. One to many polymorphic relation.",
     "type": "laravel-module",
     "version": "v1.0.0",
     "authors": [
         {
-            "name": "costar",
-            "email": "costar@local.dev"
+            "name": "localstore",
+            "email": "localstore@local.dev"
         }
     ],
     "extra": {

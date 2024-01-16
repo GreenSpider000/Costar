@@ -1,7 +1,7 @@
 import * as coreui from "@coreui/coreui";
 import { Livewire } from "~vendor/livewire/livewire/dist/livewire.esm";
 
-// coreui
+// global coreui
 window.coreui = coreui;
 
 // livewire

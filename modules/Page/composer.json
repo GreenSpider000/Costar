@@ -4,14 +4,16 @@
     "type": "laravel-module",
     "authors": [
         {
-            "name": "Costar",
-            "email": "costar@local.dev"
+            "name": "LocalStore",
+            "email": "localstore@local.dev"
         }
     ],
     "extra": {
         "laravel": {
             "providers": [],
-            "aliases": {}
+            "aliases": {
+
+            }
         }
     },
     "autoload": {

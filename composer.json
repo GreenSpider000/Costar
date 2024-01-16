@@ -1,6 +1,6 @@
 {
-    "name": "kothing/laravel-costar",
-    "description": "A modular CMS starter application built with Laravel 10.x.",
+    "name": "kothing/laravel-starter",
+    "description": "A CMS like modular Laravel starter project.",
     "keywords": [
         "framework",
         "laravel",
@@ -34,9 +34,9 @@
         "spatie/laravel-medialibrary": "^10.7",
         "spatie/laravel-permission": "^5.9",
         "yajra/laravel-datatables-oracle": "^10.3",
-        "costar/laravel-installer": "*@dev",
-        "costar/laravel-file-manager": "*@dev",
-        "costar/laravel-module-manager": "*@dev"
+        "localstore/laravel-installer": "*@dev",
+        "localstore/laravel-filemanager": "*@dev",
+        "localstore/laravel-module-manager": "*@dev"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
@@ -71,17 +71,17 @@
         }
     },
     "repositories": {
-        "costar/laravel-installer": {
+        "localstore/laravel-installer": {
             "type": "path",
-            "url": "./packages/costar/laravel-installer"
+            "url": "./packages/localstore/laravel-installer"
         },
-        "costar/laravel-module-manager": {
+        "localstore/laravel-module-manager": {
             "type": "path",
-            "url": "./packages/costar/laravel-module-manager"
+            "url": "./packages/localstore/laravel-module-manager"
         },
-        "costar/laravel-file-manager": {
+        "localstore/laravel-filemanager": {
             "type": "path",
-            "url": "./packages/costar/laravel-file-manager"
+            "url": "./packages/localstore/laravel-filemanager"
         }
     },
     "scripts": {

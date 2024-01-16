@@ -56,10 +56,10 @@ return [
     */
 
     'composer' => [
-        'vendor' => 'costar',
+        'vendor' => 'localstore',
         'author' => [
-            'name' => 'Costar',
-            'email' => 'costar@local.dev',
+            'name' => 'LocalStore',
+            'email' => 'localstore@local.dev',
         ],
     ],
 ];
