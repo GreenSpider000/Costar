@@ -25,7 +25,6 @@ class SubjectsRequest extends FormRequest
     {
         return [
             'name' => 'required|max:191',
-            'type' => 'nullable',
             'status' => 'required',
         ];
     }

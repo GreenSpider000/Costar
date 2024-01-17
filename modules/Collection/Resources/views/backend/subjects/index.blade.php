@@ -57,9 +57,6 @@
                             <th>
                                 Taxon
                             </th>
-                            <th>
-                                Type
-                            </th>
                             <th class="text-end">
                                 Action
                             </th>
@@ -79,9 +76,6 @@
                             </td>
                             <td>
                                 {{ $module_name_singular->taxon_name }}
-                            </td>
-                            <td>
-                                {{ $module_name_singular->type }}
                             </td>
                             <td class="text-end">
                                 <a href='{!!route("backend.$module_name.edit", $module_name_singular)!!}' class='btn btn-sm btn-primary mt-1' data-toggle="tooltip" title="Edit {{ ucwords(Str::singular($module_name)) }}"><i class="fas fa-edit"></i></a>

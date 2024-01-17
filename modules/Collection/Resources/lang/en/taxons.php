@@ -4,7 +4,7 @@ return [
 
     'name' => 'Name',
     'slug' => 'Slug',
-    'intro' => 'Intro',
+    'description' => 'Description',
     'taxon_id' => 'Taxon',
     'status' => 'Status',
     'meta_title' => 'Meta Title',

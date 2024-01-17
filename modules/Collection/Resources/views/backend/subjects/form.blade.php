@@ -45,7 +45,7 @@
     <div class="col-12">
         <div class="form-group">
             <?php
-            $field_name = 'intro';
+            $field_name = 'description';
             $field_label = __("collection::$module_name.$field_name");
             $field_placeholder = $field_label;
             $required = "";
@@ -101,23 +101,6 @@
             {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
         </div>
     </div>
-    <div class="col-6">
-        <div class="form-group">
-            <?php
-            $field_name = 'type';
-            $field_label = __("collection::$module_name.$field_name");
-            $field_placeholder = __("Select an option");
-            $required = "";
-            $select_options = [
-                'Collection' => 'Collection',
-                'Feature' => 'Feature',
-                'News' => 'News',
-            ];
-            ?>
-            {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name, $select_options)->placeholder($field_placeholder)->class('form-select')->attributes(["$required"]) }}
-        </div>
-    </div>
 </div>
 <div class="row mb-3">
     <div class="col-6">
@@ -150,32 +133,6 @@
         <div class="form-group">
             <?php
             $field_name = 'meta_description';
-            $field_label = __("collection::$module_name.$field_name");
-            $field_placeholder = $field_label;
-            $required = "";
-            ?>
-            {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-        </div>
-    </div>
-    <div class="col-12 col-sm-6">
-        <div class="form-group">
-            <?php
-            $field_name = 'meta_og_image';
-            $field_label = __("collection::$module_name.$field_name");
-            $field_placeholder = $field_label;
-            $required = "";
-            ?>
-            {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-        </div>
-    </div>
-</div>
-<div class="row mb-3">
-    <div class="col-12">
-        <div class="form-group">
-            <?php
-            $field_name = 'meta_og_url';
             $field_label = __("collection::$module_name.$field_name");
             $field_placeholder = $field_label;
             $required = "";

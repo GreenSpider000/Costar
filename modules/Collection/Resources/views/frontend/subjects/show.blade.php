@@ -31,7 +31,7 @@
         <div class="flex flex-col lg:flex-grow sm:w-8/12 sm:pr-8">
             <div class="pb-5">
                 <p>
-                    {!!$$module_name_singular->intro!!}
+                    {!!$$module_name_singular->description!!}
                 </p>
             </div>
 

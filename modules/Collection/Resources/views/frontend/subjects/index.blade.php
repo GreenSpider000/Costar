@@ -39,7 +39,7 @@
             </div>
 
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{$$module_name_singular->intro}}
+                {{$$module_name_singular->description}}
             </p>
             <p>
                 <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
