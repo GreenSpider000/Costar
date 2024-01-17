@@ -1,6 +1,6 @@
 <?php
 
-namespace Star\Menu;
+namespace Costar\Menu;
 
 use Illuminate\Support\Collection as BaseCollection;
 

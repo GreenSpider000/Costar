@@ -18,16 +18,16 @@
     },
     "autoload": {
         "psr-0": {
-            "Star\\Menu\\": "src/"
+            "Costar\\Menu\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Star\\Menu\\ServiceProvider"
+                "Costar\\Menu\\ServiceProvider"
             ],
             "aliases": {
-                "Menu": "Star\\Menu\\Facade"
+                "Menu": "Costar\\Menu\\Facade"
             }
         }
     },
