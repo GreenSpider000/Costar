@@ -104,13 +104,18 @@
     <div class="col-6">
         <div class="form-group">
             <?php
-            $field_name = 'published_at';
+            $field_name = 'type';
             $field_label = __("collection::$module_name.$field_name");
-            $field_placeholder = $field_label;
+            $field_placeholder = __("Select an option");
             $required = "";
+            $select_options = [
+                'Collection' => 'Collection',
+                'Feature' => 'Feature',
+                'News' => 'News',
+            ];
             ?>
             {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->datetime($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
+            {{ html()->select($field_name, $select_options)->placeholder($field_placeholder)->class('form-select')->attributes(["$required"]) }}
         </div>
     </div>
 </div>
