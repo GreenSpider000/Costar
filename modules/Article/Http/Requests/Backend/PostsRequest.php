@@ -32,7 +32,6 @@ class PostsRequest extends FormRequest
             'category_id' => 'required|numeric',
             'created_by_alias' => 'nullable|max:191',
             'featured_image' => 'nullable|max:191',
-            'type' => 'required',
             'is_featured' => 'nullable',
             'order' => 'nullable|numeric',
             'status' => 'required',

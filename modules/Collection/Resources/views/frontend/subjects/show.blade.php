@@ -15,9 +15,9 @@
             <h1 class="sm:text-4xl text-3xl mb-4 font-medium text-gray-800">
                 {{$$module_name_singular->name}}
             </h1>
-            @if($$module_name_singular->intro != "")
+            @if($$module_name_singular->site != "")
             <p class="mb-8 leading-relaxed">
-                {{$$module_name_singular->intro}}
+                {{$$module_name_singular->site}}
             </p>
             @endif
 
@@ -31,7 +31,7 @@
         <div class="flex flex-col lg:flex-grow sm:w-8/12 sm:pr-8">
             <div class="pb-5">
                 <p>
-                    {!!$$module_name_singular->content!!}
+                    {!!$$module_name_singular->intro!!}
                 </p>
             </div>
 
