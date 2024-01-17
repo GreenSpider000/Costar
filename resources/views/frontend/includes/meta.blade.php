@@ -11,7 +11,7 @@ $meta_page_type = 'website';
 
 @case('article')
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="{{$$module_name_singular->published_at}}" />
+<meta property="article:published_time" content="{{$$module_name_singular->created_at}}" />
 <meta property="article:modified_time" content="{{$$module_name_singular->updated_at}}" />
 <meta property="article:author" content="{{isset($$module_name_singular->created_by_alias)? $$module_name_singular->created_by_alias : $$module_name_singular->created_by_name}}" />
 <meta property="article:section" content="{{$$module_name_singular->category_name}}" />
@@ -23,7 +23,7 @@ $meta_page_type = 'website';
 
 @case('collection')
 <meta property="og:type" content="collection" />
-<meta property="collection:published_time" content="{{$$module_name_singular->published_at}}" />
+<meta property="collection:published_time" content="{{$$module_name_singular->created_at}}" />
 <meta property="collection:modified_time" content="{{$$module_name_singular->updated_at}}" />
 <meta property="collection:author" content="{{isset($$module_name_singular->created_by_alias)? $$module_name_singular->created_by_alias : $$module_name_singular->created_by_name}}" />
 <meta property="collection:section" content="{{$$module_name_singular->taxon_name}}" />
@@ -61,5 +61,5 @@ $meta_page_type = 'website';
 <meta name="twitter:image" content="{{ asset(setting('meta_image')) }}">
 
 <!--canonical link-->
-<meta name="generator" content="Laravel Starter - A modular CMS starter  application built with Laravel 10.x." />
+<meta name="generator" content="Laravel Costar" />
 <link rel="canonical" href="{{url()->full()}}">

@@ -30,7 +30,22 @@
     <div class="col-12">
         <div class="form-group">
             <?php
-            $field_name = 'intro';
+            $field_name = 'site';
+            $field_label = __("collection::$module_name.$field_name");
+            $field_placeholder = $field_label;
+            $required = "required";
+            ?>
+            {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
+            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
+        </div>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+        <div class="form-group">
+            <?php
+            $field_name = 'description';
             $field_label = __("collection::$module_name.$field_name");
             $field_placeholder = $field_label;
             $required = "";
@@ -73,32 +88,7 @@
         </div>
     </div>
 </div>
-<div class="row mb-3">
-    <div class="col-6">
-        <div class="form-group">
-            <?php
-            $field_name = 'order';
-            $field_label = __("collection::$module_name.$field_name");
-            $field_placeholder = $field_label;
-            $required = "";
-            ?>
-            {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="form-group">
-            <?php
-            $field_name = 'published_at';
-            $field_label = __("collection::$module_name.$field_name");
-            $field_placeholder = $field_label;
-            $required = "";
-            ?>
-            {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->datetime($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-        </div>
-    </div>
-</div>
+
 <div class="row mb-3">
     <div class="col-6">
         <div class="form-group">
@@ -125,6 +115,7 @@
         </div>
     </div>
 </div>
+
 <div class="row mb-3">
     <div class="col-12 col-sm-6">
         <div class="form-group">
@@ -138,24 +129,10 @@
             {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
         </div>
     </div>
-    <div class="col-12 col-sm-6">
+    <div class="col-6">
         <div class="form-group">
             <?php
-            $field_name = 'meta_og_image';
-            $field_label = __("collection::$module_name.$field_name");
-            $field_placeholder = $field_label;
-            $required = "";
-            ?>
-            {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-        </div>
-    </div>
-</div>
-<div class="row mb-3">
-    <div class="col-12">
-        <div class="form-group">
-            <?php
-            $field_name = 'meta_og_url';
+            $field_name = 'order';
             $field_label = __("collection::$module_name.$field_name");
             $field_placeholder = $field_label;
             $required = "";

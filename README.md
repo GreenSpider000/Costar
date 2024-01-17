@@ -1,8 +1,8 @@
-# CMS-laravel-starter
+# Laravel Costar
 
-A modular CMS starter  application built with Laravel 10.x.
+A website navigation management system developed based on Laravel
 
-`Laravel Starter` is a simple starter CMS based on Laravel 10.x. Most of the commonly needed features of an application like `Authentication`, `Authorisation`, `User` and `Role management`, `Application Backend`, `Backup`, `Log viewer` are available here. It is modular, so you may use this project as a base and build your own modules. A module can be used in any `Laravel Starter` based projects.
+`Laravel Costar` is a simple starter CMS based on Laravel 10.x. Most of the commonly needed features of an application like `Authentication`, `Authorisation`, `User` and `Role management`, `Application Backend`, `Backup`, `Log viewer` are available here. It is modular, so you may use this project as a base and build your own modules. A module can be used in any `Laravel Starter` based projects.
 
 **Screenshots**   
 
@@ -15,11 +15,7 @@ A modular CMS starter  application built with Laravel 10.x.
 ## Core Features
 
 - User Authentication
-<!-- * Social Login
-  * Google
-  * Facebook
-  * Github
-  * Build in a way adding more is much easy now -->
+
 - User Profile with Avatar
   - Separate User Profile table
 - Role-Permissions for Users

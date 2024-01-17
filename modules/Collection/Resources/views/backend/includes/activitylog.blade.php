@@ -29,9 +29,6 @@
                                         <th>
                                             User
                                         </th>
-                                        <th>
-                                            Type
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -86,7 +86,7 @@ class SubjectsController extends Controller
 
         $module_action = 'List';
 
-        $$module_name = $module_model::select('id', 'name', 'taxon_name', 'status', 'updated_at', 'published_at');
+        $$module_name = $module_model::select('id', 'name', 'taxon_name', 'status', 'updated_at');
 
         $data = $$module_name;
 
