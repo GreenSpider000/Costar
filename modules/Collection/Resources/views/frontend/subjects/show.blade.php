@@ -17,7 +17,7 @@
             </h1>
             @if($$module_name_singular->site != "")
             <p class="mb-8 leading-relaxed">
-                {{$$module_name_singular->site}}
+                <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>
             </p>
             @endif
 
