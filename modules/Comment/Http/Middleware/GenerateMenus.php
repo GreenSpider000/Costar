@@ -27,7 +27,7 @@ class GenerateMenus
                 'class' => 'nav-item',
             ])
                 ->data([
-                    'order' => 85,
+                    'order' => 16,
                     'activematches' => ['admin/comments*'],
                     'permission' => ['view_comments'],
                 ])

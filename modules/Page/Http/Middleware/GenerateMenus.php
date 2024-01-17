@@ -29,7 +29,7 @@ class GenerateMenus
                 'class' => 'nav-item',
             ])
             ->data([
-                'order'         => 77,
+                'order'         => 10,
                 'activematches' => ['admin/pages*'],
                 'permission'    => ['view_pages'],
             ])

@@ -18,14 +18,13 @@ class GenerateMenus
             // Collections Dropdown
             $collections_menu = $menu->add('<i class="nav-icon fas fa-tasks"></i> '.__('Collection'), [
                 'class' => 'nav-group',
-            ])
-                ->data([
-                    'order' => 81,
-                    'activematches' => [
-                        'admin/subjects*',
-                    ],
-                    'permission' => ['view_subjects', 'view_taxons'],
-                ]);
+            ])->data([
+                'order' => 13,
+                'activematches' => [
+                    'admin/subjects*',
+                ],
+                'permission' => ['view_subjects', 'view_taxons'],
+            ]);
             $collections_menu->link->attr([
                 'class' => 'nav-link nav-group-toggle',
                 'href' => '#',
@@ -35,15 +34,13 @@ class GenerateMenus
             $collections_menu->add('<i class="nav-icon fas fa-file-alt"></i> '.__('Subjects'), [
                 'route' => 'backend.subjects.index',
                 'class' => 'nav-item',
-            ])
-                ->data([
-                    'order' => 82,
-                    'activematches' => 'admin/subjects*',
-                    'permission' => ['edit_subjects'],
-                ])
-                ->link->attr([
-                    'class' => 'nav-link',
-                ]);
+            ])->data([
+                'order' => 66,
+                'activematches' => 'admin/subjects*',
+                'permission' => ['edit_subjects'],
+            ])->link->attr([
+                'class' => 'nav-link',
+            ]);
         })->sortBy('order');
 
         return $next($request);

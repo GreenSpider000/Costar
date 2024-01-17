@@ -27,7 +27,7 @@ class GenerateMenus
                 'class' => 'nav-item',
             ])
                 ->data([
-                    'order' => 83,
+                    'order' => 14,
                     'activematches' => ['admin/taxons*'],
                     'permission' => ['view_taxons'],
                 ])

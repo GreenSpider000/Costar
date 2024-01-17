@@ -25,12 +25,6 @@ return new class extends Migration
             $table->string('mobile')->nullable();
             $table->string('gender')->nullable();
 
-            $table->string('url_website')->nullable();
-            $table->string('url_facebook')->nullable();
-            $table->string('url_twitter')->nullable();
-            $table->string('url_instagram')->nullable();
-            $table->string('url_linkedin')->nullable();
-
             $table->date('date_of_birth')->nullable();
             $table->text('address')->nullable();
             $table->text('bio')->nullable();

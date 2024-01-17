@@ -42,7 +42,7 @@ $meta_page_type = 'website';
 
 @endswitch
 
-<!-- Facebook Meta -->
+<!-- Meta -->
 <meta property="og:url" content="{{url()->full()}}" />
 <meta property="og:title" content="@yield('title') | {{ config('app.name') }}" />
 <meta property="og:site_name" content="{{setting('meta_site_name')}}" />
@@ -51,14 +51,6 @@ $meta_page_type = 'website';
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
-<!-- Twitter Meta -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="{{ setting('meta_twitter_site') }}">
-<meta name="twitter:url" content="{{url()->full()}}" />
-<meta name="twitter:creator" content="{{ setting('meta_twitter_creator') }}">
-<meta name="twitter:title" content="@yield('title') | {{ config('app.name') }}">
-<meta name="twitter:description" content="{{ setting('meta_description') }}">
-<meta name="twitter:image" content="{{ asset(setting('meta_image')) }}">
 
 <!--canonical link-->
 <meta name="generator" content="Laravel Costar" />

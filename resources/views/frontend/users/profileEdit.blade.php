@@ -75,61 +75,6 @@
                         {{ html()->label($field_label, $field_name)->class('block-inline text-sm font-medium text-gray-700') }} {!! fielf_required($required) !!}
                         {{ html()->text($field_name)->placeholder($field_placeholder)->class('mt-1 border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-300 rounded border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent')->attributes(["$required"]) }}
                     </div>
-
-                    <div class="col-span-6 sm:col-span-3">
-                        <?php
-                        $field_name = 'url_facebook';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('block-inline text-sm font-medium text-gray-700') }} {!! fielf_required($required) !!}
-                        {{ html()->text($field_name)->placeholder($field_placeholder)->class('mt-1 border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-300 rounded border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent')->attributes(["$required"]) }}
-                    </div>
-
-                    <div class="col-span-6 sm:col-span-3">
-                        <?php
-                        $field_name = 'url_twitter';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('block-inline text-sm font-medium text-gray-700') }} {!! fielf_required($required) !!}
-                        {{ html()->text($field_name)->placeholder($field_placeholder)->class('mt-1 border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-300 rounded border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent')->attributes(["$required"]) }}
-                    </div>
-
-                    <div class="col-span-6 sm:col-span-3">
-                        <?php
-                        $field_name = 'url_linkedin';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('block-inline text-sm font-medium text-gray-700') }} {!! fielf_required($required) !!}
-                        {{ html()->text($field_name)->placeholder($field_placeholder)->class('mt-1 border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-300 rounded border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent')->attributes(["$required"]) }}
-                    </div>
-
-                    <div class="col-span-6 sm:col-span-3">
-                        <?php
-                        $field_name = 'url_instagram';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('block-inline text-sm font-medium text-gray-700') }} {!! fielf_required($required) !!}
-                        {{ html()->text($field_name)->placeholder($field_placeholder)->class('mt-1 border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-300 rounded border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent')->attributes(["$required"]) }}
-                    </div>
-                    <div class="col-span-6">
-                        <?php
-                        $field_name = 'bio';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('block-inline text-sm font-medium text-gray-700') }} {!! fielf_required($required) !!}
-                        {{ html()->textarea($field_name)->placeholder($field_placeholder)->class('mt-1 border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-300 rounded border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent')->attributes(["$required", 'rows'=> 5]) }}
-                    </div>
-
                 </div>
                 <div class="grid grid-cols-6 gap-6 mt-4">
 

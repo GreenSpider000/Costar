@@ -18,14 +18,13 @@ class GenerateMenus
             // Articles Dropdown
             $articles_menu = $menu->add('<i class="nav-icon fas fa-tasks"></i> '.__('Article'), [
                 'class' => 'nav-group',
-            ])
-                ->data([
-                    'order' => 81,
-                    'activematches' => [
-                        'admin/posts*',
-                    ],
-                    'permission' => ['view_posts', 'view_categories'],
-                ]);
+            ])->data([
+                'order' => 11,
+                'activematches' => [
+                    'admin/posts*',
+                ],
+                'permission' => ['view_posts', 'view_categories'],
+            ]);
             $articles_menu->link->attr([
                 'class' => 'nav-link nav-group-toggle',
                 'href' => '#',
@@ -35,15 +34,13 @@ class GenerateMenus
             $articles_menu->add('<i class="nav-icon fas fa-file-alt"></i> '.__('Posts'), [
                 'route' => 'backend.posts.index',
                 'class' => 'nav-item',
-            ])
-                ->data([
-                    'order' => 82,
-                    'activematches' => 'admin/posts*',
-                    'permission' => ['edit_posts'],
-                ])
-                ->link->attr([
-                    'class' => 'nav-link',
-                ]);
+            ])->data([
+                'order' => 50,
+                'activematches' => 'admin/posts*',
+                'permission' => ['edit_posts'],
+            ])->link->attr([
+                'class' => 'nav-link',
+            ]);
         })->sortBy('order');
 
         return $next($request);
