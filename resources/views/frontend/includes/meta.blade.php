@@ -61,5 +61,5 @@ $meta_page_type = 'website';
 <meta name="twitter:image" content="{{ asset(setting('meta_image')) }}">
 
 <!--canonical link-->
-<meta name="generator" content="Laravel Starter - A modular CMS starter  application built with Laravel 10.x." />
+<meta name="generator" content="Laravel Costar" />
 <link rel="canonical" href="{{url()->full()}}">

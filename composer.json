@@ -1,6 +1,6 @@
 {
     "name": "kothing/laravel-starter",
-    "description": "A CMS like modular Laravel starter project.",
+    "description": "A website navigation management system developed based on Laravel",
     "keywords": [
         "framework",
         "laravel",
