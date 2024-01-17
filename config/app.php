@@ -222,7 +222,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Menu' => Lavary\Menu\Facade::class,
+        'Menu' => Costar\Menu\Facade::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
