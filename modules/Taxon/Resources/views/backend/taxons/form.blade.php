@@ -37,13 +37,6 @@
     </div>
 </div>
 <div class="row mb-3">
-    <div class="col-8">
-        <div class="form-group">
-            //==
-        </div>
-    </div>
-</div>
-<div class="row mb-3">
     <div class="col-12">
         <div class="form-group">
             <?php
