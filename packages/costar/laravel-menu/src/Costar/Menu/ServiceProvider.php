@@ -19,8 +19,8 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/settings.php', 'laravel-menu.settings');
-        $this->mergeConfigFrom(__DIR__.'/../config/views.php', 'laravel-menu.views');
+        $this->mergeConfigFrom(__DIR__.'/../../config/settings.php', 'laravel-menu.settings');
+        $this->mergeConfigFrom(__DIR__.'/../../config/views.php', 'laravel-menu.views');
 
         $this->app->singleton(Menu::class, function ($app) {
             return new Menu();
@@ -98,8 +98,8 @@ class ServiceProvider extends BaseServiceProvider
 
         $this->publishes([
             __DIR__.'/resources/views' => base_path('resources/views/vendor/laravel-menu'),
-            __DIR__.'/../config/settings.php' => config_path('laravel-menu/settings.php'),
-            __DIR__.'/../config/views.php' => config_path('laravel-menu/views.php'),
+            __DIR__.'/../../config/settings.php' => config_path('laravel-menu/settings.php'),
+            __DIR__.'/../../config/views.php' => config_path('laravel-menu/views.php'),
         ]);
     }
 
