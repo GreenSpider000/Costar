@@ -88,43 +88,6 @@ class Subject extends BaseModel
     }
 
     /**
-     * Set the published at
-     * If no value submitted use the 'Title'.
-     *
-     * @param [type]
-     */
-    public function setPublishedAtAttribute($value)
-    {
-        $this->attributes['published_at'] = $value;
-
-        if (empty($value) && $this->attributes['status'] === 1) {
-            $this->attributes['published_at'] = Carbon::now();
-        }
-    }
-
-    /**
-     * Get the list of Published Collections.
-     *
-     * @param [type] $query [description]
-     * @return [type] [description]
-     */
-    public function scopePublished($query)
-    {
-        return $query->where('status', '=', '1')
-            ->where('published_at', '<=', Carbon::now());
-    }
-
-    public function scopePublishedAndScheduled($query)
-    {
-        return $query->where('status', '=', '1');
-    }
-
-    public function scopeFeatured($query)
-    {
-        return $query->where('status', '=', '1')->where('published_at', '<=', Carbon::now());
-    }
-
-    /**
      * Get the list of Recently Published Collections.
      *
      * @param [type] $query [description]
@@ -133,8 +96,8 @@ class Subject extends BaseModel
     public function scopeRecentlyPublished($query)
     {
         return $query->where('status', '=', '1')
-            ->whereDate('published_at', '<=', Carbon::today()->toDateString())
-            ->orderBy('published_at', 'desc');
+            ->whereDate('created_at', '<=', Carbon::today()->toDateString())
+            ->orderBy('created_at', 'desc');
     }
 
     /**
