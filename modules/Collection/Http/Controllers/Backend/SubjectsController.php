@@ -15,7 +15,7 @@ use Modules\Collection\Events\SubjectUpdated;
 use Modules\Collection\Http\Requests\Backend\SubjectsRequest;
 use Modules\Taxon\Models\Taxon;
 use Spatie\Activitylog\Models\Activity;
-use Yajra\DataTables\DataTables;
+use Costar\DataTables\DataTables;
 
 class SubjectsController extends Controller
 {

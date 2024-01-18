@@ -1,0 +1,71 @@
+{
+    "name": "costar/laravel-datatables-oracle",
+    "description": "jQuery DataTables API for Laravel 4|5|6|7|8|9|10",
+    "keywords": [
+        "laravel",
+        "dataTables",
+        "jquery"
+    ],
+    "license": "MIT",
+    "authors": [],
+    "require": {
+        "php": "^8.0.2",
+        "illuminate/database": "^9|^10",
+        "illuminate/filesystem": "^9|^10",
+        "illuminate/http": "^9|^10",
+        "illuminate/support": "^9|^10",
+        "illuminate/view": "^9|^10"
+    },
+    "require-dev": {
+        "algolia/algoliasearch-client-php": "^3.4",
+        "laravel/scout": "^10.5",
+        "meilisearch/meilisearch-php": "^1.4",
+        "larastan/larastan": "^2.4",
+        "orchestra/testbench": "^8",
+        "costar/laravel-datatables-html": "^9.3.4|^10"
+    },
+    "suggest": {
+        "costar/laravel-datatables-export": "Plugin for server-side exporting using livewire and queue worker.",
+        "costar/laravel-datatables-buttons": "Plugin for server-side exporting of dataTables.",
+        "costar/laravel-datatables-html": "Plugin for server-side HTML builder of dataTables.",
+        "costar/laravel-datatables-fractal": "Plugin for server-side response using Fractal.",
+        "costar/laravel-datatables-editor": "Plugin to use DataTables Editor (requires a license)."
+    },
+    "autoload": {
+        "psr-4": {
+            "Costar\\DataTables\\": "src/"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Costar\\DataTables\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "10.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Costar\\DataTables\\DataTablesServiceProvider"
+            ],
+            "aliases": {
+                "DataTables": "Costar\\DataTables\\Facades\\DataTables"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

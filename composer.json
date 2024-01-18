@@ -29,12 +29,12 @@
         "spatie/laravel-html": "^3.2",
         "spatie/laravel-medialibrary": "^10.7",
         "spatie/laravel-permission": "^5.9",
-        "yajra/laravel-datatables-oracle": "^10.3",
         "costar/laravel-installer": "*@dev",
         "costar/laravel-modules": "*@dev",
         "costar/laravel-module-manager": "*@dev",
         "costar/laravel-filemanager": "*@dev",
         "costar/laravel-menu": "*@dev",
+        "costar/laravel-datatables-oracle": "*@dev",
         "costar/hashids": "*@dev"
     },
     "require-dev": {
