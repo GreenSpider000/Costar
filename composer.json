@@ -15,7 +15,6 @@
     "type": "project",
     "require": {
         "php": "^8.1",
-        "arcanedev/log-viewer": "^10.0",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/slack-notification-channel": "^2.5",
@@ -34,8 +33,10 @@
         "costar/laravel-filemanager": "*@dev",
         "costar/laravel-menu": "*@dev",
         "costar/laravel-datatables-oracle": "*@dev",
+        "costar/log-viewer": "*@dev",
         "costar/flash": "*@dev",
-        "costar/hashids": "*@dev"
+        "costar/hashids": "*@dev",
+        "costar/support": "*@dev"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
@@ -94,6 +95,10 @@
             "type": "path",
             "url": "./packages/costar/laravel-filemanager"
         },
+        "costar/log-viewer": {
+            "type": "path",
+            "url": "./packages/costar/log-viewer"
+        },
         "costar/flash": {
             "type": "path",
             "url": "./packages/costar/flash"
@@ -101,6 +106,10 @@
         "costar/hashids": {
             "type": "path",
             "url": "./packages/costar/hashids"
+        },
+        "costar/support": {
+            "type": "path",
+            "url": "./packages/costar/support"
         }
     },
     "scripts": {
