@@ -16,7 +16,6 @@
     "require": {
         "php": "^8.1",
         "arcanedev/log-viewer": "^10.0",
-        "laracasts/flash": "^3.2",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/slack-notification-channel": "^2.5",
@@ -35,6 +34,7 @@
         "costar/laravel-filemanager": "*@dev",
         "costar/laravel-menu": "*@dev",
         "costar/laravel-datatables-oracle": "*@dev",
+        "costar/flash": "*@dev",
         "costar/hashids": "*@dev"
     },
     "require-dev": {
@@ -89,6 +89,10 @@
         "costar/laravel-menu": {
             "type": "path",
             "url": "./packages/costar/laravel-menu"
+        },
+        "costar/flash": {
+            "type": "path",
+            "url": "./packages/costar/flash"
         },
         "costar/hashids": {
             "type": "path",

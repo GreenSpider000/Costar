@@ -20,7 +20,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use Laracasts\Flash\Flash;
+use Costar\Flash\Flash;
 use Costar\DataTables\DataTables;
 
 class UserController extends Controller
