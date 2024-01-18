@@ -185,7 +185,7 @@ if (! function_exists('humanFilesize')) {
 
 /*
  *
- * Encode Id to a Hashids\Hashids
+ * Encode Id to a Costar\Hashids
  *
  * ------------------------------------------------------------------------
  */
@@ -195,7 +195,7 @@ if (! function_exists('encode_id')) {
      */
     function encode_id($id)
     {
-        $hashids = new Hashids\Hashids(config('app.salt'), 3, 'abcdefghijklmnopqrstuvwxyz1234567890');
+        $hashids = new Costar\Hashids(config('app.salt'), 3, 'abcdefghijklmnopqrstuvwxyz1234567890');
 
         return $hashids->encode($id);
     }
@@ -203,7 +203,7 @@ if (! function_exists('encode_id')) {
 
 /*
  *
- * Decode Id to a Hashids\Hashids
+ * Decode Id to a Costar\Hashids
  *
  * ------------------------------------------------------------------------
  */
@@ -213,7 +213,7 @@ if (! function_exists('decode_id')) {
      */
     function decode_id($hashid)
     {
-        $hashids = new Hashids\Hashids(config('app.salt'), 3, 'abcdefghijklmnopqrstuvwxyz1234567890');
+        $hashids = new Costar\Hashids(config('app.salt'), 3, 'abcdefghijklmnopqrstuvwxyz1234567890');
         $id = $hashids->decode($hashid);
 
         if (count($id)) {
@@ -291,7 +291,7 @@ if (! function_exists('logUserAccess')) {
 
 /*
  *
- * Decode Id to a Hashids\Hashids
+ * Decode Id to a Costar\Hashids
  *
  * ------------------------------------------------------------------------
  */
