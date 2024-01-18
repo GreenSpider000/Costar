@@ -1,7 +1,7 @@
 <?php
 
-use Nwidart\Modules\Activators\FileActivator;
-use Nwidart\Modules\Commands;
+use Costar\Modules\Activators\FileActivator;
+use Costar\Modules\Commands;
 
 return [
 

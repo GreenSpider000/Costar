@@ -82,13 +82,17 @@
             "type": "path",
             "url": "./packages/costar/laravel-module-manager"
         },
-        "costar/laravel-filemanager": {
-            "type": "path",
-            "url": "./packages/costar/laravel-filemanager"
-        },
         "costar/laravel-menu": {
             "type": "path",
             "url": "./packages/costar/laravel-menu"
+        },
+        "costar/laravel-datatables-oracle": {
+            "type": "path",
+            "url": "./packages/costar/laravel-datatables-oracle"
+        },
+        "costar/laravel-filemanager": {
+            "type": "path",
+            "url": "./packages/costar/laravel-filemanager"
         },
         "costar/flash": {
             "type": "path",
