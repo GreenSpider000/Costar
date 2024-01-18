@@ -27,7 +27,7 @@ class LaravelModuleManagerServiceProvider extends ServiceProvider
             ], 'laravel-module-manager');
 
             $this->publishes([
-                __DIR__.'/stubs' => base_path('stubs/laravel-starter-stubs'),
+                __DIR__.'/stubs' => base_path('stubs/costar-stubs'),
             ], 'laravel-module-manager');
 
             // Publishing the views.

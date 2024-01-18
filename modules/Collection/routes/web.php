@@ -19,7 +19,7 @@ Route::group(['namespace' => '\Modules\Collection\Http\Controllers\Frontend', 'a
     $module_name = 'subjects';
     $controller_name = 'SubjectsController';
     Route::get("{$module_name}", ['as' => "{$module_name}.index", 'uses' => "{$controller_name}@index"]);
-    Route::get("{$module_name}/{id}/{slug?}", ['as' => "{$module_name}.show", 'uses' => "{$controller_name}@show"]);
+    Route::get("{$module_name}/{id}-{slug?}", ['as' => "{$module_name}.show", 'uses' => "{$controller_name}@show"]);
 
     // /*
     //  *
@@ -30,7 +30,7 @@ Route::group(['namespace' => '\Modules\Collection\Http\Controllers\Frontend', 'a
     // $module_name = 'taxons';
     // $controller_name = 'TaxonsController';
     // Route::get("$module_name", ['as' => "$module_name.index", 'uses' => "$controller_name@index"]);
-    // Route::get("$module_name/{id}/{slug?}", ['as' => "$module_name.show", 'uses' => "$controller_name@show"]);
+    // Route::get("$module_name/{id}-{slug?}", ['as' => "$module_name.show", 'uses' => "$controller_name@show"]);
 });
 
 /*
