@@ -22,7 +22,7 @@ class GenerateMenus
          */
         \Menu::make('admin_sidebar', function ($menu) {
             // Taxons
-            $menu->add('<i class="nav-icon fa-solid fa-sitemap"></i> '.__('Taxons'), [
+            $menu->add('<i class="nav-icon fa fa-fw fa-cubes"></i> '.__('Taxons'), [
                 'route' => 'backend.taxons.index',
                 'class' => 'nav-item',
             ])

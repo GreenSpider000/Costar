@@ -16,7 +16,7 @@ class GenerateMenus
     {
         \Menu::make('admin_sidebar', function ($menu) {
             // Collections Dropdown
-            $collections_menu = $menu->add('<i class="nav-icon fas fa-tasks"></i> '.__('Collection'), [
+            $collections_menu = $menu->add('<i class="nav-icon fa fa-fw fa-map-signs"></i> '.__('Collection'), [
                 'class' => 'nav-group',
             ])->data([
                 'order' => 13,
