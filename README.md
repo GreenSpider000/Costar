@@ -2,7 +2,7 @@
 
 A website navigation management system developed based on Laravel
 
-`Laravel Costar` is a simple starter CMS based on Laravel 10.x. Most of the commonly needed features of an application like `Authentication`, `Authorisation`, `User` and `Role management`, `Application Backend`, `Backup`, `Log viewer` are available here. It is modular, so you may use this project as a base and build your own modules. A module can be used in any `Laravel Starter` based projects.
+`Laravel Costar` is a simple starter CMS based on Laravel 10.x. Most of the commonly needed features of an application like `Authentication`, `Authorisation`, `User` and `Role management`, `Application Backend`, `Backup`, `Log viewer` are available here. It is modular, so you may use this project as a base and build your own modules. A module can be used in any `Laravel Costar` based projects.
 
 **Screenshots**   
 
@@ -86,7 +86,7 @@ This `laravel-cms-stater` allows users who don't use Composer, SSH etc to instal
 
 ## Classic Installation
 
-Follow the steps mentioned below to install and run the project. You may find more details about the installation in [Installation Wiki](https://github.com/kothing/laravel-cms-starter/wiki/installation).
+Follow the steps mentioned below to install and run the project. You may find more details about the installation in [Installation Wiki](https://github.com/kothing/laravel-costar/wiki/installation).
 
 1. Clone or download the repository
 2. Go to the project directory and run `composer install`
@@ -145,14 +145,14 @@ You can find it in `database/seeders/Auth/UserTableSeeder.php`
 
 ## Role - Permissions
 
-Several custom commands are available to add and update `role-permissions`. Please read the [Role - Permission Wiki page](https://github.com/kothing/laravel-cms-starter/wiki/role-permission), where you will find the list of commands with examples.
+Several custom commands are available to add and update `role-permissions`. Please read the [Role - Permission Wiki page](https://github.com/kothing/laravel-costar/wiki/role-permission), where you will find the list of commands with examples.
 
 # Demo Data
 
 If you want to test the application on your local machine with additional demo data you may use the following command.
 
 ```php
-php artisan starter:insert-demo-data --fresh
+php artisan costar:insert-demo-data --fresh
 ```
 
 There are options to truncate the `posts, categories, tags, and comments` tables and insert new demo data.
@@ -161,7 +161,7 @@ There are options to truncate the `posts, categories, tags, and comments` tables
 
 ```php
 
-php artisan starter:insert-demo-data --fresh
+php artisan costar:insert-demo-data --fresh
 
 ```
 

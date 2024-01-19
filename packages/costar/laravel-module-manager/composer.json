@@ -1,9 +1,9 @@
 {
     "name": "costar/laravel-module-manager",
-    "description": "Module Manager & Generator for Laravel Starter Kit",
+    "description": "Module Manager & Generator for Laravel Costar",
     "keywords": [
         "module-manager",
-        "laravel-starter",
+        "laravel-costar",
         "module-generator"
     ],
     "license": "MIT",

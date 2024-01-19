@@ -35,7 +35,7 @@
             charge you for the app or its services without making it very
             clear to you exactly what you’re paying for.
         </p> <p>
-            The Laravel Starter app stores and processes personal data that
+            The Laravel Costar app stores and processes personal data that
             you have provided to us, in order to provide my
             Service. It’s your responsibility to keep your phone and
             access to the app secure. We therefore recommend that you do
@@ -44,7 +44,7 @@
             official operating system of your device. It could make your
             phone vulnerable to malware/viruses/malicious programs,
             compromise your phone’s security features and it could mean
-            that the Laravel Starter app won’t work properly or at all.
+            that the Laravel Costar app won’t work properly or at all.
         </p>
         false
         <!----> <p>

@@ -1,7 +1,7 @@
 {
     "name": "Comment",
     "alias": "comment",
-    "description": "Comment module for Laravel Starter. It can be used with any other Models. One to many polymorphic relation.",
+    "description": "Comment module for Laravel Costar. It can be used with any other Models. One to many polymorphic relation.",
     "keywords": ["comments", "comment"],
     "order": 0,
     "providers": [

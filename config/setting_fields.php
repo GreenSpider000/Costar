@@ -5,7 +5,6 @@ return [
         'title' => 'General',
         'desc' => 'All the general settings for application.',
         'icon' => 'fas fa-cube',
-
         'elements' => [
             [
                 'type' => 'text', // input fields type
@@ -14,7 +13,7 @@ return [
                 'label' => 'App Name', // you know what label it is
                 'rules' => 'required|min:2|max:50', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'Laravel CMS Starter', // default value if you want
+                'value' => 'Laravel Costar', // default value if you want
             ],
             [
                 'type' => 'text', // input fields type
@@ -40,7 +39,6 @@ return [
         'title' => 'Meta ',
         'desc' => 'Application Meta Data',
         'icon' => 'fa-solid fa-earth-asia',
-
         'elements' => [
             [
                 'type' => 'text', // input fields type
@@ -49,7 +47,7 @@ return [
                 'label' => 'Meta Site Name', // you know what label it is
                 'rules' => '', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'Awesome Laravel | A Laravel Starter Project', // default value if you want
+                'value' => 'Laravel Costar', // default value if you want
             ],
             [
                 'type' => 'text', // input fields type
@@ -67,7 +65,7 @@ return [
                 'label' => 'Meta Keyword', // you know what label it is
                 'rules' => '', // validation rule of laravel
                 'class' => '', // any class for input
-                'value' => 'Web Application, web app, Laravel, Laravel starter, Bootstrap, Admin, Template, Open Source', // default value if you want
+                'value' => 'Web Application, web app, Laravel, Laravel Costar, Bootstrap, Admin, Template, Open Source', // default value if you want
             ],
             [
                 'type' => 'text', // input fields type

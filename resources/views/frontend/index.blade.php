@@ -44,7 +44,7 @@
                 Screenshots of the project
             </h1>
             <p class="mb-8 leading-relaxed">
-                In the following section we listed a number of screenshots of different parts of the project, Laravel Starter.
+                In the following section we listed a number of screenshots of different parts of the project, Laravel Costar.
             </p>
         </div>
     </div>

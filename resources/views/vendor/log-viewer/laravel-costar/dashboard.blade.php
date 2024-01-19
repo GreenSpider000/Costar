@@ -80,7 +80,7 @@ $module_icon = "fa-solid fa-list-check";
 @endsection
 
 @push('after-styles')
-@include('log-viewer::laravel-starter.partials.style')
+@include('log-viewer::laravel-costar.partials.style')
 @endpush
 
 @push('after-scripts')
