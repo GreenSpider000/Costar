@@ -28,14 +28,10 @@
 
 <section class="py-6 sm:py-10 px-6 sm:px-20">
     <div class="container mx-auto flex md:flex-row flex-col">
-        <div class="flex flex-col lg:flex-grow sm:w-8/12 sm:pr-8">
-            <div class="pb-5">
-                <p>
-                    {!!$$module_name_singular->description!!}
-                </p>
+        <div class="w-full flex flex-col">
+            <div class="py-5 border-b">
+                {!!$$module_name_singular->description!!}
             </div>
-
-            <hr>
 
             <div class="py-5 border-b">
                 <div class="flex flex-col sm:flex-row justify-between">
@@ -53,12 +49,6 @@
                     @lang('Taxon'):
                 </span>
                 <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
-            </div>
-        </div>
-
-        <div class="flex flex-col sm:w-4/12">
-            <div class="py-5 sm:pt-0">
-                <livewire:recent-subjects />
             </div>
         </div>
     </div>

@@ -28,8 +28,9 @@
         $details_url = route("frontend.$module_name.show",[encode_id($$module_name_singular->id), $$module_name_singular->slug]);
         @endphp
         <x-frontend.card :url="$details_url" :name="$$module_name_singular->name">
+            <!--
             <div class="flex flex-row items-center my-4">
-                <img class="w-5 h-5 sm:w-8 sm:h-8 rounded-full" src="{{asset('img/avatars/'.rand(1, 8).'.jpg')}}" alt="">
+                <img class="w-5 h-5 sm:w-8 sm:h-8 rounded-full" src="{{asset('img/avatars/'.rand(1, 8).'.jpg')}}" alt="avatar">
 
                 <a href="{{ route('frontend.users.profile', $$module_name_singular->created_by) }}">
                     <h6 class="text-muted text-sm small ml-2 mb-0">
@@ -37,12 +38,15 @@
                     </h6>
                 </a>
             </div>
-
+            -->
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{$$module_name_singular->description}}
+                {{ __("Site") }}: <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>
+            </p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {{ __("Description") }}: {{$$module_name_singular->description}}
             </p>
             <p>
-                <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
+                {{ __("Taxon") }}: <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
             </p>
         </x-frontend.card>
         @endforeach
