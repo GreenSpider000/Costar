@@ -36,24 +36,6 @@ return [
             ],
         ],
     ],
-    'email' => [
-        'title' => 'Email',
-        'desc' => 'Email settings for app',
-        'icon' => 'fas fa-envelope',
-
-        'elements' => [
-            [
-                'type' => 'email', // input fields type
-                'data' => 'string', // data type, string, int, boolean
-                'name' => 'email', // unique name for field
-                'label' => 'Email', // you know what label it is
-                'rules' => '', // validation rule of laravel
-                'class' => '', // any class for input
-                'value' => '', // default value if you want
-            ],
-        ],
-
-    ],
     'meta' => [
         'title' => 'Meta ',
         'desc' => 'Application Meta Data',
@@ -98,11 +80,26 @@ return [
             ],
         ],
     ],
+    'email' => [
+        'title' => 'Email',
+        'desc' => 'Email settings for app',
+        'icon' => 'fas fa-envelope',
+        'elements' => [
+            [
+                'type' => 'email', // input fields type
+                'data' => 'string', // data type, string, int, boolean
+                'name' => 'email', // unique name for field
+                'label' => 'Email', // you know what label it is
+                'rules' => '', // validation rule of laravel
+                'class' => '', // any class for input
+                'value' => '', // default value if you want
+            ],
+        ],
+    ],
     'analytics' => [
         'title' => 'Analytics',
         'desc' => 'Application Analytics',
         'icon' => 'fas fa-chart-line',
-
         'elements' => [
             [
                 'type' => 'text', // input fields type
@@ -115,13 +112,11 @@ return [
                 'help' => 'Paste the only the Measurement Id of Google Analytics stream.', // Help text for the input field.
             ],
         ],
-
     ],
     'custom_css' => [
         'title' => 'Custom Code',
         'desc' => 'Custom code area',
         'icon' => 'fa-solid fa-file-code',
-
         'elements' => [
             [
                 'type' => 'textarea', // input fields type
@@ -135,13 +130,11 @@ return [
                 'display' => 'raw', // Help text for the input field.
             ],
         ],
-
     ],
     'social' => [
         'title' => 'Social Profiles',
         'desc' => 'Link of all the online/social profiles.',
         'icon' => 'fas fa-users',
-
         'elements' => [
             [
                 'type' => 'text', // input fields type
