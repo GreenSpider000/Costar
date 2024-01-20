@@ -15,10 +15,14 @@
             <h1 class="text-3xl sm:text-4xl mb-4 font-medium text-gray-800">
                 {{$$module_name_singular->name}}
             </h1>
+            <p class="flex-1 h-full mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <a href="{{$subject->site}}" target="_blank">
+                    {{$subject->site}}
+                </a>
+            </p>
             <p class="mb-8 leading-relaxed">
                 {{$$module_name_singular->description}}
             </p>
-
             @include('frontend.includes.messages')
         </div>
     </div>

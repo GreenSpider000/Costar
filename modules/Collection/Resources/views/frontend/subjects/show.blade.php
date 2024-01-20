@@ -12,9 +12,11 @@
                     {{ __($module_title) }}
                 </a>
             </p>
+
             <h1 class="sm:text-4xl text-3xl mb-4 font-medium text-gray-800">
                 {{$$module_name_singular->name}}
             </h1>
+
             @if($$module_name_singular->site != "")
             <p class="mb-8 leading-relaxed">
                 <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>

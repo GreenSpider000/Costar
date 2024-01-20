@@ -10,11 +10,7 @@
             <h1 class="text-3xl sm:text-4xl mb-4 font-medium text-gray-800">
                 {{ __("Articles") }}
             </h1>
-            <p class="mb-8 leading-relaxed">
-                We publish articles on a number of topics.
-                <br>
-                We encourage you to read our posts and let us know your feedback. It would be really help us to move forward.
-            </p>
+            <p class="mb-8 leading-relaxed"></p>
 
             @include('frontend.includes.messages')
         </div>
