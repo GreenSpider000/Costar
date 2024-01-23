@@ -17,13 +17,73 @@
     </div>
 </section>
 
+
+@php
+
+    $taxon_group_data = array();
+    $fields = array('id', 'name', 'slug', 'site', 'taxon_id', 'taxon_name', 'description', 'meta_title', 'meta_keywords', 'meta_description', 'hits', 'order', 'status', 'created_at', 'updated_at');
+    foreach($$module_name as $$module_name_singular) {
+        $taxon_key = $$module_name_singular->taxon->name;
+        $taxon_data= $$module_name_singular->taxon;
+        $subject_fields = array();
+        foreach($fields as $field) {
+            $subject_fields[$field] = $$module_name_singular->$field;
+        }
+        if(!array_key_exists($taxon_key, $taxon_group_data)) {
+            $taxon_group_data[$taxon_key] = array();
+            $taxon_group_data[$taxon_key]['taxon'] = $taxon_data;
+            $taxon_group_data[$taxon_key]['subject'] = array();
+            array_push($taxon_group_data[$taxon_key]['subject'], $subject_fields);
+        } else {
+            $taxon_group_data[$taxon_key]['taxon'] = $taxon_data;
+            array_push($taxon_group_data[$taxon_key]['subject'], $subject_fields);
+        }
+    }
+    
+    // print_r(json_encode($taxon_group_data));
+
+@endphp
+
+<section>
+    @foreach ($taxon_group_data as $group_key => $group_data)
+    
+        @php
+        $taxon_url = route('frontend.taxons.show', [encode_id($group_data['taxon']->id), $group_data['taxon']->slug]);
+        @endphp
+        
+        <dl>
+            <dt><a href="{{$taxon_url}}" ttarget="_blank">{{$group_data['taxon']->name}}</a></dt>
+            <dd>
+                <ul>
+                    @foreach ($group_data['subject'] as $index => $data)
+                        @php
+                        $detail_url = route("frontend.$module_name.show",[encode_id($data['id']), $data['slug']]);
+                        @endphp
+                        <li>
+                            <p>
+                                <div>{{$data['name']}}</div>
+                                <div><a href="{{$data['site']}}">{{$data['site']}}</a></div>
+                                <div><a href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div>
+                            </p>
+                        </li>
+                    @endforeach
+                </ul>
+            </dd>
+        </dl>
+    @endforeach
+</section>
+
+
 <section class="bg-white text-gray-600 p-6 sm:p-20">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         @foreach ($$module_name as $$module_name_singular)
+        
         @php
-        $details_url = route("frontend.$module_name.show",[encode_id($$module_name_singular->id), $$module_name_singular->slug]);
+        $detail_url = route("frontend.$module_name.show",[encode_id($$module_name_singular->id), $$module_name_singular->slug]);
+        $taxon_url = route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug]);
         @endphp
-        <x-frontend.card :url="$details_url" :name="$$module_name_singular->name">
+        
+        <x-frontend.card :url="$detail_url" :name="$$module_name_singular->name">
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 {{ __("Site") }}: <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>
             </p>
@@ -31,7 +91,7 @@
                 {{ __("Description") }}: {{$$module_name_singular->description}}
             </p>
             <p>
-                {{ __("Taxon") }}: <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
+                {{ __("Taxon") }}: <x-frontend.badge :url="$taxon_url" :text="$$module_name_singular->taxon_name" />
             </p>
         </x-frontend.card>
         @endforeach
