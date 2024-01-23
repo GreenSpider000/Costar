@@ -22,6 +22,7 @@
 
     $taxon_group_data = array();
     $fields = array('id', 'name', 'slug', 'site', 'taxon_id', 'taxon_name', 'description', 'meta_title', 'meta_keywords', 'meta_description', 'hits', 'order', 'status', 'created_at', 'updated_at');
+
     foreach($$module_name as $$module_name_singular) {
         $taxon_key = $$module_name_singular->taxon->name;
         $taxon_data= $$module_name_singular->taxon;
@@ -44,36 +45,34 @@
 
 @endphp
 
-<section>
+<section class="bg-white text-gray-600 p-6 sm:p-20">
     @foreach ($taxon_group_data as $group_key => $group_data)
-    
         @php
         $taxon_url = route('frontend.taxons.show', [encode_id($group_data['taxon']->id), $group_data['taxon']->slug]);
         @endphp
-        
-        <dl>
-            <dt><a href="{{$taxon_url}}" ttarget="_blank">{{$group_data['taxon']->name}}</a></dt>
-            <dd>
-                <ul>
-                    @foreach ($group_data['subject'] as $index => $data)
-                        @php
-                        $detail_url = route("frontend.$module_name.show",[encode_id($data['id']), $data['slug']]);
-                        @endphp
-                        <li>
-                            <p>
-                                <div>{{$data['name']}}</div>
-                                <div><a href="{{$data['site']}}">{{$data['site']}}</a></div>
-                                <div><a href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div>
-                            </p>
-                        </li>
-                    @endforeach
-                </ul>
+        <dl class="mb-5">
+            <dt class="mb-3">
+                <a href="{{$taxon_url}}" ttarget="_blank">{{$group_data['taxon']->name}}</a>
+            </dt>
+            <dd class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                @foreach ($group_data['subject'] as $index => $data)
+                    @php
+                    $detail_url = route("frontend.$module_name.show",[encode_id($data['id']), $data['slug']]);
+                    @endphp
+                    <div class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <p>{{$data['name']}}</p>
+                        <p><a href="{{$data['site']}}">{{$data['site']}}</a></p>
+                        <p><a href="{{$data['site']}}">{{$data['description']}}</a></p>
+                        <div class="text-end"><a class="inline-flex items-center text-sm outline outline-1 outline-gray-800 text-gray-700 hover:text-gray-100 bg-gray-200 hover:bg-gray-700 py-2 px-3 focus:outline-none rounded" href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div>
+                    </div>
+                @endforeach
             </dd>
         </dl>
     @endforeach
 </section>
 
 
+<!--
 <section class="bg-white text-gray-600 p-6 sm:p-20">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         @foreach ($$module_name as $$module_name_singular)
@@ -97,7 +96,6 @@
         @endforeach
     </div>
     <div class="d-flex justify-content-center w-100 mt-4">
-        {{$$module_name->links()}}
         @foreach ($$module_name->links() as $index => $link)
             <span>
                 <a href="{{$link->url}}">{{$link->label}}</a>
@@ -105,4 +103,6 @@
         @endforeach
     </div>
 </section>
+-->
+
 @endsection
