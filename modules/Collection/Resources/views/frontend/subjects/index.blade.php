@@ -61,8 +61,8 @@
                     @endphp
                     <div class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <p>{{$data['name']}}</p>
-                        <p><a href="{{$data['site']}}">{{$data['site']}}</a></p>
-                        <p><a href="{{$data['site']}}">{{$data['description']}}</a></p>
+                        <p><a href="{{$data['site'].'?from=costar'}}" target="_blank">{{$data['site']}}</a></p>
+                        <p>{{$data['description']}}</p>
                         <div class="text-end"><a class="inline-flex items-center text-sm outline outline-1 outline-gray-800 text-gray-700 hover:text-gray-100 bg-gray-200 hover:bg-gray-700 py-2 px-3 focus:outline-none rounded" href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div>
                     </div>
                 @endforeach
