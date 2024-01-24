@@ -96,11 +96,7 @@
         @endforeach
     </div>
     <div class="d-flex justify-content-center w-100 mt-4">
-        @foreach ($$module_name->links() as $index => $link)
-            <span>
-                <a href="{{$link->url}}">{{$link->label}}</a>
-            </span>
-        @endforeach
+        {{$$module_name->links()}}
     </div>
 </section>
 -->
