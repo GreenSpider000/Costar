@@ -27,7 +27,7 @@ return [
 
     'stubs' => [
         'enabled' => true,
-        'path' => base_path('packages/nwidart/laravel-modules/src/Commands/stubs'),
+        'path' => base_path('packages/costar/laravel-modules/src/Commands/stubs'),
         // 'path' => base_path('stubs/module-stubs'),
         'files' => [
             'routes/web' => 'routes/web.php',
@@ -37,7 +37,7 @@ return [
             'scaffold/config' => 'Config/config.php',
             'composer' => 'composer.json',
             'assets/js/app' => 'Resources/assets/js/app.js',
-            'assets/sass/app' => 'Resources/assets/sass/app.scss',
+            'assets/css/app' => 'Resources/assets/css/app.scss',
             // 'webpack' => 'webpack.mix.js',
             'package' => 'package.json',
         ],
