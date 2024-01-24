@@ -16,11 +16,14 @@ a {
   text-decoration: none !important;
 }
 
+// collapse.show
 .collapse.show {
   visibility: visible;
 }
 
-// sidebar-nav scrollbar
+/**
+ * Sidebar
+ */
 .sidebar-nav::-webkit-scrollbar {
   width: 8px;
 }
@@ -39,6 +42,16 @@ a {
 
 .sidebar-nav .nav-group-items .nav-link .nav-icon:before {
   font-size: 80%;
+}
+
+/**
+ * wrapper
+ */
+.wrapper {
+  width: 100%;
+  @include ltr-rtl("padding-left", var(--cui-sidebar-occupy-start, 0));
+  will-change: auto;
+  @include transition(padding .15s);
 }
 
 // select2
