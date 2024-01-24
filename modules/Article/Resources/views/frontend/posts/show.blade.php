@@ -92,5 +92,5 @@
 @endpush
 
 @push ("after-scripts")
-<script type="module" src="https://unpkg.com/sharer.js@0.5.1/sharer.min.js"></script>
+<script type="module" src="{{ asset('vendor/sharer/sharer@0.5.1.min.js') }}"></script>
 @endpush
