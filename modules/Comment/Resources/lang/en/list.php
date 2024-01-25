@@ -2,9 +2,11 @@
 
 return [
 
+    'id' => 'ID',
     'name' => 'Name',
-    'slug' => 'Slug',
+    'category' => 'Category',
     'status' => 'Status',
+    'updated_at' => 'Updated At',
     'action' => 'Action',
 
 ];

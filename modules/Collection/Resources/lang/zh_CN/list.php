@@ -2,8 +2,9 @@
 
 return [
 
+    'id' => 'ID',
     'name' => 'Name',
-    'slug' => 'Slug',
+    'category' => 'Category',
     'status' => 'Status',
     'action' => 'Action',
 
