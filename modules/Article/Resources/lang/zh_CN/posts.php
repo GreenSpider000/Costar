@@ -2,23 +2,23 @@
 
 return [
 
-    'name' => 'Name',
+    'name' => '名称',
     'slug' => 'Slug',
-    'created_by_alias' => 'Author Name Alias',
-    'intro' => 'Intro',
-    'content' => 'Content',
+    'created_by_alias' => '作者别名',
+    'intro' => '概述',
+    'content' => '内容',
     'featured_image' => 'Featured Image',
-    'category_id' => 'Category',
-    'type' => 'Type',
+    'category_id' => '类目',
+    'type' => '类型',
     'is_featured' => 'Is Featured',
-    'tags' => 'Tags',
-    'status' => 'Status',
-    'published_at' => 'Published At',
+    'tags' => '标签',
+    'status' => '状态',
+    'published_at' => '发布于',
     'meta_title' => 'Meta Title',
     'meta_keywords' => 'Meta Keywords',
     'meta_description' => 'Meta Description',
     'meta_og_image' => 'Meta Open Graph Image',
     'meta_og_url' => 'Meta Open Graph URL',
-    'order' => 'Order',
+    'order' => '排序',
 
 ];
