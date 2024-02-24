@@ -133,9 +133,9 @@ class SubjectsController extends Controller
 
         $term = trim($request->q);
 
-        if (empty($term)) {
-            return response()->json([]);
-        }
+        // if (empty($term)) {
+        //     return response()->json([]);
+        // }
 
         $query_data = $module_model::where('name', 'LIKE', "%{$term}%")->published()->limit(10)->get();
 
@@ -195,6 +195,7 @@ class SubjectsController extends Controller
         $module_action = 'Store';
 
         $data = $request->except('');
+        $data['slug'] = slugify($data['slug']);
         $data['created_by_name'] = auth()->user()->name;
 
         $$module_name_singular = $module_model::create($data);
@@ -289,6 +290,8 @@ class SubjectsController extends Controller
         $module_action = 'Update';
 
         $$module_name_singular = $module_model::findOrFail($id);
+
+        $request['slug'] = slugify($request->input('slug'));
 
         $$module_name_singular->update($request->except(''));
 

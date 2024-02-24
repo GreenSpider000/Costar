@@ -87,9 +87,9 @@ class BackendBaseController extends Controller
 
         $term = trim($request->q);
 
-        if (empty($term)) {
-            return response()->json([]);
-        }
+        // if (empty($term)) {
+        //     return response()->json([]);
+        // }
 
         $query_data = $module_model::where('name', 'LIKE', "%{$term}%")->orWhere('slug', 'LIKE', "%{$term}%")->limit(7)->get();
 
@@ -194,6 +194,10 @@ class BackendBaseController extends Controller
 
         $module_action = 'Store';
 
+        if ($request->input('slug')) {
+            $request['slug'] = slugify($request->input('slug'));
+        } 
+
         $$module_name_singular = $module_model::create($request->all());
 
         flash(icon()."New '".Str::singular($module_title)."' Added")->success()->important();
@@ -281,6 +285,10 @@ class BackendBaseController extends Controller
         $module_action = 'Update';
 
         $$module_name_singular = $module_model::findOrFail($id);
+
+        if ($request->input('slug')) {
+            $request['slug'] = slugify($request->input('slug'));
+        }
 
         $$module_name_singular->update($request->all());
 

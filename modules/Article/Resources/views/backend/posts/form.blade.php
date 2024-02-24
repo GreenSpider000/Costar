@@ -143,7 +143,8 @@
             $required = "";
             ?>
             {{ html()->label($field_label, $field_name) }} {!! fielf_required($required) !!}
-            {{ html()->datetime($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
+            <!--{{ html()->datetime($field_name)->placeholder($field_placeholder)->class('form-control datetimepicker')->attributes(["$required"]) }}-->
+            {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
         </div>
     </div>
 </div>
@@ -161,7 +162,7 @@
             <div class="input-group">
                 {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required", 'aria-label'=>'Image', 'aria-describedby'=>'button-image']) }}
                 <div class="input-group-append">
-                    <button class="btn btn-info" type="button" id="button-image" data-input="{{$field_name}}"><i class="fas fa-folder-open"></i> @lang('Browse')</button>
+                    <button class="btn btn-info border-radius-l-0" type="button" id="button-image" data-input="{{$field_name}}"><i class="fas fa-folder-open"></i> @lang('Browse')</button>
                 </div>
             </div>
         </div>
@@ -307,7 +308,7 @@
         $('.select2-tags').select2({
             // theme: "bootstrap4",
             placeholder: '@lang("Select an option")',
-            minimumInputLength: 2,
+            minimumInputLength: 0,
             allowClear: true,
             ajax: {
                 url: '{{route("backend.tags.index_list")}}',
@@ -325,6 +326,27 @@
                 cache: true
             }
         });
+    });
+</script>
+@endpush
+
+<!-- Datetime-picker CSS -->
+@push('after-styles')
+<link href="{{ asset('vendor/datetime-picker/datetime-picker.css') }}" rel="stylesheet">
+@endpush
+
+<!-- Datetime-picker JS -->
+@push('after-scripts')
+<script src="{{ asset('vendor/moment/moment.min.js') }}"></script>
+<script src="{{ asset('vendor/datetime-picker/datetime-picker.js') }}"></script>
+<script type="module">
+    new DateTimePicker("published_at", {
+        singleDatePicker: true,
+        timePicker: true,
+        timePicker24Hour: true,
+        locale: {
+            format: "YYYY-MM-DD HH:mm:ss",
+        },
     });
 </script>
 @endpush

@@ -396,3 +396,30 @@ if (! function_exists('demo_mode')) {
         return $return_string;
     }
 }
+
+/*
+ * Simplest Slugify for PHP to convert string into a slug
+ */
+if (! function_exists('slugify')) {
+    /**
+     * Generate Slug from string
+     *
+     * @param string|null $string
+     * @return string
+     */
+    function slugify(string $string = null)
+    {
+        if (is_null($string))  {
+            return '';
+        }
+        $rulelist = config('slugify');
+        $string = mb_strtolower($string, "UTF-8");
+        if (preg_match('/^[\x{4e00}-\x{9fa5}]+$/u', $string)) {
+            $string = implode("-", preg_split('/(?<!^)(?!$)/u', $string));
+        }
+        $string = str_replace(array_keys($rulelist), array_values($rulelist), $string);
+        $string = trim(trim($string), '-');
+
+        return preg_replace('/-+/', '-', $string);
+    }
+}
