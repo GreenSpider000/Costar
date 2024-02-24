@@ -30,7 +30,6 @@
         "costar/laravel-installer": "*@dev",
         "costar/laravel-modules": "*@dev",
         "costar/laravel-module-manager": "*@dev",
-        "costar/laravel-filemanager": "*@dev",
         "costar/laravel-menu": "*@dev",
         "costar/laravel-datatables-oracle": "*@dev",
         "costar/log-viewer": "*@dev",
@@ -90,10 +89,6 @@
         "costar/laravel-datatables-oracle": {
             "type": "path",
             "url": "./packages/costar/laravel-datatables-oracle"
-        },
-        "costar/laravel-filemanager": {
-            "type": "path",
-            "url": "./packages/costar/laravel-filemanager"
         },
         "costar/log-viewer": {
             "type": "path",
