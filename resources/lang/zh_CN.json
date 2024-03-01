@@ -37,6 +37,8 @@
     "Trash": "回收站",
     "Download": "下载",
 
+    "View trash": "查看回收站",
+
     "Activity Log": "Activity Log",
     "Log": "Log",
     "Current": "当前",
@@ -121,5 +123,9 @@
 
     "Draft": "回收站",
     "Published": "已发布",
-    "Unpublished": "未发布"
+    "Unpublished": "未发布",
+
+    "Showing": "展示",
+    "Previous": "Previous",
+    "Next": "Next"
 }
