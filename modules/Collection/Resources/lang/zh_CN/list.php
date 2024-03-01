@@ -3,9 +3,9 @@
 return [
 
     'id' => 'ID',
-    'name' => 'Name',
-    'category' => 'Category',
-    'status' => 'Status',
-    'action' => 'Action',
+    'name' => '名称',
+    'category' => '类目',
+    'status' => '状态',
+    'action' => '操作',
 
 ];

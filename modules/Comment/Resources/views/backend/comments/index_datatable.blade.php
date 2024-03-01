@@ -49,16 +49,16 @@
                     <thead>
                         <tr>
                             <th>
-                                @lang("article::list.id")
+                                @lang("comment::list.id")
                             </th>
                             <th>
-                                @lang("article::list.name")
+                                @lang("comment::list.name")
                             </th>
                             <th>
-                                @lang("article::list.updated_at")
+                                @lang("comment::list.updated_at")
                             </th>
                             <th class="text-end">
-                                @lang("article::list.action")
+                                @lang("comment::list.action")
                             </th>
                         </tr>
                     </thead>
