@@ -14,34 +14,34 @@ class GenerateMenus
      */
     public function handle($request, Closure $next)
     {
-        \Menu::make('admin_sidebar', function ($menu) {
-            // Articles Dropdown
-            $articles_menu = $menu->add('<i class="nav-icon fas fa-tasks"></i> '.__('Article'), [
-                'class' => 'nav-group',
-            ])->data([
-                'order' => 11,
-                'activematches' => [
-                    'admin/posts*',
-                ],
-                'permission' => ['view_posts', 'view_categories'],
-            ]);
-            $articles_menu->link->attr([
-                'class' => 'nav-link nav-group-toggle',
-                'href' => '#',
-            ]);
+        // \Menu::make('admin_sidebar', function ($menu) {
+        //     // Articles Dropdown
+        //     $articles_menu = $menu->add('<i class="nav-icon fas fa-tasks"></i> '.__('Article'), [
+        //         'class' => 'nav-group',
+        //     ])->data([
+        //         'order' => 11,
+        //         'activematches' => [
+        //             'admin/posts*',
+        //         ],
+        //         'permission' => ['view_posts', 'view_categories'],
+        //     ]);
+        //     $articles_menu->link->attr([
+        //         'class' => 'nav-link nav-group-toggle',
+        //         'href' => '#',
+        //     ]);
 
-            // Submenu: Posts
-            $articles_menu->add('<i class="nav-icon fas fa-file-alt"></i> '.__('Posts'), [
-                'route' => 'backend.posts.index',
-                'class' => 'nav-item',
-            ])->data([
-                'order' => 50,
-                'activematches' => 'admin/posts*',
-                'permission' => ['edit_posts'],
-            ])->link->attr([
-                'class' => 'nav-link',
-            ]);
-        })->sortBy('order');
+        //     // Submenu: Posts
+        //     $articles_menu->add('<i class="nav-icon fas fa-file-alt"></i> '.__('Posts'), [
+        //         'route' => 'backend.posts.index',
+        //         'class' => 'nav-item',
+        //     ])->data([
+        //         'order' => 50,
+        //         'activematches' => 'admin/posts*',
+        //         'permission' => ['edit_posts'],
+        //     ])->link->attr([
+        //         'class' => 'nav-link',
+        //     ]);
+        // })->sortBy('order');
 
         return $next($request);
     }

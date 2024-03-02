@@ -156,7 +156,7 @@ if (isset($$module_name_singular)){
 <link href="{{ asset('vendor/select2/select2-coreui-bootstrap4.min.css') }}" rel="stylesheet" />
 
 <!-- Date Time Picker -->
-<link rel="stylesheet" href="{{ asset('vendor/bootstrap-4-datetime-picker/datetime-picker.css') }}" />
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-4-datetime-picker/datetime-picker.min.css') }}" />
 
 @endpush
 

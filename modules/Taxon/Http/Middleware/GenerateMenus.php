@@ -20,21 +20,19 @@ class GenerateMenus
          *
          * *********************************************************************
          */
-        \Menu::make('admin_sidebar', function ($menu) {
-            // Taxons
-            $menu->add('<i class="nav-icon fa fa-fw fa-cubes"></i> '.__('Taxons'), [
-                'route' => 'backend.taxons.index',
-                'class' => 'nav-item',
-            ])
-                ->data([
-                    'order' => 14,
-                    'activematches' => ['admin/taxons*'],
-                    'permission' => ['view_taxons'],
-                ])
-                ->link->attr([
-                    'class' => 'nav-link',
-                ]);
-        })->sortBy('order');
+        // \Menu::make('admin_sidebar', function ($menu) {
+        //     // Taxons
+        //     $menu->add('<i class="nav-icon fa fa-fw fa-cubes"></i> '.__('Taxons'), [
+        //         'route' => 'backend.taxons.index',
+        //         'class' => 'nav-item',
+        //     ])->data([
+        //         'order' => 14,
+        //         'activematches' => ['admin/taxons*'],
+        //         'permission' => ['view_taxons'],
+        //     ])->link->attr([
+        //         'class' => 'nav-link',
+        //     ]);
+        // })->sortBy('order');
 
         return $next($request);
     }
