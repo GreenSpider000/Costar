@@ -1,10 +1,4 @@
 {
-    "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
-    "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
-    "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
-    "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
-    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute.",
-
     "Welcome to": "欢迎来到 :name 管理面板",
     "Dashboard": "控制面板",
     "Admin Dashboard": "管理面板",
@@ -20,7 +14,7 @@
     "Show": "显示",
     "Edit": "编辑",
     "Action": "操作",
-    "Back": "Back",
+    "Back": "返回",
     "Return back": "返回",
     "Save": "保存",
     "Cancel": "取消",
@@ -39,8 +33,8 @@
 
     "View trash": "查看回收站",
 
-    "Activity Log": "Activity Log",
-    "Log": "Log",
+    "Activity Log": "操作日志",
+    "Log": "日志",
     "Current": "当前",
     "Old": "Old",
     "At": "At",
@@ -49,8 +43,9 @@
     "User": "用户",
     "Change Password": "更改密码",
 
+    "Access Control": "访问控制",
     "Roles": "角色",
-
+    "Users": "用户",
     "Permissions": "权限",
     "All Permissions": "所有权限",
 
@@ -66,10 +61,10 @@
     "Register": "注册",
     "Create an account": "创建账号",
     "Logout": "登出",
-    "All values of :module_name (Id: :id)": "All values of <b>:module_name (Id: :id)</b>.",
+    "All values of :module_name (Id: :id)": "所有<b>:module_name (Id: :id)</b>的值",
     "Are you sure?": "确定？",
     "Send confirmation email": "发送确认邮件",
-    ":module_name Management Dashboard": ":module_name Management Dashboard",
+    ":module_name Management Dashboard": ":module_name 管理面板",
     "Create new :module_name": "创建新的 :module_name",
     "Backup": "备份",
     "Backups": "备份",
@@ -89,46 +84,56 @@
     "Browse": "浏览",
     "Management": "管理",
 
-    "Log Viewer": "Log Viewer",
-    "Log Viewer Module": "Log Viewer Module",
-    "Logs by Date": "Logs by Date",
-    "Log Viewer Dashboard": "Log Viewer Dashboard",
-    "Delete Log File": "Delete Log File",
-    "Details": "Details",
-    "Levels": "Levels",
-    "Log Info": "Log Info",
+    "Log Viewer": "日志查看器",
+    "Log Viewer Module": "日志查看器模块",
+    "Logs by Date": "日志（按日期）",
+    "Log Viewer Dashboard": "日志查看器面板",
+    "Delete Log File": "删除日志文件",
+    "Details": "详情",
+    "Levels": "层级",
+    "Log Info": "日志信息",
 
-    "Select an option": "-- Select an option --",
+    "Select an option": "-- 选项 --",
 
     "URL": "URL",
-    "Username": "Username",
-    "Visit": "Visit",
-    "Active": "Active",
-    "Email Confirmed": "Email Confirmed",
-    "Email Credentials": "Send account credentials to the user",
+    "Username": "用户名",
+    "Visit": "访问",
+    "Active": "活动",
+    "Email Confirmed": "邮箱确认",
+    "Email Credentials": "向用户发送帐户凭据",
 
     "Edit Profile": "编辑档案",
 
     "Open main menu": "打开主菜单",
+
     "Home": "首页",
     "Pages": "页面",
     "Article": "文章",
     "Posts": "日志",
-    "Categories": "日志类目",
+    "Categories": "类目",
     "Tags": "标签",
     "Comments": "评论",
-
     "Collection": "收藏夹",
     "Subjects": "网址",
-    "Taxons": "网址类目",
+    "Taxons": "类目",
 
     "Draft": "回收站",
     "Published": "已发布",
     "Unpublished": "未发布",
 
     "Showing": "展示",
-    "Previous": "Previous",
-    "Next": "Next",
+    "Previous": "前一页",
+    "Next": "下一页",
 
-    "View details": "查看详情"
+    "View details": "查看详情",
+
+    "Recent Pages": "最新页面",
+    "Recent Posts": "最新日志",
+    "Recent Subjects": "最新收藏",
+
+    "The :attribute must contain at least one letter.": ":attribute 必须至少包含一个字母",
+    "The :attribute must contain at least one number.": ":attribute 必须至少包含一个数字",
+    "The :attribute must contain at least one symbol.": ":attribute 必须至少包含一个symbol符号",
+    "The :attribute must contain at least one uppercase and one lowercase letter.": ":attribute 必须至少包含一个大写字母和一个小写字母",
+    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute. 给定的 :attribute 出现在数据泄漏中。请选择其他 :attribute"
 }

@@ -1,10 +1,4 @@
 {
-    "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
-    "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
-    "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
-    "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
-    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute.",
-
     "Welcome to": "Welcome to :name Admin Dashboard.",
     "Dashboard": "Dashboard",
     "Admin Dashboard": "Admin Dashboard",
@@ -45,12 +39,13 @@
     "Old": "Old",
     "At": "At",
     "Type": "Type",
-
+    
     "User": "User",
     "Change Password": "Change Password",
 
+    "Access Control": "Access Control",
     "Roles": "Roles",
-
+    "Users": "Users",
     "Permissions": "Permissions",
     "All Permissions": "All Permissions",
 
@@ -130,5 +125,16 @@
     "Previous": "Previous",
     "Next": "Next",
 
-    "View details": "View details"
+    "View details": "View details",
+
+    "Recent Pages": "Recent Pages",
+    "Recent Posts": "Recent Posts",
+    "Recent Subjects": "Recent Subjects",
+
+
+    "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
+    "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
+    "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",
+    "The :attribute must contain at least one uppercase and one lowercase letter.": "The :attribute must contain at least one uppercase and one lowercase letter.",
+    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "The given :attribute has appeared in a data leak. Please choose a different :attribute."
 }
