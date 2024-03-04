@@ -7,6 +7,13 @@
     "Email": "Email",
     "Password": "Password",
     "Password Confirmation": "Password Confirmation",
+    "User": "User",
+    "Log in": "Log in",
+    "Change Password": "Change Password",
+    "Remember me": "Remember me",
+    "Forgot your password?": "Forgot your password?",
+    "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.",
+    "Email Password Reset Link": "Email Password Reset Link",
 
     "Value": "Value",
     "Index": "Index",
@@ -30,9 +37,8 @@
     "Deleted at": "Deleted at",
     "Deleted List": "Deleted List",
     "Trash": "Trash",
+    "View trash": "View trash",
     "Download": "Download",
-
-    "View trash": "查看回收站",
 
     "Activity Log": "Activity Log",
     "Log": "Log",
@@ -40,9 +46,6 @@
     "Old": "Old",
     "At": "At",
     "Type": "Type",
-    
-    "User": "User",
-    "Change Password": "Change Password",
 
     "Access Control": "Access Control",
     "Roles": "Roles",
@@ -84,7 +87,6 @@
     "Total": "Total",
     "Browse": "Browse",
     "Management": "Management",
-
     "Log Viewer": "Log Viewer",
     "Log Viewer Module": "Log Viewer Module",
     "Logs by Date": "Logs by Date",
@@ -93,7 +95,6 @@
     "Details": "Details",
     "Levels": "Levels",
     "Log Info": "Log Info",
-
     "Select an option": "-- Select an option --",
 
     "URL": "URL",
@@ -102,7 +103,6 @@
     "Active": "Active",
     "Email Confirmed": "Email Confirmed",
     "Email Credentials": "Send account credentials to the user",
-
     "Edit Profile": "Edit Profile",
 
     "Open main menu": "Open main menu",
@@ -121,11 +121,9 @@
     "Draft": "Draft",
     "Published": "Published",
     "Unpublished": "Unpublished",
-
     "Showing": "展示",
     "Previous": "Previous",
     "Next": "Next",
-
     "View details": "View details",
 
     "Recent Pages": "Recent Pages",
@@ -135,7 +133,8 @@
     "Recent Subjects": "Recent Subjects",
     "Recently published subjects": "Recently published subjects",
 
-
+    "Language changed to": "Language changed to",
+    
     "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
     "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
     "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",

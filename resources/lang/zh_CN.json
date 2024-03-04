@@ -7,6 +7,13 @@
     "Email": "邮箱",
     "Password": "密码",
     "Password Confirmation": "密码确认",
+    "User": "用户",
+    "Log in": "登录",
+    "Change Password": "更改密码",
+    "Remember me": "记住账号密码",
+    "Forgot your password?": "忘记密码？",
+    "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "忘记密码了吗？填写您的电子邮件地址，会发送一个密码重置链接到您的邮箱",
+    "Email Password Reset Link": "获取密码重置链接",
 
     "Value": "值",
     "Index": "索引",
@@ -30,9 +37,8 @@
     "Deleted at": "删除于",
     "Deleted List": "已删除列表",
     "Trash": "回收站",
-    "Download": "下载",
-
     "View trash": "查看回收站",
+    "Download": "下载",
 
     "Activity Log": "操作日志",
     "Log": "日志",
@@ -40,9 +46,6 @@
     "Old": "Old",
     "At": "At",
     "Type": "Type",
-
-    "User": "用户",
-    "Change Password": "更改密码",
 
     "Access Control": "访问控制",
     "Roles": "角色",
@@ -84,7 +87,6 @@
     "Total": "共",
     "Browse": "浏览",
     "Management": "管理",
-
     "Log Viewer": "日志查看器",
     "Log Viewer Module": "日志查看器模块",
     "Logs by Date": "日志（按日期）",
@@ -93,16 +95,13 @@
     "Details": "详情",
     "Levels": "层级",
     "Log Info": "日志信息",
-
     "Select an option": "-- 选项 --",
-
     "URL": "URL",
     "Username": "用户名",
     "Visit": "访问",
     "Active": "活动",
     "Email Confirmed": "邮箱确认",
     "Email Credentials": "向用户发送帐户凭据",
-
     "Edit Profile": "编辑档案",
 
     "Open main menu": "打开主菜单",
@@ -117,17 +116,13 @@
     "Collection": "收藏夹",
     "Subjects": "网址",
     "Taxons": "网址类目",
-
     "Draft": "回收站",
     "Published": "已发布",
     "Unpublished": "未发布",
-
     "Showing": "展示",
     "Previous": "前一页",
     "Next": "下一页",
-
     "View details": "查看详情",
-    
 
     "Recent Pages": "最新页面",
     "Recently published pages": "最新发布的页面",
@@ -135,6 +130,8 @@
     "Recently published posts": "最新发布的日志",
     "Recent Subjects": "最新收藏",
     "Recently published Subjects": "最新发布的网址",
+
+    "Language changed to": "语言已切换为",
 
     "The :attribute must contain at least one letter.": ":attribute 必须至少包含一个字母",
     "The :attribute must contain at least one number.": ":attribute 必须至少包含一个数字",
