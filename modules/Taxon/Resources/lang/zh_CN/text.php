@@ -2,14 +2,8 @@
 
 return [
 
-    'name' => 'Name',
-    'slug' => 'Slug',
-    'description' => 'Description',
-    'status' => 'Status',
-    'created_by' => 'Created By',
-    'updated_at' => 'Updated At',
-    'updated_by' => 'Updated By',
-    'deleted_by' => 'Deleted By',
-    'action' => 'Action',
+    'name' => '名称',
+    'updated_at' => '更新于',
+    'action' => '操作',
 
 ];
