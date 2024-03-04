@@ -45,19 +45,19 @@
             <div class="py-5 border-b">
                 <div class="flex flex-col sm:flex-row justify-between">
                     <div class="pb-2">
-                        {{__('Written by')}}: {{isset($$module_name_singular->created_by_alias)? $$module_name_singular->created_by_alias : $$module_name_singular->created_by_name}}
+                        @lang('Written by'): {{isset($$module_name_singular->created_by_alias)? $$module_name_singular->created_by_alias : $$module_name_singular->created_by_name}}
                     </div>
                     <div class="pb-2">
-                        {{__('Created at')}}: {{$$module_name_singular->created_at->isoFormat('llll')}}
+                        @lang('Created at'): {{$$module_name_singular->created_at->isoFormat('llll')}}
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-row items-center py-5 border-b">
                 <span class="font-weight-bold">
-                        @lang('Category'):
-                    </span>
-                    <x-frontend.badge :url="route('frontend.categories.show', [encode_id($$module_name_singular->category_id), $$module_name_singular->category->slug])" :text="$$module_name_singular->category_name" />
+                    @lang('Categories'):
+                </span>
+                <x-frontend.badge :url="route('frontend.categories.show', [encode_id($$module_name_singular->category_id), $$module_name_singular->category->slug])" :text="$$module_name_singular->category_name" />
             </div>
 
             @if (count($$module_name_singular->tags))

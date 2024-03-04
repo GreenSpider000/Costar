@@ -21,6 +21,7 @@
     "Create": "创建",
     "Created": "已创建",
     "Created at": "创建于",
+    "Written by": "创建人",
     "Update": "更新",
     "Updated": "已更新",
     "Updated at": "更新于",
@@ -110,12 +111,12 @@
     "Pages": "页面",
     "Article": "文章",
     "Posts": "日志",
-    "Categories": "类目",
+    "Categories": "日志类目",
     "Tags": "标签",
     "Comments": "评论",
     "Collection": "收藏夹",
     "Subjects": "网址",
-    "Taxons": "类目",
+    "Taxons": "网址类目",
 
     "Draft": "回收站",
     "Published": "已发布",
@@ -126,10 +127,14 @@
     "Next": "下一页",
 
     "View details": "查看详情",
+    
 
     "Recent Pages": "最新页面",
+    "Recently published pages": "最新发布的页面",
     "Recent Posts": "最新日志",
+    "Recently published posts": "最新发布的日志",
     "Recent Subjects": "最新收藏",
+    "Recently published Subjects": "最新发布的网址",
 
     "The :attribute must contain at least one letter.": ":attribute 必须至少包含一个字母",
     "The :attribute must contain at least one number.": ":attribute 必须至少包含一个数字",

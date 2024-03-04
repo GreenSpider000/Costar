@@ -38,17 +38,17 @@
             <div class="py-5 border-b">
                 <div class="flex flex-col sm:flex-row justify-between">
                     <div class="pb-2">
-                        {{__('Written by')}}: {{$$module_name_singular->created_by_name}}
+                        @lang('Written by'): {{$$module_name_singular->created_by_name}}
                     </div>
                     <div class="pb-2">
-                        {{__('Created at')}}: {{$$module_name_singular->created_at->isoFormat('llll')}}
+                        @lang('Created at'): {{$$module_name_singular->created_at->isoFormat('llll')}}
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-row items-center py-5 border-b">
                 <span class="font-weight-bold">
-                    @lang('Taxon'):
+                    @lang('Taxons'):
                 </span>
                 <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
             </div>

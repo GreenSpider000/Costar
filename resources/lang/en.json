@@ -21,6 +21,7 @@
     "Create": "Create",
     "Created": "Created",
     "Created at": "Created at",
+    "Written by": "Written by",
     "Update": "Update",
     "Updated": "Updated",
     "Updated at": "Updated at",
@@ -128,8 +129,11 @@
     "View details": "View details",
 
     "Recent Pages": "Recent Pages",
+    "Recently published pages": "Recently published pages",
     "Recent Posts": "Recent Posts",
+    "Recently published posts": "Recently published posts",
     "Recent Subjects": "Recent Subjects",
+    "Recently published subjects": "Recently published subjects",
 
 
     "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
