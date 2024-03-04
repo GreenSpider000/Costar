@@ -33,19 +33,19 @@
         <hr>
 
         <div class="row mt-4">
-            <div class="col-12 col-sm-6">
+            <div class="col-12">
 
                 @include('backend.includes.show')
 
             </div>
-            <div class="col-12 col-sm-6">
+            <div class="col-12">
 
                 <div class="text-center">
                     <a href="{{route("frontend.$module_name.show", [encode_id($$module_name_singular->id), $$module_name_singular->slug])}}" class="btn btn-success" target="_blank"><i class="fas fa-link"></i> Public View</a>
                 </div>
                 <hr>
 
-                <h4>Category</h4>
+                <h4>@lang('Categories')</h4>
                 <ul>
                     <li>
                         <a href="{{route('backend.categories.show', $$module_name_singular->category_id)}}">{{$$module_name_singular->category_name}}</a>
@@ -83,8 +83,8 @@
         <div class="row">
             <div class="col">
                 <small class="float-end text-muted">
-                    Updated: {{$$module_name_singular->updated_at->diffForHumans()}},
-                    Created at: {{$$module_name_singular->created_at->isoFormat('LLLL')}}
+                    @lang('Updated'): {{$$module_name_singular->updated_at->diffForHumans()}},
+                    @lang('Created at'): {{$$module_name_singular->created_at->isoFormat('LLLL')}}
                 </small>
             </div>
         </div>
