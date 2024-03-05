@@ -3,6 +3,12 @@
     "Dashboard": "控制面板",
     "Admin Dashboard": "管理面板",
 
+    "General": "基本设置",
+    "Meta": "Meta设置",
+    "Analytics": "分析设置",
+    "Custom Code": "自定义代码",
+    "Social Profiles": "社交档案",
+
     "Name": "名字",
     "Email": "邮箱",
     "Password": "密码",

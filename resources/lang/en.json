@@ -3,6 +3,12 @@
     "Dashboard": "Dashboard",
     "Admin Dashboard": "Admin Dashboard",
 
+    "General": "General",
+    "Meta": "Meta",
+    "Analytics": "Analytics",
+    "Custom Code": "Custom Code",
+    "Social Profiles": "Social Profiles",
+
     "Name": "Name",
     "Email": "Email",
     "Password": "Password",
