@@ -151,7 +151,7 @@
                         <?php
                         $field_name = 'gender';
                         $field_label = label_case($field_name);
-                        $field_placeholder = "-- Select an option --";
+                        $field_placeholder = __("Select an option");
                         $required = "";
                         $select_options = [
                             'Female' => 'Female',
