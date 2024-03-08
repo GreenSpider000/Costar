@@ -16,8 +16,8 @@
                 {{$$module_name_singular->name}}
             </h1>
             <p class="flex-1 h-full mb-3 font-normal text-gray-700 dark:text-gray-400">
-                <a href="{{$subject->site}}" target="_blank">
-                    {{$subject->site}}
+                <a href="{{$$module_name_singular->site}}" target="_blank">
+                    {{$$module_name_singular->site}}
                 </a>
             </p>
             <p class="mb-8 leading-relaxed">
