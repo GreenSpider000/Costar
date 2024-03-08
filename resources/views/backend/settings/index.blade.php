@@ -39,7 +39,7 @@
                             {{ __($fields['title']) }}
                         </div>
                         <div class="card-body">
-                            <p class="text-muted">{{ __$fields['desc']) }}</p>
+                            <p class="text-muted">{{ __($fields['desc']) }}</p>
 
                             <div class="row mb-3">
                                 <div class="col">
