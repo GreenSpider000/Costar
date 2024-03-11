@@ -32,15 +32,13 @@
 </section>
 
 <section class="py-6 sm:py-10 px-6 sm:px-20">
-    <div class="container mx-auto flex md:flex-row flex-col">
-        <div class="flex flex-col lg:flex-grow sm:w-8/12 sm:pr-8">
-            <div class="pb-5">
+    <div class="container mx-auto">
+        <div class="w-full flex flex-col">
+            <div class="pb-5 border-b">
                 <p>
                     {!!$$module_name_singular->content!!}
                 </p>
             </div>
-
-            <hr>
 
             <div class="py-5 border-b">
                 <div class="flex flex-col sm:flex-row justify-between">
@@ -74,12 +72,6 @@
 
             <div class="py-5">
                 @include('article::frontend.posts.blocks.comments')
-            </div>
-        </div>
-
-        <div class="flex flex-col sm:w-4/12">
-            <div class="py-5 sm:pt-0">
-                <livewire:recent-posts />
             </div>
         </div>
     </div>

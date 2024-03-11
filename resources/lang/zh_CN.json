@@ -74,7 +74,7 @@
     "At": "At",
     "Type": "Type",
 
-    "Access Control": "访问控制",
+    "Access Control": "角色权限",
     "Roles": "角色",
     "Users": "用户",
     "Permissions": "权限",
