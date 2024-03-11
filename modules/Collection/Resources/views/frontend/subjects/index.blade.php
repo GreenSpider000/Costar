@@ -63,42 +63,12 @@
                         <p>{{$data['name']}}</p>
                         <p><a href="{{$data['site'].'?from=costar'}}" target="_blank">{{$data['site']}}</a></p>
                         <p>{{$data['description']}}</p>
-                        <div class="text-end"><a class="inline-flex items-center text-sm outline outline-1 outline-gray-800 text-gray-700 hover:text-gray-100 bg-gray-200 hover:bg-gray-700 py-2 px-3 focus:outline-none rounded" href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div>
+                        <div class="text-end"><a class="inline-flex items-center text-sm text-gray-700 hover:text-gray-100 bg-gray-200 hover:bg-gray-700 py-2 px-3 rounded" href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div>
                     </div>
                 @endforeach
             </dd>
         </dl>
     @endforeach
 </section>
-
-
-<!--
-<section class="bg-white text-gray-600 p-6 sm:p-20">
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        @foreach ($$module_name as $$module_name_singular)
-        
-        @php
-        $detail_url = route("frontend.$module_name.show",[encode_id($$module_name_singular->id), $$module_name_singular->slug]);
-        $taxon_url = route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug]);
-        @endphp
-        
-        <x-frontend.card :url="$detail_url" :name="$$module_name_singular->name">
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{ __("Site") }}: <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>
-            </p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {{ __("Description") }}: {{$$module_name_singular->description}}
-            </p>
-            <p>
-                {{ __("Taxon") }}: <x-frontend.badge :url="$taxon_url" :text="$$module_name_singular->taxon_name" />
-            </p>
-        </x-frontend.card>
-        @endforeach
-    </div>
-    <div class="d-flex justify-content-center w-100 mt-4">
-        {{$$module_name->links()}}
-    </div>
-</section>
--->
 
 @endsection
