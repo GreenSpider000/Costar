@@ -535,3 +535,8 @@ a {
 .flex-0-0-100 {
     flex: 0 0 100px;
 }
+
+.frontend-main-menu .active {
+    --tw-border-opacity: 1;
+    border-color: rgb(234 88 12 / var(--tw-border-opacity));
+}
