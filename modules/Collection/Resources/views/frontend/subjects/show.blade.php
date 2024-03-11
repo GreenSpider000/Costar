@@ -17,12 +17,6 @@
                 {{$$module_name_singular->name}}
             </h1>
 
-            @if($$module_name_singular->site != "")
-            <p class="mb-8 leading-relaxed">
-                <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>
-            </p>
-            @endif
-
             @include('frontend.includes.messages')
         </div>
     </div>
@@ -30,27 +24,22 @@
 
 <section class="py-6 sm:py-10 px-6 sm:px-20">
     <div class="container mx-auto flex md:flex-row flex-col">
-        <div class="w-full flex flex-col">
-            <div class="py-5 border-b">
-                {!!$$module_name_singular->description!!}
+        <div class="w-full flex flex-row">
+            <div class="flex flex-col flex-0-0-100">
+                <img class="w-20 h-20 rounded-full" src="{{asset('images/avatars/'.rand(1, 8).'.jpg')}}" alt="image" />
             </div>
-
-            <div class="py-5 border-b">
-                <div class="flex flex-col sm:flex-row justify-between">
-                    <div class="pb-2">
-                        @lang('Written by'): {{$$module_name_singular->created_by_name}}
-                    </div>
-                    <div class="pb-2">
-                        @lang('Created at'): {{$$module_name_singular->created_at->isoFormat('llll')}}
-                    </div>
+            <div class="flex flex-col flex-1">
+                @if($$module_name_singular->site != "")
+                <div class="mb-2 leading-relaxed">
+                    <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>
                 </div>
-            </div>
-
-            <div class="flex flex-row items-center py-5 border-b">
-                <span class="font-weight-bold">
-                    @lang('Taxons'):
-                </span>
-                <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
+                @endif
+                <div class="mb-2">
+                    {!!$$module_name_singular->description!!}
+                </div>
+                <div class="mb-2">
+                    <x-frontend.badge :url="route('frontend.taxons.show', [encode_id($$module_name_singular->taxon_id), $$module_name_singular->taxon->slug])" :text="$$module_name_singular->taxon_name" />
+                </div>
             </div>
         </div>
     </div>

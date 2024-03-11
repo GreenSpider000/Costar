@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title') {{ __("Subjects") }} @endsection
+@section('title') {{ __($module_title) }} @endsection
 
 @section('content')
 
@@ -8,9 +8,11 @@
     <div class="container mx-auto flex px-5 items-center justify-center flex-col">
         <div class="text-center lg:w-2/3 w-full">
             <h1 class="text-3xl sm:text-4xl mb-4 font-medium text-gray-800">
-                {{ __("Collection") }}
+                {{ __($module_title) }}
             </h1>
-            <p class="mb-8 leading-relaxed"></p>
+            <p class="mb-8 leading-relaxed">
+                The list of {{ __($module_name) }}.
+            </p>
 
             @include('frontend.includes.messages')
         </div>
@@ -54,14 +56,14 @@
             <dt class="mb-3">
                 <a href="{{$taxon_url}}" ttarget="_blank">{{$group_data['taxon']->name}}</a>
             </dt>
-            <dd class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <dd class="grid grid-cols-1 sm:grid-cols-4 gap-6">
                 @foreach ($group_data['subject'] as $index => $data)
                     @php
                     $detail_url = route("frontend.$module_name.show",[encode_id($data['id']), $data['slug']]);
                     @endphp
                     <div class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
-                        <p>{{$data['name']}}</p>
-                        <p><a href="{{$data['site'].'?from=costar'}}" target="_blank">{{$data['site']}}</a></p>
+                        <h3 class="mb-2 font-semibold">{{$data['name']}}</h3>
+                        <p class="mb-1"><a href="{{$data['site'].'?from=costar'}}" target="_blank">{{$data['site']}}</a></p>
                         <p>{{$data['description']}}</p>
                         <div class="text-end"><a class="inline-flex items-center text-sm text-gray-700 hover:text-gray-100 bg-gray-200 hover:bg-gray-700 py-2 px-3 rounded" href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div>
                     </div>
