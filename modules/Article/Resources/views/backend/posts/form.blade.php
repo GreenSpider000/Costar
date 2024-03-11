@@ -306,7 +306,7 @@
         });
 
         $('.select2-tags').select2({
-            // theme: "bootstrap4",
+            theme: "bootstrap4",
             placeholder: '@lang("Select an option")',
             minimumInputLength: 0,
             allowClear: true,
