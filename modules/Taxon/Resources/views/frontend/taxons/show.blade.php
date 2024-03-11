@@ -42,6 +42,9 @@
                     </h2>
                 </a>
                 <p class="flex-1 h-full mb-3 font-normal text-gray-700 dark:text-gray-400">
+                    {{$subject->site}}
+                </p>
+                <p class="flex-1 h-full mb-3 font-normal text-gray-700 dark:text-gray-400">
                     {{$subject->description}}
                 </p>
 
