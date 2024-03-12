@@ -113,7 +113,9 @@
     background-color: #e4e7eb;
 }
 
-// a link
+/**
+ * a link
+ */
 a {
   text-decoration: none !important;
 }
@@ -155,7 +157,6 @@ a {
     background-color: var(--btn-bg);
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
-
 
 .btn-primary {
     --btn-color: rgba(255, 255, 255, .87);
@@ -532,10 +533,18 @@ a {
     text-decoration: underline
 }
 
+
+/**
+ * flex
+ */
 .flex-0-0-100 {
     flex: 0 0 100px;
 }
 
+
+/**
+ * custom
+ */
 .frontend-main-menu .active {
     --tw-border-opacity: 1;
     border-color: rgb(234 88 12 / var(--tw-border-opacity));

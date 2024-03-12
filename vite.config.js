@@ -15,7 +15,6 @@ export default defineConfig({
             ],
             refresh: [
                 "app/View/Components/**",
-                "lang/**",
                 "resources/lang/**",
                 "resources/views/**",
                 "resources/routes/**",
