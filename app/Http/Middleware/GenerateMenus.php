@@ -149,12 +149,12 @@ class GenerateMenus
             /**
              * Separator: Access Management
              */ 
-            $menu->add(__('Management'), [
-                'class' => 'nav-title',
-            ])->data([
-                'order' => 50,
-                'permission' => ['edit_settings', 'view_backups', 'view_users', 'view_roles', 'view_logs'],
-            ]);
+            // $menu->add(__('Management'), [
+            //     'class' => 'nav-title',
+            // ])->data([
+            //     'order' => 50,
+            //     'permission' => ['edit_settings', 'view_backups', 'view_users', 'view_roles', 'view_logs'],
+            // ]);
 
             /**
              * Settings
