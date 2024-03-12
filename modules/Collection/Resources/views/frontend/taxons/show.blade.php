@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title') {{$$module_name_singular->name}} - {{ __("Taxons") }} @endsection
+@section('title') {{$$module_name_singular->name}} - {{ __($module_title) }} @endsection
 
 @section('content')
 
@@ -9,7 +9,7 @@
         <div class="text-center lg:w-2/3 w-full">
             <p class="mb-8 leading-relaxed">
                 <a href="{{route('frontend.taxons.index')}}" class="outline outline-1 outline-gray-800 bg-gray-200 hover:bg-gray-100 text-gray-800 text-sm font-semibold mr-2 px-3 py-1 rounded dark:bg-gray-700 dark:text-gray-300">
-                    {{ __("Taxons") }}
+                    {{ __($module_title) }}
                 </a>
             </p>
             <h1 class="text-3xl sm:text-4xl mb-4 font-medium text-gray-800">
