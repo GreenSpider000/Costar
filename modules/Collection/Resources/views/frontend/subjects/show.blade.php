@@ -1,18 +1,12 @@
 @extends('frontend.layouts.app')
 
-@section('title') {{$$module_name_singular->name}} @endsection
+@section('title') {{ $$module_name_singular->name }} @endsection
 
 @section('content')
 
 <section class="bg-gray-100 text-gray-600 body-font px-6 sm:px-20">
     <div class="container mx-auto flex py-8 sm:py-16 md:flex-row flex-col items-center">
         <div class="w-full flex flex-col items-center">
-            <p class="mb-8 leading-relaxed">
-                <a href="{{route('frontend.'.$module_name.'.index')}}" class="outline outline-1 outline-gray-800 bg-gray-200 hover:bg-gray-100 text-gray-800 text-sm font-semibold mr-2 px-3 py-1 rounded dark:bg-gray-700 dark:text-gray-300">
-                    {{ __($module_title) }}
-                </a>
-            </p>
-
             <h1 class="sm:text-4xl text-3xl mb-4 font-medium text-gray-800">
                 {{$$module_name_singular->name}}
             </h1>

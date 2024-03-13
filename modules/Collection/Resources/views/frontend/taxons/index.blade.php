@@ -20,10 +20,10 @@
 </section>
 
 <section class="bg-white text-gray-600 p-6 sm:p-20">
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
         @foreach ($$module_name as $$module_name_singular)
         @php
-        $details_url = route("frontend.$module_name.show",[encode_id($$module_name_singular->id), $$module_name_singular->slug]);
+        $details_url = route("frontend.$module_name.show", [encode_id($$module_name_singular->id), $$module_name_singular->slug]);
         @endphp
 
         <x-frontend.card :url="$details_url" :name="$$module_name_singular->name">
