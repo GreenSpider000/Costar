@@ -9,13 +9,15 @@ $notifications_latest = optional($notifications)->take(5);
         <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
             <i class="fa-solid fa-bars"></i>
         </button>
-        <a class="header-brand d-sm-none" href="#">
-            <img class="sidebar-brand-full" src="{{asset('images/logo.svg')}}" height="46" alt="{{ app_name() }}" />
-        </a>
-        <ul class="header-nav d-none d-md-flex">
-            <li class="nav-item"><a class="nav-link" href="{{ route('frontend.index') }}" target="_blank">{{app_name()}}&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
-        </ul>
+        <span class="text-gray">{{app_name()}}</span>
         <ul class="header-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('frontend.index') }}" target="_blank">
+                    <span class="d-none d-sm-inline">{{__("View website")}}</span>&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="header-nav ms-3">
             <li class="nav-item dropdown">
                 <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <i class="fa-regular fa-bell"></i>
@@ -39,7 +41,6 @@ $notifications_latest = optional($notifications)->take(5);
                 </div>
             </li>
         </ul>
-
         <ul class="header-nav ms-3">
             <li class="nav-item dropdown">
                 <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

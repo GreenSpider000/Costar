@@ -71,7 +71,7 @@ class SubjectsController extends Controller
 
         return view(
             "collection::backend.{$module_path}.index_datatable",
-            compact('module_title', 'module_name', "{$module_name}", 'module_icon', 'module_name_singular', 'module_action')
+            compact('module_title', 'module_name', "$module_name", 'module_icon', 'module_name_singular', 'module_action')
         );
     }
 
@@ -238,7 +238,7 @@ class SubjectsController extends Controller
 
         return view(
             "collection::backend.{$module_name}.show",
-            compact('module_title', 'module_name', 'module_icon', 'module_name_singular', 'module_action', "{$module_name_singular}", 'activities')
+            compact('module_title', 'module_name', 'module_icon', 'module_name_singular', 'module_action', "$module_name_singular", 'activities')
         );
     }
 
@@ -267,7 +267,7 @@ class SubjectsController extends Controller
 
         return view(
             "collection::backend.{$module_name}.edit",
-            compact('taxons', 'module_title', 'module_name', 'module_icon', 'module_name_singular', 'module_action', "{$module_name_singular}")
+            compact('taxons', 'module_title', 'module_name', 'module_icon', 'module_name_singular', 'module_action', "$module_name_singular")
         );
     }
 
@@ -355,7 +355,7 @@ class SubjectsController extends Controller
 
         return view(
             "collection::backend.{$module_name}.trash",
-            compact('module_title', 'module_name', "{$module_name}", 'module_icon', 'module_name_singular', 'module_action')
+            compact('module_title', 'module_name', "$module_name", 'module_icon', 'module_name_singular', 'module_action')
         );
     }
 

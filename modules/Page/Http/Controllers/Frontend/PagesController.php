@@ -52,11 +52,13 @@ class PagesController extends Controller
 
         $module_action = 'List';
 
+        $meta_page_type = 'page';
+
         $$module_name = $module_model::latest()->paginate(10);
 
         return view(
             "$module_path.$module_name.index",
-            compact('module_title', 'module_name', "$module_name", 'module_icon', 'module_action', 'module_name_singular')
+            compact('module_title', 'module_name', "$module_name", 'module_icon', 'module_action', 'module_name_singular', 'meta_page_type')
         );
     }
 
@@ -79,11 +81,13 @@ class PagesController extends Controller
 
         $module_action = 'Show';
 
+        $meta_page_type = 'page';
+
         $$module_name_singular = $module_model::findOrFail($id);
 
         return view(
             "$module_path.$module_name.show",
-            compact('module_title', 'module_name', 'module_icon', 'module_action', 'module_name_singular', "$module_name_singular")
+            compact('module_title', 'module_name', 'module_icon', 'module_action', 'module_name_singular', "$module_name_singular", 'meta_page_type')
         );
     }
 }

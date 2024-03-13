@@ -52,11 +52,13 @@ class SubjectsController extends Controller
 
         $module_action = 'List';
 
+        $meta_page_type = 'collection';
+
         $$module_name = $module_model::latest()->with(['taxon'])->paginate();
 
         return view(
             "collection::frontend.{$module_path}.index",
-            compact('module_title', 'module_name', "{$module_name}", 'module_icon', 'module_action', 'module_name_singular')
+            compact('module_title', 'module_name', "$module_name", 'module_icon', 'module_action', 'module_name_singular', 'meta_page_type')
         );
     }
 
@@ -87,7 +89,7 @@ class SubjectsController extends Controller
 
         return view(
             "collection::frontend.{$module_name}.show",
-            compact('module_title', 'module_name', 'module_icon', 'module_action', 'module_name_singular', "{$module_name_singular}", 'meta_page_type')
+            compact('module_title', 'module_name', 'module_icon', 'module_action', 'module_name_singular', "$module_name_singular", 'meta_page_type')
         );
     }
 }
