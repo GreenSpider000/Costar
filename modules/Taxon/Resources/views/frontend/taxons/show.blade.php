@@ -37,9 +37,12 @@
                     </h2>
                 </a>
                 <p class="flex-1 h-full mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    {{$subject->site}}
+                    <i class="fa fa-fw fa-link"></i>
+                    <a href="{{$subject->site}}" target="_blank">
+                        {{$subject->site}}
+                    </a>
                 </p>
-                <p class="flex-1 h-full mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p class="flex-1 h-full mb-3 font-normal text-gray-400 dark:text-gray-400">
                     {{$subject->description}}
                 </p>
 

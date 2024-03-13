@@ -34,6 +34,7 @@
                 </a>
 
                 <p class="mb-8 leading-relaxed">
+                    <i class="fa fa-fw fa-link"></i> 
                     <a href="{{$$module_name_singular->site}}" target="_blank">
                         {{$$module_name_singular->site}}
                     </a>

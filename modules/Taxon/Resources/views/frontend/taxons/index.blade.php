@@ -28,8 +28,11 @@
         
         <div class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
             <h3 class="mb-2 font-semibold">{{$$module_name_singular->name}}</h3>
-            <p class="mb-1"><a href="{{$$module_name_singular->site.'?from=costar'}}" target="_blank">{{$$module_name_singular->site}}</a></p>
-            <p>{{$$module_name_singular->description}}</p>
+            <p class="mb-1">
+               <i class="fa fa-fw fa-link"></i> 
+               <a href="{{$$module_name_singular->site.'?from=costar'}}" target="_blank">{{$$module_name_singular->site}}</a>
+            </p>
+            <p class="text-gray-400">{{$$module_name_singular->description}}</p>
             <div class="text-end"><a class="inline-flex items-center text-sm text-gray-700 hover:text-gray-100 bg-gray-200 hover:bg-gray-700 py-2 px-3 rounded" href="{{$details_url}}" target="_blank">{{__('View details')}}</a></div>
         </div>
 

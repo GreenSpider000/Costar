@@ -28,7 +28,7 @@
                     <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>
                 </div>
                 @endif
-                <div class="mb-2">
+                <div class="mb-2 text-gray-400">
                     {!!$$module_name_singular->description!!}
                 </div>
                 <div class="mb-2">
