@@ -27,9 +27,8 @@ class TaxonFactory extends Factory
         return [
             'name'              => substr($this->faker->text(15), 0, -1),
             'slug'              => '',
-            'description'       => $this->faker->paragraph,
-            'content'           => $this->faker->paragraphs(rand(5, 7), true),
             'status'            => 1,
+            'description'       => $this->faker->paragraph,
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),
         ];
