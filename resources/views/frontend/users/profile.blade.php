@@ -7,8 +7,8 @@
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-7xl mx-auto px-4 sm:px-6 py-10">
     <div class="col-span-1">
         <div class="text-center mb-8 md:mb-0">
-            <img class="object-cover rounded-lg mx-auto -mb-24" src="{{asset($$module_name_singular->avatar)}}" alt="{{$$module_name_singular->name}}" />
-            <div class="bg-white shadow-lg rounded-lg px-8 pt-32 pb-10 text-gray-400">
+            <div class="bg-white border shadow-lg rounded-lg px-8 py-8 text-gray-400">
+                <img class="object-cover rounded-lg mx-auto" src="{{asset($$module_name_singular->avatar)}}" alt="{{$$module_name_singular->name}}" />
                 <h3 class="font-title text-gray-800 text-xl mb-3">
                     {{$$module_name_singular->name}}
                 </h3>
@@ -30,7 +30,7 @@
                 @if (auth()->user()->id == $$module_name_singular->id)
                 <div class="mt-8">
                     <a href='{{ route("frontend.users.profileEdit", encode_id($$module_name_singular->id)) }}'>
-                        <div class="w-full text-sm px-6 py-2 transition ease-in duration-200 rounded text-gray-500 hover:bg-gray-800 hover:text-white border-1 border-gray-900 focus:outline-none">
+                        <div class="w-full text-sm px-6 py-2 outline bg-gray-100 transition ease-in duration-200 rounded text-gray-500 hover:bg-gray-800 hover:text-white border-1 border-gray-900 focus:outline-none">
                             Edit Profile
                         </div>
                     </a>
@@ -40,7 +40,7 @@
                 @if (auth()->user()->username == $$module_name_singular->username)
                 <div class="mt-8">
                     <a href="{{ route('frontend.users.changePassword', $$module_name_singular->username) }}">
-                        <div class="w-full text-sm px-6 py-2 transition ease-in duration-200 rounded text-gray-500 hover:bg-gray-800 hover:text-white border-1 border-gray-900 focus:outline-none">
+                        <div class="w-full text-sm px-6 py-2 outline bg-gray-100 transition ease-in duration-200 rounded text-gray-500 hover:bg-gray-800 hover:text-white border-1 border-gray-900 focus:outline-none">
                             Change Password
                         </div>
                     </a>
@@ -53,8 +53,8 @@
         </div>
     </div>
     <div class="col-span-2">
-        <div class="mb-8 p-6 bg-white shadow-lg rounded-lg">
-            <h3 class="text-xl font-semibold">
+        <div class="mb-8 p-6 bg-white border shadow-lg rounded-lg">
+            <h3 class="text-xl font-semibold pb-4 border-b">
                 Profile
             </h3>
 
