@@ -29,7 +29,7 @@
         </div>
         <div class="mt-5 sm:mt-0 sm:col-span-2">
             {{ html()->modelForm($userprofile, 'PATCH', route('frontend.users.profileUpdate', encode_id($$module_name_singular->id)))->acceptsFiles()->open() }}
-            <div class="mb-8 p-6 bg-white border shadow-lg rounded-lg">
+            <div class="mb-8 p-6 bg-white border rounded-lg">
                 <div class="grid grid-cols-6 gap-6">
 
                     <div class="col-span-6 sm:col-span-3">
@@ -117,7 +117,7 @@
             </div>
         </div>
         <div class="mt-5 sm:mt-0 sm:col-span-2">
-            <div class="mb-8 p-6 bg-white border shadow-lg rounded-lg">
+            <div class="mb-8 p-6 bg-white border rounded-lg">
                 <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6">
                         <label class="block-inline text-sm font-medium text-gray-700" for="first_name">Email</label> <span class="text-danger text-red-600">*</span>
@@ -163,7 +163,7 @@
                         {{ html()->select($field_name, $select_options)->placeholder($field_placeholder)->class('mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm')->attributes(["$required"]) }}
                     </div>
                 </div>
-                <div class="mt-4 px-4 bg-gray-50 text-end sm:px-6">
+                <div class="mt-4 px-4 text-end sm:px-6">
                     <button type="submit" class="inline-flex w-full justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         Save
                     </button>
@@ -191,7 +191,7 @@
                 </div>
             </div>
             <div class="mt-5 sm:mt-0 sm:col-span-2">
-                <div class="mb-8 p-6 bg-white border shadow-lg rounded-lg">
+                <div class="mb-8 p-6 bg-white border rounded-lg">
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 text-center">
                             <a href="{{ route('frontend.users.changePassword', encode_id($$module_name_singular->id)) }}">
