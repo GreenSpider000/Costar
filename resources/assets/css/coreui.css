@@ -2,8 +2,7 @@
 
 /*!
  * CoreUI  v4.3.2 (https://coreui.io)
- * Copyright (c) 2023 creativeLabs Łukasz Holeczek
- * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
+ * https://github.com/coreui/coreui/
  */
 :root {
     --cui-blue: #0d6efd;
@@ -47,10 +46,8 @@
     --cui-dark-rgb: 79, 93, 115;
     --cui-white-rgb: 255, 255, 255;
     --cui-black-rgb: 0, 0, 21;
-    --cui-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --cui-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --cui-gradient: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
-    --cui-body-font-family: var(--cui-font-sans-serif);
     --cui-body-font-size: 1rem;
     --cui-body-font-weight: 400;
     --cui-body-line-height: 1.5;
@@ -6528,7 +6525,6 @@ fieldset:disabled .btn {
     z-index: var(--cui-tooltip-zindex);
     display: block;
     margin: var(--cui-tooltip-margin);
-    font-family: var(--cui-font-sans-serif);
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -6649,7 +6645,6 @@ fieldset:disabled .btn {
     z-index: var(--cui-popover-zindex);
     display: block;
     max-width: var(--cui-popover-max-width);
-    font-family: var(--cui-font-sans-serif);
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;

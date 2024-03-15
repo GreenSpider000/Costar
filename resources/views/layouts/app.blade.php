@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/base.css') }}">
 </head>
 
-<body class="font-sans antialiased">
+<body class="antialiased">
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
 
