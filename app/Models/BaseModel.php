@@ -69,11 +69,11 @@ class BaseModel extends Model implements HasMedia
                 break;
 
             case '1':
-                $return_string = '<span class="badge bg-success">'.__("Active")'</span>';
+                $return_string = '<span class="badge bg-success">'.__("Active").'</span>';
                 break;
 
             case '2':
-                $return_string = '<span class="badge bg-warning text-dark">'.__("Pending")'</span>';
+                $return_string = '<span class="badge bg-warning text-dark">'.__("Pending").'</span>';
                 break;
 
             default:

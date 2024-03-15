@@ -19,11 +19,11 @@ trait UserPresenter
         $return_string = '';
         switch ($this->status) {
             case '1':
-                $return_string = '<span class="badge bg-success">'.__("Active")'</span>';
+                $return_string = '<span class="badge bg-success">'.__("Active").'</span>';
                 break;
 
             case '2':
-                $return_string = '<span class="badge bg-warning text-dark">'.__("Blocked")'</span>';
+                $return_string = '<span class="badge bg-warning text-dark">'.__("Blocked").'</span>';
                 break;
 
             default:
