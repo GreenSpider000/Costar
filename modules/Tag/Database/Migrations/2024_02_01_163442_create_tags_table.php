@@ -18,7 +18,7 @@ class CreateTagsTable extends Migration
 
             $table->string('name');
             $table->string('slug')->nullable();
-            $table->tinyInteger('status')->default(1);
+            $table->string('status')->nullable();
             $table->string('group_name')->nullable();
             $table->text('description')->nullable();
 

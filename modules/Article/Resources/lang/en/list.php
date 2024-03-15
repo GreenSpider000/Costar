@@ -6,6 +6,7 @@ return [
     'name' => 'Name',
     'category' => 'Category',
     'status' => 'Status',
+    'updated_at' => 'Updated at',
     'action' => 'Action',
 
 ];

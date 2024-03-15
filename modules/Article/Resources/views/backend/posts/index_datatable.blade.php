@@ -57,6 +57,12 @@
                             <th>
                                 @lang("article::list.category")
                             </th>
+                            <th>
+                                @lang("article::list.status")
+                            </th>
+                            <th>
+                                @lang("article::list.updated_at")
+                            </th>
                             <th class="text-end">
                                 @lang("article::list.action")
                             </th>
@@ -114,11 +120,36 @@
                 name: 'category_name'
             },
             {
+                data: 'status',
+                name: 'status',
+                orderable: false,
+            },
+            {
+                data: 'updated_at',
+                name: 'updated_at'
+            },
+            {
                 data: 'action',
                 name: 'action',
                 orderable: false,
                 searchable: false
             }
+        ],
+        columnDefs: [
+            {
+                "render": function (data, type, row) {
+                    if (data == 0) {
+                        return'<span class="badge bg-warning text-dark">@lang("Unpublished")</span>';
+                    } else if (data == 1) {
+                        return'<span class="badge bg-success">@lang("Published")</span>';
+                    } else if(data == 2) {
+                        return'<span class="badge bg-danger">@lang("Draft")</span>';
+                    } else {
+                        return "";
+                    }
+                },
+                "targets": 3
+            },
         ]
     });
 </script>

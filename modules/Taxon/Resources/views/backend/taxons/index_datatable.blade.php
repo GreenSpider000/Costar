@@ -55,6 +55,9 @@
                                 @lang("taxon::text.name")
                             </th>
                             <th>
+                                @lang("taxon::text.status")
+                            </th>
+                            <th>
                                 @lang("taxon::text.updated_at")
                             </th>
                             <th class="text-end">
@@ -110,6 +113,11 @@
                 name: 'name'
             },
             {
+                data: 'status',
+                name: 'status',
+                orderable: false
+            },
+            {
                 data: 'updated_at',
                 name: 'updated_at'
             },
@@ -119,6 +127,22 @@
                 orderable: false,
                 searchable: false
             }
+        ],
+        columnDefs: [
+            {
+                "render": function (data, type, row) {
+                    if (data == 'Active') {
+                        return'<span class="badge bg-success">@lang("Active")</span>';
+                    } else if (data == 'Inactive') {
+                        return'<span class="badge bg-warning text-dark">@lang("Inactive")</span>';
+                    } else if(data == 'Draft') {
+                        return'<span class="badge bg-danger">@lang("Draft")</span>';
+                    } else {
+                        return "";
+                    }
+                },
+                "targets": 2
+            },
         ]
     });
 </script>

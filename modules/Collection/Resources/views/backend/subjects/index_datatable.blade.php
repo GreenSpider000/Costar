@@ -57,6 +57,9 @@
                             <th>
                                 @lang("collection::list.category")
                             </th>
+                            <th>
+                                @lang("collection::list.status")
+                            </th>
                             <th class="text-end">
                                 @lang("collection::list.action")
                             </th>
@@ -114,11 +117,32 @@
                 name: 'taxon_name'
             },
             {
+                data: 'status',
+                name: 'status',
+                orderable: false,
+            },
+            {
                 data: 'action',
                 name: 'action',
                 orderable: false,
                 searchable: false
             }
+        ],
+        columnDefs: [
+            {
+                "render": function (data, type, row) {
+                    if (data == 0) {
+                        return'<span class="badge bg-warning text-dark">@lang("Unpublished")</span>';
+                    } else if (data == 1) {
+                        return'<span class="badge bg-success">@lang("Published")</span>';
+                    } else if(data == 2) {
+                        return'<span class="badge bg-danger">@lang("Draft")</span>';
+                    } else {
+                        return "";
+                    }
+                },
+                "targets": 3
+            },
         ]
     });
 </script>
