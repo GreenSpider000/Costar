@@ -70,13 +70,21 @@
                     @php
                     $detail_url = route("frontend.$module_name.show",[encode_id($data['id']), $data['slug']]);
                     @endphp
-                    <div class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
-                        <h2 class="mb-2 text-lg font-semibold">{{$data['name']}}</h2>
-                        <p class="mb-1">
-                            <i class="fa fa-fw fa-link"></i> <a href="{{$data['site'].'?from=costar'}}" target="_blank">{{$data['site']}}</a>
+                    <div 
+                        class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+                        data-toggle="tooltip" 
+                        data-coreui-placement="top" 
+                        title="{{$data['description'] ?? $data['name']}}"
+                    >
+                        <a href="{{$detail_url}}" target="_blank">
+                            <h2 class="uppercase mb-2 text-lg font-semibold truncate">{{$data['name']}}</h2>
+                        </a>
+                        <p class="relative mb-1">
+                            <i class="fa fa-fw fa-link absolute left-0 top-1 text-gray-500"></i>
+                            <a class="block ml-8 truncate" href="{{$data['site'].'?from=costar'}}" target="_blank">{{$data['site']}}</a>
                         </p>
-                        <p class="text-gray-400">{{$data['description']}}</p>
-                        <div class="text-end"><a class="inline-flex items-center text-sm text-gray-700 hover:text-gray-100 bg-gray-200 hover:bg-gray-700 py-2 px-3 rounded" href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div>
+                        <p class="text-sm text-gray-400 truncate">{{$data['description']}}</p>
+                        <!-- <div class="text-end"><a class="inline-flex items-center text-sm text-gray-700 hover:text-gray-100 bg-gray-200 hover:bg-gray-700 py-2 px-3 rounded" href="{{$detail_url}}" target="_blank">{{__('View details')}}</a></div> -->
                     </div>
                 @endforeach
             </dd>
