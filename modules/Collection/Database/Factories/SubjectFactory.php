@@ -25,9 +25,9 @@ class SubjectFactory extends Factory
         return [
             'name' => substr($this->faker->text(30), 0, -1),
             'slug' => '',
-            'site' => '',
-            'taxon_id' => $this->faker->numberBetween(1, 5),
             'status' => 1,
+            'taxon_id' => $this->faker->numberBetween(1, 5),
+            'site' => '',
             'description' => $this->faker->paragraph,
             'meta_title' => '',
             'meta_keywords' => '',
