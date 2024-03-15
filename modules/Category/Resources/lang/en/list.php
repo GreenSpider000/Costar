@@ -4,7 +4,7 @@ return [
 
     'id' => 'ID',
     'name' => 'Name',
-    'name' => 'Status',
+    'status' => 'Status',
     'updated_at' => 'Updated At',
     'action' => 'Action',
 
