@@ -27,7 +27,7 @@
     <div class="grid grid-cols-1 gap-6">
         <div class="bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div class="p-5 flex flex-col items-stretch">
-                <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">
+                <h2 class="mb-2 text-2xl text-gray-900 dark:text-white">
                     {{$$module_name_singular->name}}
                 </h2>
                 <p class="my-4 flex-1 h-full font-normal text-gray-700 dark:text-gray-400">
@@ -49,7 +49,7 @@
 
 <section class="bg-white text-gray-600 p-6 sm:p-20">
     <div class="flex flex-col mb-4">
-        <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white text-center">
+        <h2 class="mb-2 text-2xl text-gray-900 dark:text-white text-center">
             Post of {{$$module_name_singular->name}}
         </h2>
         <hr class="w-1/2 mx-auto">

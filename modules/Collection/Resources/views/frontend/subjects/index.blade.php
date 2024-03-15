@@ -71,7 +71,7 @@
                     $detail_url = route("frontend.$module_name.show",[encode_id($data['id']), $data['slug']]);
                     @endphp
                     <div class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">
-                        <h3 class="mb-2 text-lg font-semibold">{{$data['name']}}</h3>
+                        <h2 class="mb-2 text-lg font-semibold">{{$data['name']}}</h2>
                         <p class="mb-1">
                             <i class="fa fa-fw fa-link"></i> <a href="{{$data['site'].'?from=costar'}}" target="_blank">{{$data['site']}}</a>
                         </p>

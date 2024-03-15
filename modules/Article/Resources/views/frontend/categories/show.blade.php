@@ -38,7 +38,7 @@
             @endif
             <div class="p-5 flex flex-col items-stretch">
                 <a href="{{$details_url}}">
-                    <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">
+                    <h2 class="mb-2 text-2xl text-gray-900 dark:text-white">
                         {{$post->name}}
                     </h2>
                 </a>

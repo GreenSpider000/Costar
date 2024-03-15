@@ -12,9 +12,6 @@
     <link rel="icon" type="image/png" href="{{asset('images/favicon.svg')}}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('images/favicon.svg')}}">
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
     <!-- Styles -->
     @stack('before-styles')
     <link rel="stylesheet" href="{{ asset('css/base.css') }}">
