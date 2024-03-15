@@ -26,15 +26,16 @@ class PostsRequest extends FormRequest
         return [
             'name' => 'required|max:191',
             'slug' => 'nullable|max:191',
+            'category_id' => 'required|numeric',
+            'status' => 'required',
             'intro' => 'nullable',
             'content' => 'required',
-            'type' => 'required|max:191',
-            'category_id' => 'required|numeric',
+            'type' => 'nullable|max:191',
             'created_by_alias' => 'nullable|max:191',
             'featured_image' => 'nullable|max:191',
             'is_featured' => 'nullable',
             'order' => 'nullable|numeric',
-            'status' => 'required',
+            
         ];
     }
 }
