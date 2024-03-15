@@ -6,7 +6,7 @@ return [
     'slug' => 'Slug',
     'status' => 'Status',
     'description' => 'Description',
-    'updated_by' => 'Updated By',
+    'updated_at' => 'Updated At',
     'action' => 'Action',
 
 ];
