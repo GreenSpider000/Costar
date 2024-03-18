@@ -648,6 +648,81 @@ a {
 
 
 /**
+ * ScrollManager
+ */
+ .quick-navigation {
+	position: fixed;
+	top: 50%;
+	left: 1em;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+    z-index: 1;
+}
+
+.quick-navigation-item {
+	color: rgba(0, 0, 0, 0.4);
+	text-decoration: none;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+	padding: 0.5em;
+	display: block;
+}
+
+.quick-navigation-item:hover,
+.quick-navigation-item.current {
+	color: #353535;
+}
+
+.scroll-progress-indicator {
+	will-change: opacity, transform;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	position: absolute;
+	top: 50%;
+	right: -10px;
+	opacity: 0;
+	padding: .5em;
+	-webkit-transform: translateX(0%) translateY(-50%);
+	transform: translateX(0%) translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.scroll-progress-indicator.visible {
+	-webkit-transform: translateX(100%) translateY(-50%);
+	transform: translateX(100%) translateY(-50%);
+	opacity: 1;
+}
+
+.scroll-to-top {
+	position: fixed;
+	right: 20px;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+	border: none;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 1.5rem;
+	padding: 0.5em;
+	cursor: pointer;
+	opacity: 0;
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+	outline: none;
+}
+
+.scroll-to-top.visible {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+
+/**
  * flex
  */
 .flex-0-0-100 {

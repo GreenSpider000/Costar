@@ -30,6 +30,13 @@
     <!-- / Styles -->
 
     <!-- <x-google-analytics \/> -->
+
+    <!-- Scripts -->
+    <script src="{{asset('vendor/jquery/jquery@3.2.1-min.js')}}"></script>
+    @vite(['resources/assets/js/app-frontend.js'])
+    @livewireScriptConfig
+    @stack('after-scripts')
+    <!-- / Scripts -->
 </head>
 
 <body>
@@ -42,12 +49,6 @@
 
     @include('frontend.includes.footer')
 
-    <!-- Scripts -->
-    <script src="{{asset('vendor/jquery/jquery@3.2.1-min.js')}}"></script>
-    @vite(['resources/assets/js/app-frontend.js'])
-    @livewireScriptConfig
-    @stack('after-scripts')
-    <!-- / Scripts -->
 </body>
 
 </html>

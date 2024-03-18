@@ -19,4 +19,5 @@
             </p>
         </div>
     </div>
+    <button class="scroll-to-top rounded-l">{{__("Scroll To Top"")}}</button>
 </footer>
