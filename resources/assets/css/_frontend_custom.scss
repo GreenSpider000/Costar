@@ -651,32 +651,22 @@ a {
  * ScrollManager
  */
  .quick-navigation {
-	position: fixed;
-	top: 50%;
-	left: 1em;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
-    z-index: 1;
+
 }
 
 .quick-navigation-item {
-	color: rgba(0, 0, 0, 0.4);
 	text-decoration: none;
 	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
-	padding: 0.5em;
-	display: block;
 }
 
 .quick-navigation-item:hover,
 .quick-navigation-item.current {
-	color: #353535;
+	color: #fff;
+    background-color: rgb(37, 99, 235);
 }
 
 .scroll-progress-indicator {
-	will-change: opacity, transform;
-	-webkit-transition: all 0.5s;
-	transition: all 0.5s;
 	position: absolute;
 	top: 50%;
 	right: -10px;
@@ -685,6 +675,9 @@ a {
 	-webkit-transform: translateX(0%) translateY(-50%);
 	transform: translateX(0%) translateY(-50%);
 	background-color: rgba(0, 0, 0, 0.1);
+    will-change: opacity, transform;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
 }
 
 .scroll-progress-indicator.visible {
@@ -700,7 +693,6 @@ a {
 	background-color: rgba(0, 0, 0, 0.2);
 	border: none;
 	color: rgba(255, 255, 255, 0.5);
-	font-size: 1.5rem;
 	padding: 0.5em;
 	cursor: pointer;
 	opacity: 0;
@@ -728,6 +720,11 @@ a {
 .flex-0-0-100 {
     flex: 0 0 100px;
 }
+
+.flex-0-0-200 {
+    flex: 0 0 200px;
+}
+
 
 /**
  * custom

@@ -1701,6 +1701,10 @@ select {
     padding-left: .75rem
 }
 
+.pl-6 {
+    padding-left: 1.5rem
+}
+
 .pr-2 {
     padding-right: .5rem
 }
@@ -2761,14 +2765,19 @@ select {
         padding-right: 0
     }
 
+    .sm\:px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem
+    }
+
     .sm\:px-20 {
         padding-left: 5rem;
         padding-right: 5rem
     }
 
-    .sm\:px-6 {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem
+    .sm\:px-24 {
+        padding-left: 6rem;
+        padding-right: 6rem
     }
 
     .sm\:py-10 {

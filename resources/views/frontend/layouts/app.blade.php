@@ -30,9 +30,11 @@
     <!-- / Styles -->
 
     <!-- <x-google-analytics \/> -->
-
+    
     <!-- Scripts -->
     <script src="{{asset('vendor/jquery/jquery@3.2.1-min.js')}}"></script>
+    <script src="{{asset('vendor/sticky-sidebar/jquery.sticky-sidebar.js')}}"></script>
+    <script src="{{asset('vendor/scroll-manager/scroll-manager.js')}}"></script>
     @vite(['resources/assets/js/app-frontend.js'])
     @livewireScriptConfig
     @stack('after-scripts')

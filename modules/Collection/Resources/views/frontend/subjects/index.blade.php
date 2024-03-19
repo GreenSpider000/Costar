@@ -27,15 +27,6 @@
     }
 @endphp
 
-<section class="quick-navigation rounded-lg p-2 bg-gray-100 text-sm">
-    @foreach ($taxon_group_data as $group_key => $group_data)
-    	<a href="#{{$group_data['taxon']->slug}}" class="quick-navigation-item uppercase">
-    	    {{$group_data['taxon']->name}}
-    	</a>
-    @endforeach
-    <div class="scroll-progress-indicator rounded-lg visible">0%</div>
-</section>
-
 <section class="bg-gray-100 text-gray-600 py-20">
     <div class="container mx-auto flex px-8 items-center justify-center flex-col">
         <div class="text-center lg:w-2/3 w-full">
@@ -51,8 +42,18 @@
     </div>
 </section>
 
-<section class="bg-white text-gray-600 p-6 sm:p-20">
-    <div class="container mx-auto px-8 sm:px-20">
+<section class="mx-auto flex md:flex-row flex-col bg-white text-gray-600 p-6 sm:p-20">
+    <div class="collection_sidebar quick-navigation relative flex flex-col flex-0-0-200">
+        <div class="collection_sidebar_inner flex flex-col rounded-lg p-4 bg-white border border-gray-100 text-sm">
+            @foreach ($taxon_group_data as $group_key => $group_data)
+        	<a href="#{{$group_data['taxon']->slug}}" data-href="#{{$group_data['taxon']->slug}}" class="quick-navigation-item uppercase rounded font-medium leading-7 text-gray-500 px-2">
+        	    {{$group_data['taxon']->name}}
+        	</a>
+            @endforeach
+            <div class="scroll-progress-indicator rounded-lg visible">0%</div>
+        </div>
+    </div>
+    <div class="collection_content flex flex-col flex-1 pl-6">
         @foreach ($taxon_group_data as $group_key => $group_data)
             @php
             $taxon_url = route('frontend.taxons.show', [encode_id($group_data['taxon']->id), $group_data['taxon']->slug]);
@@ -76,7 +77,7 @@
                         $detail_url = route("frontend.$module_name.show",[encode_id($data['id']), $data['slug']]);
                         @endphp
                         <div 
-                            class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+                            class="flex flex-col p-4 bg-white border border-gray-100 rounded-lg hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
                             data-toggle="tooltip" 
                             data-coreui-placement="top" 
                             title="{{$data['description'] ?? $data['name']}}"
@@ -97,9 +98,24 @@
         @endforeach
     </div>
 </section>
-
 <script>
-    $(document).ready(function(){ 
+    $(document).ready(function(){
+        //////////////////////
+    	// StickySidebar
+    	//////////////////////
+    	
+        new StickySidebar(".collection_sidebar", {
+            topSpacing: 20,
+            bottomSpacing: 20,
+            containerSelector: ".collection_content",
+            innerWrapperSelector: ".collection_sidebar_inner",
+        });
+        
+        //////////////////////
+    	// END StickySidebar
+    	//////////////////////
+
+
         //////////////////////
     	// ScrollManager init
     	//////////////////////
@@ -107,7 +123,7 @@
     	let scrollToTopBtn = document.querySelector('.scroll-to-top'),
     		steps = document.querySelectorAll('.section-scroll-step'),
     		navigationContainer = document.querySelector('.quick-navigation'),
-    		links = navigationContainer ? navigationContainer.querySelectorAll('a') : null,
+    		links = navigationContainer ? navigationContainer.querySelectorAll('.quick-navigation-item') : null,
     		progressIndicator = document.querySelector('.scroll-progress-indicator');
     
     	ScrollManager.init({
@@ -147,7 +163,7 @@
     	//////////////////////
     	// END ScrollManager init
     	//////////////////////
-    }); 
+    });
 </script>
 
 @endsection
