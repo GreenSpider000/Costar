@@ -669,7 +669,7 @@ a {
 .scroll-progress-indicator {
 	position: absolute;
 	top: 50%;
-	right: -10px;
+	right: 0;
 	opacity: 0;
 	padding: .5em;
 	-webkit-transform: translateX(0%) translateY(-50%);

@@ -282,19 +282,20 @@ if (! function_exists('getFavicon')) {
     function getFavicon($url, $f = false)
     {
         $faviconUrl = env('APP_URL').'/images/favicon.svg';
+
+        $api_url = env('FAVICON_API') || 'https://t3.gstatic.cn/faviconV2';
         
         $params = '?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=';
         
-        if(env('FAVICON_API')) {
-            $link_url = $url;
-            if($f) {
-                $pattern = '@^(?:https?://)?([^/]+)@i';
-                $result = preg_match($pattern, $url, $matches);
-                $link_url = $matches[1];
-            }
-            
-            $faviconUrl = env('FAVICON_API').$params.$link_url;
+        $link_url = $url;
+        
+        if($f) {
+            $pattern = '@^(?:https?://)?([^/]+)@i';
+            $result = preg_match($pattern, $url, $matches);
+            $link_url = $matches[1];
         }
+        
+        $faviconUrl = $api_url.$params.$link_url;
         
         return $faviconUrl;
     }
