@@ -1,7 +1,5 @@
 <?php
 
-use AshAllenDesign\FaviconFetcher\Facades\Favicon;
-
 /*
  * Global helpers file with misc functions.
  */
