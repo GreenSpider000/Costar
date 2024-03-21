@@ -1852,6 +1852,18 @@ select {
     line-height: 1.75rem
 }
 
+.leading-8 {
+    line-height: 2.25rem
+}
+
+.leading-9 {
+    line-height: 2.5rem
+}
+
+.leading-10 {
+    line-height: 2.25rem
+}
+
 .leading-relaxed {
     line-height: 1.625
 }

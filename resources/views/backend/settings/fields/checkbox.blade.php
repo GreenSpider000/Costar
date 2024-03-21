@@ -4,12 +4,13 @@ $required_mark = ($required != "") ? '<span class="text-danger"> <strong>*</stro
 @endphp
 
 <div class="form-group mb-3 {{ $errors->has($field['name']) ? ' has-error' : '' }}">
-    <div class="checkbox">
-        <label>
-            <input type='hidden' value='0' name='{{ $field['name'] }}' class='form-label'>
-            <input name=" {{ $field['name'] }}" value="{{ \Illuminate\Support\Arr::get($field, 'value', '1') }}" type="checkbox" @if(old($field['name'], setting($field['name']))) checked="checked" @endif>
-            {{ __($field['label']) }}
-        </label> {!! $required_mark !!}
+    <label class="form-label" for="{{ $field['name'] }}">
+        <strong>{{ __($field['label']) }}</strong> ({{ $field['name'] }})</label> {!! $required_mark !!}
+    </label>
+    <div class="form-input">
+        @foreach(Arr::get($field, 'options', []) as $val => $label)
+            <input type="checkbox" @if( old($field['name'], setting($field['name'])) == $val ) checked @endif name="{{ $field['name'] }}" value="{{ $val }}"> {{ $label }}
+        @endforeach
 
         @if ($errors->has($field['name'])) <small class="help-block">{{ $errors->first($field['name']) }}</small> @endif
     </div>

@@ -1,5 +1,7 @@
 <?php
 
+use AshAllenDesign\FaviconFetcher\Facades\Favicon;
+
 /*
  * Global helpers file with misc functions.
  */
@@ -16,6 +18,26 @@ if (! function_exists('app_name')) {
         } else {
             return config('app.name');
         }
+    }
+}
+
+/**
+ * Get or Set the Settings Values.
+ */
+if (! function_exists('setting')) {
+    function setting($key, $default = null)
+    {
+        if (is_null($key)) {
+            return new App\Models\Setting();
+        }
+
+        if (is_array($key)) {
+            return App\Models\Setting::set($key[0], $key[1]);
+        }
+
+        $value = App\Models\Setting::get($key);
+
+        return is_null($value) ? value($default) : $value;
     }
 }
 
@@ -148,26 +170,6 @@ if (! function_exists('fielf_required')) {
     }
 }
 
-/**
- * Get or Set the Settings Values.
- */
-if (! function_exists('setting')) {
-    function setting($key, $default = null)
-    {
-        if (is_null($key)) {
-            return new App\Models\Setting();
-        }
-
-        if (is_array($key)) {
-            return App\Models\Setting::set($key[0], $key[1]);
-        }
-
-        $value = App\Models\Setting::get($key);
-
-        return is_null($value) ? value($default) : $value;
-    }
-}
-
 /*
  * Show Human readable file size
  */
@@ -251,6 +253,7 @@ if (! function_exists('slug_format')) {
     }
 }
 
+
 /*
  *
  * icon
@@ -266,6 +269,34 @@ if (! function_exists('icon')) {
     function icon($string = 'fa-regular fa-circle-check')
     {
         return "<i class='".$string."'></i>&nbsp;";
+    }
+}
+
+/*
+ *
+ * Get favicon
+ * fetching favicons from websites
+ * ------------------------------------------------------------------------
+ */
+if (! function_exists('getFavicon')) {
+    function getFavicon($url, $f = false)
+    {
+        $faviconUrl = env('APP_URL').'/images/favicon.svg';
+        
+        $params = '?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=';
+        
+        if(env('FAVICON_API')) {
+            $link_url = $url;
+            if($f) {
+                $pattern = '@^(?:https?://)?([^/]+)@i';
+                $result = preg_match($pattern, $url, $matches);
+                $link_url = $matches[1];
+            }
+            
+            $faviconUrl = env('FAVICON_API').$params.$link_url;
+        }
+        
+        return $faviconUrl;
     }
 }
 
@@ -337,6 +368,9 @@ if (! function_exists('date_today')) {
     }
 }
 
+/*
+ * Language direction
+ */
 if (! function_exists('language_direction')) {
     /**
      * return direction of languages.

@@ -26,9 +26,18 @@ return [
             ],
             [
                 'type' => 'checkbox', // input fields type
-                'data' => 'text', // data type, string, int, boolean
+                'data' => 'string', // data type, string, int, boolean
                 'name' => 'show_copyright', // unique name for field
                 'label' => 'Show Copyright', // you know what label it is
+                'rules' => '', // validation rule of laravel
+                'class' => '', // any class for input
+                'value' => '1', // default value if you want
+            ],
+            [
+                'type' => 'checkbox', // input fields type
+                'data' => 'string', // data type, string, int, boolean
+                'name' => 'subject_target', // unique name for field
+                'label' => 'Subject site link target', // you know what label it is
                 'rules' => '', // validation rule of laravel
                 'class' => '', // any class for input
                 'value' => '1', // default value if you want
