@@ -46,7 +46,7 @@
     <div class="collection_sidebar quick-navigation relative flex flex-col flex-0-0-200">
         <div class="collection_sidebar_inner flex flex-col rounded-lg p-4 bg-white border border-gray-100 text-sm">
             @foreach ($taxon_group_data as $group_key => $group_data)
-        	<a href="#{{$group_data['taxon']->slug}}" data-href="#{{$group_data['taxon']->slug}}" class="quick-navigation-item uppercase rounded font-medium leading-10 text-gray-500 px-2">
+        	<a href="#{{$group_data['taxon']->slug}}" data-href="#{{$group_data['taxon']->slug}}" class="quick-navigation-item uppercase rounded font-medium leading-10 text-gray-500 px-2 my-1">
         	    {{$group_data['taxon']->name}}
         	</a>
             @endforeach
