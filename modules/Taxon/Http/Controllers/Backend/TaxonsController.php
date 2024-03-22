@@ -50,7 +50,10 @@ class TaxonsController extends BackendBaseController
             'slug' => 'nullable|max:191|unique:'.$module_model.',slug',
         ]);
 
-        $$module_name_singular = $module_model::create($request->all());
+        $data = $request->all();
+        $data['slug'] = $data['slug'] ? slugify($data['slug']) : $data['name'];
+
+        $$module_name_singular = $module_model::create($data);
 
         $$module_name_singular->save();
 
@@ -114,7 +117,10 @@ class TaxonsController extends BackendBaseController
 
         $$module_name_singular = $module_model::findOrFail($id);
 
-        $$module_name_singular->update($request->all());
+        $data = $request->all();
+        $data['slug'] = $data['slug'] ? slugify($data['slug']) : $data['name'];
+
+        $$module_name_singular->update($data);
 
         $$module_name_singular->save();
 

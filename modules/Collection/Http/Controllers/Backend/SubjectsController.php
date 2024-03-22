@@ -195,7 +195,7 @@ class SubjectsController extends Controller
         $module_action = 'Store';
 
         $data = $request->all();
-        $data['slug'] = slugify($data['slug']);
+        $data['slug'] = $data['slug'] ? slugify($data['slug']) : $data['name'];
         $data['created_by_name'] = auth()->user()->name;
 
         $$module_name_singular = $module_model::create($data);
@@ -291,9 +291,10 @@ class SubjectsController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
-        $request['slug'] = slugify($request->input('slug'));
+        $data = $request->all();
+        $data['slug'] = $data['slug'] ? slugify($data['slug']) : $data['name'];
 
-        $$module_name_singular->update($request->all());
+        $$module_name_singular->update($data);
 
         event(new SubjectUpdated($$module_name_singular));
 
