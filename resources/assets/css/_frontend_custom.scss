@@ -646,6 +646,29 @@ a {
     border-radius: var(--tooltip-border-radius)
 }
 
+/**
+ * StickySidebar
+ */
+ .collection_sidebar {
+    
+ }
+ 
+ .collection_sidebar_inner {
+     
+ }
+ 
+ @media (max-width: 768px) {
+    .collection_sidebar {
+        display: none !important;
+    }
+    .collection_sidebar_inner {
+        display: none !important;
+    }
+ }
+ 
+ .collection_content {
+     
+ }
 
 /**
  * ScrollManager
