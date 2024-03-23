@@ -139,14 +139,13 @@
     <div class="col-6">
         <div class="form-group">
             <?php
-            $field_name = 'type';
+            $field_name = 'is_featured';
             $field_label = __("article::$module_name.$field_name");
             $field_placeholder = __("Select an option");
             $required = "";
             $select_options = [
-                // 'Article' => 'Article',
-                // 'Feature' => 'Feature',
-                // 'News' => 'News',
+                '1' => __('Yes'),
+                '0' => __('No'),
             ];
             ?>
             {{ html()->label($field_label, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
@@ -169,7 +168,7 @@
 </div>
 
 <div class="row mb-3">
-    <div class="col-6">
+    <div class="col-12">
         <div class="form-group">
             <?php
             $field_name = 'featured_image';
@@ -184,22 +183,6 @@
                     <button class="btn btn-info border-radius-l-0" type="button" id="button-image" data-input="{{$field_name}}"><i class="fas fa-folder-open"></i> @lang('Browse')</button>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="form-group">
-            <?php
-            $field_name = 'is_featured';
-            $field_label = __("article::$module_name.$field_name");
-            $field_placeholder = __("Select an option");
-            $required = "";
-            $select_options = [
-                '1' => __('Yes'),
-                '0' => __('No'),
-            ];
-            ?>
-            {{ html()->label($field_label, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name, $select_options)->placeholder($field_placeholder)->class('form-select')->attributes(["$required"]) }}
         </div>
     </div>
 </div>

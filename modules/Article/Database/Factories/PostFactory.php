@@ -29,7 +29,6 @@ class PostFactory extends Factory
             'category_id' => $this->faker->numberBetween(1, 5),
             'intro' => $this->faker->paragraph,
             'content' => $this->faker->paragraphs(rand(5, 7), true),
-            'type' => '',
             'is_featured' => $this->faker->randomElement([1, 0]),
             'featured_image' => 'https://picsum.photos/1200/630',
             'meta_title' => '',

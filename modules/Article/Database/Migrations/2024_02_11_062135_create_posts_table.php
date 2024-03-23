@@ -19,7 +19,6 @@ class CreatePostsTable extends Migration
             $table->string('slug')->nullable();
             $table->text('intro')->nullable();
             $table->text('content')->nullable();
-            $table->string('type')->nullable();
             $table->integer('category_id')->unsigned()->nullable();
             $table->string('category_name')->nullable();
             $table->integer('is_featured')->nullable();

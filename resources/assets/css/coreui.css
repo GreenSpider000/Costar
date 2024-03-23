@@ -3462,14 +3462,14 @@ fieldset:disabled .btn {
 }
 
 .btn-success {
-    --cui-btn-color: #f5f5f5;
+    --cui-btn-color: #f8f8f8;
     --cui-btn-bg: #2eb85c;
     --cui-btn-border-color: #2eb85c;
-    --cui-btn-hover-color: rgb(255 255 255 / 95%);
+    --cui-btn-hover-color: rgb(255 255 255 / 98%);
     --cui-btn-hover-bg: #4dc374;
     --cui-btn-hover-border-color: #43bf6c;
     --cui-btn-focus-shadow-rgb: 39, 156, 81;
-    --cui-btn-active-color: rgb(255 255 255 / 95%);
+    --cui-btn-active-color: rgb(255 255 255 / 98%);
     --cui-btn-active-bg: #58c67d;
     --cui-btn-active-border-color: #43bf6c;
     --cui-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 21, .125);

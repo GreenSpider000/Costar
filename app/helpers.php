@@ -281,7 +281,7 @@ if (! function_exists('getFavicon')) {
     {
         $faviconUrl = env('APP_URL').'/images/favicon.svg';
 
-        $api_url = env('FAVICON_API') || 'https://t3.gstatic.cn/faviconV2';
+        $api_url = env('FAVICON_API') ? env('FAVICON_API') : 'https://t3.gstatic.cn/faviconV2';
         
         $params = '?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=';
         
