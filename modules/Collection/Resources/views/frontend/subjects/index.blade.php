@@ -24,7 +24,7 @@
         <div class="collection_sidebar_inner flex flex-col rounded-lg p-4 bg-white border border-gray-100 text-sm">
             @foreach ($module_group_data as $group_key => $group_data)
                 @php
-                $icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder");
+                $icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder-open");
                 $taxon_name = $group_data['taxon']['name'];
                 $slug = $group_data['taxon']['slug'];
                 @endphp

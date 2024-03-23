@@ -24,7 +24,7 @@
         @foreach ($$module_name as $$module_name_singular)
             @php
                 $detail_url = route("frontend.$module_name.show", [encode_id($$module_name_singular->id), $$module_name_singular->slug]);
-                $icon = $$module_name_singular->icon_class ? icon($$module_name_singular->icon_class) : icon("fa fa-folder");
+                $icon = $$module_name_singular->icon_class ? icon($$module_name_singular->icon_class) : icon("fa fa-folder-open");
             @endphp
         
             <div class="flex flex-col p-4 bg-white border border-gray-200 rounded-lg hover:shadow-lg dark:bg-gray-800 dark:border-gray-700">

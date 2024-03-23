@@ -23,7 +23,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendor/fontawesome-pro/css/all.min.css') }}" rel="stylesheet" />
     @vite(['resources/assets/css/app-frontend.scss'])
     @livewireStyles
     @stack('after-styles')
