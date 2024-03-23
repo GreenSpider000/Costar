@@ -266,7 +266,7 @@ if (! function_exists('icon')) {
      */
     function icon($string = 'fa-regular fa-circle-check')
     {
-        return "<i class='".$string."'></i>&nbsp;";
+        return "<i class='".$string."'></i>";
     }
 }
 
