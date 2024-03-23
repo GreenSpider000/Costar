@@ -5,7 +5,7 @@ return [
     'name' => 'Name',
     'slug' => 'Slug',
     'status' => 'Status',
-    'group_name' => 'Group Name',
+    'icon_class' => 'Icon Class Name (Fontawesome Icon)',
     'image' => 'image',
     'description' => 'Description',
     'meta_title' => 'Meta Title',

@@ -60,7 +60,8 @@ class SubjectsController extends Controller
 
         $$module_name = $module_model::get();
         
-        $taxon_data = $taxon_model::select('id', 'name', 'slug', 'status')->get();
+        // $taxon_data = $taxon_model::select('id', 'name', 'slug', 'status', 'icon_class')->get();
+        $taxon_data = $taxon_model::get();
         
         $module_group_data = array();
         
@@ -76,12 +77,7 @@ class SubjectsController extends Controller
             }
             
             $module_group_data[$taxon_key] = array();
-            $module_group_data[$taxon_key]['taxon'] = array(
-                'id' => $row->id,
-                'name' => $row->name,
-                'slug' => $row->slug,
-            );
-            
+            $module_group_data[$taxon_key]['taxon'] = $row;
             $module_group_data[$taxon_key]['subject'] = $subject_list;
         }
 

@@ -45,7 +45,7 @@
     <div class="col-6">
         <div class="form-group">
             <?php
-            $field_name = 'group_name';
+            $field_name = 'icon_class';
             $field_label = __("taxon::$module_name.$field_name");
             $field_placeholder = $field_label;
             $required = "";

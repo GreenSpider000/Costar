@@ -28,6 +28,7 @@ class TaxonFactory extends Factory
             'name'              => substr($this->faker->text(15), 0, -1),
             'slug'              => '',
             'status'            => 1,
+            'icon_class'        => '',
             'description'       => $this->faker->paragraph,
             'created_at'        => Carbon::now(),
             'updated_at'        => Carbon::now(),

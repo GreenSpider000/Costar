@@ -32,7 +32,7 @@
         $favicon = getFavicon($subject->site);
         @endphp
         <div 
-            class="bg-white rounded-lg border border-gray-200 shadow hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
+            class="bg-white rounded-lg border border-gray-200 hover:shadow-lg dark:bg-gray-800 dark:border-gray-700"
             data-toggle="tooltip" 
             data-coreui-placement="top" 
             title="{{$subject->description ?? $subject->name}}"

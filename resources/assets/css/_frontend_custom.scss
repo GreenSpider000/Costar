@@ -673,30 +673,47 @@ a {
 /**
  * ScrollManager
  */
- .quick-navigation {
+.quick-navigation {
 
 }
 
 .quick-navigation-item {
 	text-decoration: none;
-	-webkit-transition: color 0.3s;
-	transition: color 0.3s;
+	-webkit-transition: color 0.03s;
+	transition: color 0.03s;
 }
 
-.quick-navigation-item:hover,
+.quick-navigation-item .fa {
+    color: rgba(37, 99, 235, .8);
+}
+
+.quick-navigation-item:hover {
+    color: rgb(37, 99, 235);
+    background-color: rgba(0, 123, 255, .06); 
+}
+
 .quick-navigation-item.current {
 	color: #fff;
+    background-color: rgba(37, 99, 235, 1);
+}
+
+.quick-navigation-item:hover .fa {
+    color: rgba(37, 99, 235, 1);
+}
+
+.quick-navigation-item.current .fa {
+    color: #fff;
     background-color: rgb(37, 99, 235);
 }
 
 .scroll-progress-indicator {
 	position: absolute;
-	top: 50%;
-	right: 0;
+	top: 0;
+	left: calc(50% - 20px);
 	opacity: 0;
 	padding: .5em;
-	-webkit-transform: translateX(0%) translateY(-50%);
-	transform: translateX(0%) translateY(-50%);
+	-webkit-transform: translateX(0%) translateY(0%);
+	transform: translateX(0%) translateY(0%);
 	background-color: rgba(0, 0, 0, 0.1);
     will-change: opacity, transform;
 	-webkit-transition: all 0.5s;
@@ -704,8 +721,8 @@ a {
 }
 
 .scroll-progress-indicator.visible {
-	-webkit-transform: translateX(100%) translateY(-50%);
-	transform: translateX(100%) translateY(-50%);
+	-webkit-transform: translateX(0%) translateY(-50%);
+	transform: translateX(0%) translateY(-50%);
 	opacity: 1;
 }
 

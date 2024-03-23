@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->string('status')->default('Active');
-            $table->string('group_name')->nullable();
+            $table->string('icon_class')->nullable();
             $table->text('description')->nullable();
 
             $table->integer('created_by')->unsigned()->nullable();

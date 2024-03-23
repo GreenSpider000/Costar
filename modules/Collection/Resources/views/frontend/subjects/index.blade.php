@@ -23,9 +23,14 @@
     <div class="collection_sidebar quick-navigation relative flex flex-col flex-0-0-200">
         <div class="collection_sidebar_inner flex flex-col rounded-lg p-4 bg-white border border-gray-100 text-sm">
             @foreach ($module_group_data as $group_key => $group_data)
-        	<a href="#{{$group_data['taxon']['slug']}}" data-href="#{{$group_data['taxon']['slug']}}" class="quick-navigation-item uppercase rounded font-medium leading-10 text-gray-500 px-2 my-1">
-        	    {{$group_data['taxon']['name']}}
-        	</a>
+                @php
+                $icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder");
+                $taxon_name = $group_data['taxon']['name'];
+                $slug = $group_data['taxon']['slug'];
+                @endphp
+            	<a href="#{{$slug}}" data-href="#{{$slug}}" class="quick-navigation-item uppercase rounded font-medium leading-10 text-gray-500 px-2 my-1">
+            	    {!! html_entity_decode($icon) !!} <span class="pl-1">{{$taxon_name}}</span>
+            	</a>
             @endforeach
             <div class="scroll-progress-indicator rounded-lg visible">0%</div>
         </div>
@@ -35,7 +40,7 @@
             @php
             $taxon_url = route('frontend.taxons.show', [encode_id($group_data['taxon']['id']), $group_data['taxon']['slug']]);
             @endphp
-            <dl class="mb-5 section-scroll-step" id="{{$group_data['taxon']['slug']}}">
+            <dl id="{{$group_data['taxon']['slug']}}" class="mb-10 section-scroll-step">
                 <dt class="flex flex items-center mb-3">
                     <svg 
                         class="icon" 
