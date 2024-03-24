@@ -270,6 +270,32 @@ if (! function_exists('icon')) {
     }
 }
 
+/**
+ * check_server
+ * ------------------------------------------------------------------------
+ */
+if (! function_exists('check_server')) {
+    function check_server($url) {
+        $httpcode = 0;
+        $ch = curl_init();
+        $timeout = 0.1;
+        curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch, CURLOPT_HEADER, 1);
+        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+        curl_setopt($ch,CURLOPT_URL, $url);
+        curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+    	if ($httpcode == 200 || $httpcode == 302) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+}
+
+
 /*
  *
  * Get favicon
@@ -293,6 +319,10 @@ if (! function_exists('getFavicon')) {
             $link_url = $matches[1];
         }
         
+        // if(check_server($api_url.$params.$link_url)) {
+        //     $faviconUrl = $api_url.$params.$link_url;
+        // }
+
         $faviconUrl = $api_url.$params.$link_url;
         
         return $faviconUrl;

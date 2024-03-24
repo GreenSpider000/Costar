@@ -648,59 +648,73 @@ a {
 
 /**
  * Search
+ * =======================================
  */
- #search {
-    max-width: 768px;
-    margin: 30px auto;
+#search {
+    max-width: 800px;
+    position: relative
 }
 
 #search form {
-    position: relative;
-}
-
-#search-text {
-    padding: 10px 20px;
-    width: 100%;
-    height: 50px;
-    font-size: 1pc;
-    border: 0;
-    border-radius: 50px;
-    background-color: #fff;
-}
-
-#search button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: transparent;
-    border: 0;
-    margin: 0 10px;
-    line-height: 50px;
-}
-
-#search button:hover {
-    cursor: pointer;
+    position: relative
 }
 
 #search button i {
+    color: #6c757d;
     font-size: 18px;
 }
 
-#search-list {
-    position: relative;
-    display: flex;
-    justify-content: center;
+#search .search-select {
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    transition: .3s
 }
 
-.no-search {
-    margin-top: 85px;
+#search .input-group-prepend:not(.d-none)+.search-key {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.search-group {
+    display: none;
+    padding-left: 75px
+}
+
+.search-type {
+    padding-left: 0;
+    display: block
+}
+
+.s-current {
+    display: block
+}
+
+#search-list {
+    position: relative
 }
 
 .s-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 23;
+    width: 75px
+}
+
+.s-type:hover {
+    height: auto
+}
+
+.s-type>span {
     display: block;
-    width: 75px;
     height: 31px;
-    z-index: 10;
+    width: 75px
+}
+
+.s-type input[hidden] {
+    display: none !important;
 }
 
 .s-type-list {
@@ -711,126 +725,394 @@ a {
     width: 70px;
     background: #fff;
     border-radius: 5px;
-    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 9px 20px rgba(0, 0, 0, .16)
 }
 
 .s-type-list:before {
     position: absolute;
     top: -1pc;
     left: 20px;
-    content: "";
+    content: '';
     display: block;
     width: 0;
     height: 0;
     border: 10px solid transparent;
-    border-bottom-color: #fff;
+    border-bottom-color: #fff
 }
 
 .s-type-list label {
     display: block;
     font-size: 15px;
     text-align: center;
-    font-weight: normal;
+    font-weight: 400;
     margin-bottom: 0;
     padding: 2px 0;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s
 }
 
 .s-type-list label:hover {
-    background: rgba(136, 136, 136, 0.1);
+    background: rgba(136, 136, 136, .1)
 }
 
 .s-type-list .tile-lg {
-    color: #fff;
     width: 3pc;
     height: 3pc;
     font-size: 1.25rem;
     line-height: 3rem;
-    border-radius: 0.3rem;
+    border-radius: .3rem;
     display: block;
-    margin: auto;
+    margin: auto
 }
 
 .s-type:hover .s-type-list {
-    display: block;
+    display: block
 }
 
-.s-groups {
-    margin-left: -75px;
-}
-
-.s-groups .search-group {
-    display: none;
-}
-
-.s-groups .s-current .search-type {
-    padding-left: 0;
-    display: block;
-}
-
-.s-groups .s-current {
-    display: flex;
-}
-
-.s-groups .type-text {
+.type-text {
+    position: absolute;
+    left: 0;
     width: 75px;
     padding-left: 9pt;
     font-size: 1pc;
-    line-height: 31px;
+    line-height: 31px
 }
 
-.s-groups .type-text:after {
-    content: "\f105";
-    font-family: FontAwesome;
-    margin: 0 0 0 15px;
+.type-text:after {
+    content: "\e793";
+    font-family: iconfont;
+    font-size: 12px;
+    margin: 0 0 0 10px
 }
 
-.s-groups .search-type {
+.search-type {
     white-space: nowrap;
-    margin: 0;
+    margin: 0
 }
 
-.s-groups .search-type label {
-    margin: 0;
+.search-type label {
+    margin: 0
 }
 
-.s-groups .search-type li {
-    display: inline-block;
+.search-type li {
+    display: inline-block
 }
 
-.s-groups .search-type li label {
+.search-type li label {
     display: inline-block;
     padding: 0 11px;
     font-size: 14px;
     line-height: 31px;
     border-radius: 3px 3px 0 0;
-    cursor: pointer;
+    cursor: pointer
 }
 
-.s-groups .search-type input:checked + label,
-.s-groups .search-type input:hover + label {
-    background-color: #fff;
+.search-type li.menu-item a {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 31px;
+    border-radius: 3px 3px 0 0
+}
+
+.search-type input:checked+label,
+.search-type input:hover+label {
+    background-color: #fff
 }
 
 .set-check {
     margin-top: 3px;
-    font-size: 9pt;
+    font-size: 9pt
 }
 
 .set-check label {
-    margin-left: 3px;
+    margin-left: 3px
 }
 
 .set-check input,
 .set-check label {
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all .3s ease
 }
 
 .search-type li {
     list-style: none;
-    display: inline-block;
+    display: inline-block
+}
+
+.search-type {
+    overflow: auto
+}
+
+.search-smart-tips {
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    overflow: hidden
+}
+
+.search-smart-tips ul {
+    padding: 10px 0;
+    margin: 0
+}
+
+.search-smart-tips ul li {
+    line-height: 30px;
+    font-size: 14px;
+    padding: 0 25px;
+    cursor: pointer;
+    list-style: none;
+    transition: .3s
+}
+
+.search-smart-tips ul li:hover,
+.search-smart-tips ul li.current {
+    background-color: rgba(130, 130, 130, .5)
+}
+
+@media screen and (max-width: 767.98px) {
+    #search {
+        margin: 25px auto 15px
+    }
+
+    .s-type-list label {
+        padding: 5px 0
+    }
+
+    .search-list {
+        height: 30px;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        white-space: nowrap
+    }
+}
+
+.btn-search {
+    position: relative;
+    background-color: rgba(150, 150, 150, .16);
+    transition: .2s ease-out
+}
+
+.btn-search:hover,
+.btn-search.current {
+    // color: #fff !important;
+    background-color: #f1404b;
+    box-shadow: 0 5px 20px -3px rgba(249, 100, 90, .6)
+}
+
+.btn-search.current:after {
+    content: "";
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    border: 10px solid transparent;
+    border-top-color: #f1404b
+}
+
+/* --------------------------------------- */
+.s-search-wrap .s-search {
+    margin: 0 15px
+}
+
+.s-search-wrap .search-group {
+    padding: 0;
+    margin: 0 auto
+}
+
+.s-search-wrap #search-list {
+    text-align: center
+}
+
+.s-search-wrap .search-smart-tips {
+    width: unset;
+    left: 20px;
+    right: 20px
+}
+
+.s-search-wrap .search-type li label {
+    padding-top: 5px
+}
+
+.s-search-wrap .search-type input:checked+label,
+.s-search-wrap .search-type input:hover+label {
+    position: relative;
+    background: transparent !important
+}
+
+.s-search-wrap .search-type input:checked+label:before {
+    content: '';
+    border-width: 8px 8px 0px 8px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.6) transparent transparent;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -8px
+}
+
+.s-search-wrap .s-type {
+    position: inherit;
+    top: inherit;
+    left: inherit;
+    width: auto
+}
+
+.s-search-wrap .s-type-list {
+    position: relative !important;
+    display: inline-table;
+    overflow: auto;
+    white-space: nowrap;
+    text-align: center;
+    position: inherit;
+    top: inherit;
+    padding: inherit;
+    width: none;
+    background: none !important;
+    border-radius: inherit;
+    box-shadow: none !important
+}
+
+.s-search-wrap:not(.no-bg) .s-type-list {
+    
+}
+
+.s-type:hover .s-type-list.big {
+    display: inline-table
+}
+
+.s-search-wrap .s-type-list .anchor {
+    background: #353535;
+    border-radius: 100px;
+    width: 10px;
+    height: 4px;
+    bottom: 5px;
+    -webkit-transition: .25s;
+    transition: .25s
+}
+
+.s-search-wrap .s-type-list label:hover {
+    background: none
+}
+
+.s-search-wrap .s-type-list:before {
+    display: none
+}
+
+.s-search-wrap .s-type-list label {
+    position: relative;
+    display: inline-block
+}
+
+.s-search-wrap .s-type-list label span {
+    display: block;
+    padding: 10px 10px
+}
+
+.s-search-wrap .s-type-list label:not(.active)::after {
+    content: '';
+    height: 4px;
+    width: 4px;
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    margin-left: -2px;
+    background-color: rgba(255, 255, 255, 0);
+    transition: .3s
+}
+
+.s-search-wrap .s-type-list label:not(.active):hover::after {
+    background-color: #fff
+}
+
+.s-search-wrap .s-type-list label:not(.active),
+.s-search-wrap:not(.no-bg) .search-type label {
+    opacity: .5;
+    transition: opacity .3s
+}
+
+.s-search-wrap .s-type-list label:not(.active):hover,
+.s-search-wrap:not(.no-bg) .search-type label:hover {
+    opacity: 1
+}
+
+.s-search-wrap .search-type input:checked+label {
+    opacity: 1
+}
+
+.s-search-wrap #search-text {
+    width: 100%;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, .05);
+    padding: 9px 20px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.s-search-wrap #search button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    width: 48px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 3px;
+}
+
+.s-search-wrap #search button:active,
+.s-search-wrap #search button:focus {
+    box-shadow: none;
+    outline: none;
+    border: 0 !important;
+    cursor: pointer;
+}
+
+.s-search-wrap:not(.no-bg) .text-muted,
+.s-search-wrap:not(.no-bg) .search-type .menu-item a,
+.s-search-wrap:not(.no-bg) .big-title .h1 {
+    // color: #fff !important
+}
+
+.s-search-wrap.no-bg #search-text {
+    // color: #fff;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.2) !important
+}
+
+.s-search-wrap.no-bg .search-type input:checked+label:before {
+    border-color: rgba(0, 0, 0, 0.2) transparent transparent
+}
+
+.s-search-wrap .search-type li.menu-item {
+    padding: 5px 10px 0px 10px
+}
+
+@media screen and (min-width:768px) {
+    .s-search-wrap {
+        padding: 24px 0;
+    }
+
+    .s-search-wrap.no-bg {
+        padding-bottom: 20px
+    }
+
+    .s-search-wrap .search-type li label,
+    .s-search-wrap .search-type li.menu-item {
+        padding: 5px 20px
+    }
+
+    .s-search-wrap .s-type-list label span {
+        padding: 10px 20px
+    }
+}
+
+@media screen and (min-width:992px) {
+    .s-search-wrap .s-search {
+        margin: 0
+    }
 }
 
 

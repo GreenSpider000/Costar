@@ -1,190 +1,278 @@
-<div id="search" class="s-search">
-    <div id="search-list" class="hide-type-list">
-        <div class="s-type">
-            <div class="s-type-list animated fadeInUp">
-                <label for="type-baidu">@lang('常用')</label>
-                <label for="type-search">@lang('搜索')</label>
-                <label for="type-br">@lang('工具')</label>
-                <label for="type-zhihu">@lang('社区')</label>
-                <label for="type-taobao1">@lang('生活')</label>
-                <label for="type-zhaopin">@lang('求职')</label>
-            </div>
-        </div>
-        <div class="s-groups">
-            <div class="search-group group-a">
-                <span class="type-text">
-                    @lang('常用')
-                </span>
-                <ul class="search-type">
-                    <li>
-                        <input checked hidden type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?wd=" data-placeholder="@lang('百度一下')">
-                        <label for="type-baidu"><span style="color:#2100E0">@lang('百度')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-google" value="https://www.google.com/search?q=" data-placeholder="@lang('谷歌两下')">
-                        <label for="type-google"><span style="color:#3B83FA">G</span><span style="color:#F3442C">o</span><span style="color:#FFC300">o</span><span style="color:#4696F8">g</span><span style="color:#2CAB4E">l</span><span style="color:#F54231">e</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-zhannei" value="#?s=" data-placeholder="@lang('站内搜索')">
-                        <label for="type-zhannei"><span style="color:#888888">@lang('站内')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-taobao" value="https://s.taobao.com/search?q=" data-placeholder="@lang('淘宝')">
-                        <label for="type-taobao"><span style="color:#f40">@lang('淘宝')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-bing1" value="https://cn.bing.com/search?q=" data-placeholder="@lang('微软Bing搜索')">
-                        <label for="type-bing1"><span style="color:#007daa">Bing</span></label>
-                    </li>
-                </ul>
-            </div>
-            <div class="search-group group-b">
-                <span class="type-text">@lang('搜索')</span>
-                <ul class="search-type">
-                    <li>
-                        <input hidden type="radio" name="type" id="type-search" value="https://www.baidu.com/s?wd=" data-placeholder="@lang('百度一下')">
-                        <label for="type-search"><span style="color:#2319dc">@lang('百度')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-google1" value="https://www.google.com/search?q=" data-placeholder="@lang('谷歌两下')">
-                        <label for="type-google1"><span style="color:#3B83FA">G</span><span style="color:#F3442C">o</span><span style="color:#FFC300">o</span><span style="color:#4696F8">g</span><span style="color:#2CAB4E">l</span><span style="color:#F54231">e</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-360" value="https://www.so.com/s?q=" data-placeholder="@lang('360好搜')">
-                        <label for="type-360"><span style="color:#19b955">360</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-sogo" value="https://www.sogou.com/web?query=" data-placeholder="@lang('搜狗搜索')">
-                        <label for="type-sogo"><span style="color:#ff5943">@lang('搜狗')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-bing" value="https://cn.bing.com/search?q=" data-placeholder="@lang('微软Bing搜索')">
-                        <label for="type-bing"><span style="color:#007daa">Bing</span></label></li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-sm" value="https://yz.m.sm.cn/s?q=" data-placeholder="@lang('UC移动端搜索')">
-                        <label for="type-sm"><span style="color:#ff8608">@lang('神马')</span></label>
-                    </li>
-                </ul>
-            </div>
-            <div class="search-group group-c">
-                <span class="type-text">@lang('工具')</span>
-                <ul class="search-type">
-                    <li>
-                        <input hidden type="radio" name="type" id="type-br" value="https://rank.chinaz.com/all/" data-placeholder="@lang('请输入网址(不带http://)')">
-                        <label for="type-br"><span style="color:#55a300">@lang('权重查询')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-links" value="https://link.chinaz.com/" data-placeholder="@lang('请输入网址(不带http://)')">
-                        <label for="type-links"><span style="color:#313439">@lang('友链检测')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-icp" value="https://icp.aizhan.com/" data-placeholder="@lang('请输入网址(不带http://)')">
-                        <label for="type-icp"><span style="color:#ffac00">@lang('备案查询')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-ping" value="https://ping.chinaz.com/" data-placeholder="@lang('请输入网址(不带http://)')">
-                        <label for="type-ping"><span style="color:#00599e">@lang('PING检测')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-404" value="https://tool.chinaz.com/Links/?DAddress=" data-placeholder="@lang('请输入网址(不带http://)')">
-                        <label for="type-404"><span style="color:#f00">@lang('死链检测')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-ciku" value="https://www.ciku5.com/s?wd=" data-placeholder="@lang('请输入关键词')">
-                        <label for="type-ciku"><span style="color:#016DBD">@lang('关键词挖掘')</span></label>
-                    </li>
-                </ul>
-            </div>
-            <div class="search-group group-d">
-                <span class="type-text">@lang('社区')</span>
-                <ul class="search-type">
-                    <li>
-                        <input hidden type="radio" name="type" id="type-zhihu" value="https://www.zhihu.com/search?type=content&q=" data-placeholder="@lang('知乎')">
-                        <label for="type-zhihu"><span style="color:#0084ff">@lang('知乎')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-wechat" value="https://weixin.sogou.com/weixin?type=2&query=" data-placeholder="@lang('微信')">
-                        <label for="type-wechat"><span style="color:#00a06a">@lang('微信')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-weibo" value="https://s.weibo.com/weibo/" data-placeholder="@lang('微博')">
-                        <label for="type-weibo"><span style="color:#e6162d">@lang('微博')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-douban" value="https://www.douban.com/search?q=" data-placeholder="@lang('豆瓣')">
-                        <label for="type-douban"><span style="color:#55a300">@lang('豆瓣')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-why" value="https://ask.seowhy.com/search/?q=" data-placeholder="@lang('SEO问答社区')">
-                        <label for="type-why"><span style="color:#428bca">@lang('搜外问答')</span></label>
-                    </li>
-                </ul>
+<div class="s-search-wrap">
+    <div class="s-search">
+        <div id="search" class="s-search mx-auto">
+            <div id="search-list-menu" class="hide-type-list">
+                <div class="s-type text-center">
+                    <div class="s-type-list big">
+                        <div class="anchor" style="position: absolute; left: 50%; opacity: 0"></div>
+                        <label for="type-baidu" data-id="group-a"><span>常用</span></label>
+                        <label for="type-baidu1" data-id="group-b"><span>搜索</span></label>
+                        <label for="type-whois" data-id="group-c"><span>工具</span></label>
+                        <label for="type-zhihu" data-id="group-d"><span>社区</span></label>
+                        <label for="type-taobao1" data-id="group-e"><span>生活</span></label>
+                        <label for="type-zhaopin" data-id="group-f"><span>求职</span></label>
+                    </div>
                 </div>
-            <div class="search-group group-e">
-                <span class="type-text">@lang('生活')</span>
-                <ul class="search-type">
-                    <li>
-                        <input hidden type="radio" name="type" id="type-taobao1" value="https://s.taobao.com/search?q=" data-placeholder="@lang('淘宝')">
-                        <label for="type-taobao1"><span style="color:#f40">@lang('淘宝')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-jd" value="https://search.jd.com/Search?keyword=" data-placeholder="@lang('京东')">
-                        <label for="type-jd"><span style="color:#c91623">@lang('京东')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-xiachufang" value="https://www.xiachufang.com/search/?keyword=" data-placeholder="@lang('下厨房')">
-                        <label for="type-xiachufang"><span style="color:#dd3915">@lang('下厨房')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-xiangha" value="https://www.xiangha.com/so/?q=caipu&s=" data-placeholder="@lang('香哈菜谱')">
-                        <label for="type-xiangha"><span style="color:#930">@lang('香哈菜谱')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-12306" value="https://www.12306.cn/?" data-placeholder="12306">
-                        <label for="type-12306"><span style="color:#07f">12306</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-qunar" value="https://www.qunar.com/?" data-placeholder="@lang('去哪儿')">
-                        <label for="type-qunar"><span style="color:#00afc7">@lang('去哪儿')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-快递100" value="https://www.kuaidi100.com/?" data-placeholder="@lang('快递100')">
-                        <label for="type-快递100"><span style="color:#3278e6">@lang('快递100')</span></label>
-                    </li>
-                </ul>
             </div>
-            <div class="search-group group-f">
-                <span class="type-text">@lang('求职')</span>
-                <ul class="search-type">
-                    <li>
-                        <input hidden type="radio" name="type" id="type-zhaopin" value="https://sou.zhaopin.com/jobs/searchresult.ashx?kw=" data-placeholder="@lang('智联招聘')">
-                        <label for="type-zhaopin"><span style="color:#689fee">@lang('智联招聘')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-51job" value="https://search.51job.com/?" data-placeholder="@lang('前程无忧')">
-                        <label for="type-51job"><span style="color:#ff6000">@lang('前程无忧')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-lagou" value="https://www.lagou.com/jobs/list_" data-placeholder="@lang('拉钩网')">
-                        <label for="type-lagou"><span style="color:#00b38a">@lang('拉钩网')</span></label>
-                    </li>
-                    <li>
-                        <input hidden type="radio" name="type" id="type-liepin" value="https://www.liepin.com/zhaopin/?key=" data-placeholder="@lang('猎聘网')">
-                        <label for="type-liepin"><span style="color:#303a40">@lang('猎聘网')</span></label>
-                    </li>
-                </ul>
+            <form action="https://www.baidu.com?s=" method="get" target="_blank" class="super-search-fm">
+                <input type="text" id="search-text" class="form-control smart-tips search-key" zhannei="" placeholder="输入关键字搜索" style="outline: 0" autocomplete="off" />
+                <button class="submit" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <div id="search-list" class="hide-type-list">
+                <div class="search-group group-a">
+                    <ul class="search-type">
+                        <li>
+                            <input hidden="" type="radio" name="type" checked="checked" id="type-baidu" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下，你就知道" />
+                            <label for="type-baidu"><span class="text-muted">百度</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-bing" value="https://cn.bing.com/search?q=" data-placeholder="微软 Bing 搜索" />
+                            <label for="type-bing"><span class="text-muted">必应</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-google" value="https://www.google.com/search?q=" data-placeholder="谷歌搜索" />
+                            <label for="type-google"><span class="text-muted">谷歌</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-anaconda" value="https://anaconda.org/search?q=" data-placeholder="Anaconda 软件搜索" />
+                            <label for="type-anaconda"><span class="text-muted">软件</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-pubmed" value="https://pubmed.ncbi.nlm.nih.gov/?term=" data-placeholder="PubMed 搜索/文章标题/关键字" />
+                            <label for="type-pubmed"><span class="text-muted">文献</span></label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search-group group-b">
+                    <ul class="search-type">
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-baidu1" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下，你就知道" />
+                            <label for="type-baidu1"><span class="text-muted">百度</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-google1" value="https://www.google.com/search?q=" data-placeholder="谷歌搜索" />
+                            <label for="type-google1"><span class="text-muted">谷歌</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-360" value="https://www.so.com/s?q=" data-placeholder="360 好搜" />
+                            <label for="type-360"><span class="text-muted">360</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-sogo" value="https://www.sogou.com/web?query=" data-placeholder="搜狗搜索" />
+                            <label for="type-sogo"><span class="text-muted">搜狗</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-bing1" value="https://cn.bing.com/search?q=" data-placeholder="微软 Bing 搜索" />
+                            <label for="type-bing1"><span class="text-muted">必应</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-sm" value="https://yz.m.sm.cn/s?q=" data-placeholder="UC 移动端搜索" />
+                            <label for="type-sm"><span class="text-muted">神马</span></label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search-group group-c">
+                    <ul class="search-type">
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-br" value="https://rank.chinaz.com/all/" data-placeholder="请输入网址(不带 https://)" />
+                            <label for="type-br"><span class="text-muted">权重查询</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-links" value="https://link.chinaz.com/" data-placeholder="请输入网址(不带 https://)" />
+                            <label for="type-links"><span class="text-muted">友链检测</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-whois" value="https://who.is/whois/" data-placeholder="请输入网址(不带 https://)" />
+                            <label for="type-whois"><span class="text-muted">域名信息查询</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-ping" value="https://ping.chinaz.com/" data-placeholder="请输入网址(不带 https://)" />
+                            <label for="type-ping"><span class="text-muted">PING 检测</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-404" value="https://tool.chinaz.com/Links/?DAddress=" data-placeholder="请输入网址(不带https://)" />
+                            <label for="type-404"><span class="text-muted">死链检测</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-ciku" value="https://www.ciku5.com/s?wd=" data-placeholder="请输入关键词" />
+                            <label for="type-ciku"><span class="text-muted">关键词挖掘</span></label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search-group group-d">
+                    <ul class="search-type">
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-zhihu" value="https://www.zhihu.com/search?type=content&q=" data-placeholder="知乎" />
+                            <label for="type-zhihu"><span class="text-muted">知乎</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-wechat" value="https://weixin.sogou.com/weixin?type=2&query=" data-placeholder="微信" />
+                            <label for="type-wechat"><span class="text-muted">微信</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-weibo" value="https://s.weibo.com/weibo/" data-placeholder="微博" />
+                            <label for="type-weibo"><span class="text-muted">微博</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-douban" value="https://www.douban.com/search?q=" data-placeholder="豆瓣" />
+                            <label for="type-douban"><span class="text-muted">豆瓣</span></label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search-group group-e">
+                    <ul class="search-type">
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-taobao1" value="https://s.taobao.com/search?q=" data-placeholder="淘宝" />
+                            <label for="type-taobao1"><span class="text-muted">淘宝</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-jd" value="https://search.jd.com/Search?keyword=" data-placeholder="京东" />
+                            <label for="type-jd"><span class="text-muted">京东</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-xiachufang" value="https://www.xiachufang.com/search/?keyword=" data-placeholder="下厨房" />
+                            <label for="type-xiachufang"><span class="text-muted">下厨房</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-xiangha" value="https://www.xiangha.com/so/?q=caipu&s=" data-placeholder="香哈菜谱" />
+                            <label for="type-xiangha"><span class="text-muted">香哈菜谱</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-12306" value="https://www.12306.cn/?" data-placeholder="12306" />
+                            <label for="type-12306"><span class="text-muted">12306</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-qunar" value="https://www.qunar.com/?" data-placeholder="去哪儿" />
+                            <label for="type-qunar"><span class="text-muted">去哪儿</span></label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search-group group-f">
+                    <ul class="search-type">
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-zhaopin" value="https://sou.zhaopin.com/jobs/searchresult.ashx?kw=" data-placeholder="智联招聘" />
+                            <label for="zhaopin"><span class="text-muted">智联招聘</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-51job" value="https://search.51job.com/?" data-placeholder="前程无忧" />
+                            <label for="type-51job"><span class="text-muted">前程无忧</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-lagou" value="https://www.lagou.com/jobs/list_" data-placeholder="拉钩网" />
+                            <label for="type-lagou"><span class="text-muted">拉钩网</span></label>
+                        </li>
+                        <li>
+                            <input hidden="" type="radio" name="type" id="type-liepin" value="https://www.liepin.com/zhaopin/?key=" data-placeholder="猎聘网" />
+                            <label for="type-liepin"><span class="text-muted">猎聘网</span></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card search-smart-tips search-hot-text">
+                <ul id="word" style="display: none"></ul>
             </div>
         </div>
-    </div>
-    <form action="?s=" method="get" target="_blank" id="super-search-fm">
-        <input type="text" id="search-text" placeholder="输入关键字搜索" style="outline:0">
-        <button type="submit"><i class="fa fa-search "></i></button>
-    </form>
-    <div class="set-check hidden-xs">
-        <input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off">
     </div>
 </div>
 
 <script>
-eval(function(e,t,a,c,i,n){if(i=function(e){return(e<t?"":i(parseInt(e/t)))+(35<(e%=t)?String.fromCharCode(e+29):e.toString(36))},!"".replace(/^/,String)){for(;a--;)n[i(a)]=c[a]||i(a);c=[function(e){return n[e]}],i=function(){return"\\w+"},a=1}for(;a--;)c[a]&&(e=e.replace(new RegExp("\\b"+i(a)+"\\b","g"),c[a]));return e}('!2(){2 g(){h(),i(),j(),k()}2 h(){d.9=s()}2 i(){z a=4.8(\'A[B="7"][5="\'+p()+\'"]\');a&&(a.9=!0,l(a))}2 j(){v(u())}2 k(){w(t())}2 l(a){P(z b=0;b<e.O;b++)e[b].I.1c("s-M");a.F.F.F.I.V("s-M")}2 m(a,b){E.H.S("L"+a,b)}2 n(a){6 E.H.Y("L"+a)}2 o(a){f=a.3,v(u()),w(a.3.5),m("7",a.3.5),c.K(),l(a.3)}2 p(){z b=n("7");6 b||a[0].5}2 q(a){m("J",a.3.9?1:-1),x(a.3.9)}2 r(a){6 a.11(),""==c.5?(c.K(),!1):(w(t()+c.5),x(s()),s()?E.U(b.G,+T X):13.Z=b.G,10 0)}2 s(){z a=n("J");6 a?1==a:!0}2 t(){6 4.8(\'A[B="7"]:9\').5}2 u(){6 4.8(\'A[B="7"]:9\').W("14-N")}2 v(a){c.1e("N",a)}2 w(a){b.G=a}2 x(a){a?b.3="1a":b.16("3")}z y,a=4.R(\'A[B="7"]\'),b=4.8("#18-C-19"),c=4.8("#C-12"),d=4.8("#17-C-15"),e=4.R(".C-1b"),f=a[0];P(g(),y=0;y<a.O;y++)a[y].D("Q",o);d.D("Q",q),b.D("1d",r)}();',62,77,"||function|target|document|value|return|type|querySelector|checked||||||||||||||||||||||||||var|input|name|search|addEventListener|window|parentNode|action|localStorage|classList|newWindow|focus|superSearch|current|placeholder|length|for|change|querySelectorAll|setItem|new|open|add|getAttribute|Date|getItem|href|void|preventDefault|text|location|data|blank|removeAttribute|set|super|fm|_blank|group|remove|submit|setAttribute".split("|"),0,{}));
+    // Search -----------------------
+    $(document).ready(function(){
+        intoSearch();
+    });
+    
+    function intoSearch() {
+        if (window.localStorage.getItem("searchlist")) {
+            $(".hide-type-list input#" + window.localStorage.getItem("searchlist")).prop("checked", true);
+            $(".hide-type-list input#m_" + window.localStorage.getItem("searchlist")).prop("checked", true);
+        }
+        if (window.localStorage.getItem("searchlistmenu")) {
+            $(".s-type-list.big label").removeClass("active");
+            $(".s-type-list [data-id=" + window.localStorage.getItem("searchlistmenu") + "]").addClass("active");
+        }
+        toTarget($(".s-type-list.big"), false, false);
+        $(".hide-type-list .s-current").removeClass("s-current");
+        $('.hide-type-list input:radio[name="type"]:checked').parents(".search-group").addClass("s-current");
+        $('.hide-type-list input:radio[name="type2"]:checked').parents(".search-group").addClass("s-current");
+    
+        $(".super-search-fm").attr("action", $(".hide-type-list input:radio:checked").val());
+        $(".search-key").attr("placeholder", $(".hide-type-list input:radio:checked").data("placeholder"));
+        if (window.localStorage.getItem("searchlist") == "type-zhannei") {
+            $(".search-key").attr("zhannei", "true");
+        }
+    }
+    
+    function toTarget(menu, padding, isMult) {
+        var slider = menu.children(".anchor");
+        var target = menu.children(".hover").first();
+        if (target && 0 < target.length) {
+            //
+        } else {
+            if (isMult) {
+                target = menu.find(".active").parent();
+            } else {
+                target = menu.find(".active");
+            }
+        }
+        if (0 < target.length) {
+            if (padding) {
+                slider.css({
+                    left: target.position().left + target.scrollLeft() + "px",
+                    width: target.outerWidth() + "px",
+                    opacity: "1",
+                });
+            } else {
+                slider.css({
+                    left: target.position().left + target.scrollLeft() + target.outerWidth() / 4 + "px",
+                    width: target.outerWidth() / 2 + "px",
+                    opacity: "1",
+                });
+            }
+        } else {
+            slider.css({
+                opacity: "0",
+            });
+        }
+    }
+    
+    $(document).on("click", ".s-type-list label", function (event) {
+        //event.preventDefault();
+        $(".s-type-list.big label").removeClass("active");
+        $(this).addClass("active");
+        window.localStorage.setItem("searchlistmenu", $(this).data("id"));
+        var parent = $(this).parents(".s-search");
+        parent.find(".search-group").removeClass("s-current");
+        parent
+            .find("#" + $(this).attr("for"))
+            .parents(".search-group")
+            .addClass("s-current");
+        toTarget($(this).parents(".s-type-list"), false, false);
+    });
+    
+    $(".hide-type-list .search-group input").on("click", function () {
+        var parent = $(this).parents(".s-search");
+        window.localStorage.setItem("searchlist", $(this).attr("id").replace("m_", ""));
+        parent.children(".super-search-fm").attr("action", $(this).val());
+        parent.find(".search-key").attr("placeholder", $(this).data("placeholder"));
+    
+        if ($(this).attr("id") == "type-zhannei" || $(this).attr("id") == "m_type-zhannei") {
+            parent.find(".search-key").attr("zhannei", "true");
+        } else {
+            parent.find(".search-key").attr("zhannei", "");
+        }
+    
+        parent.find(".search-key").select();
+        parent.find(".search-key").focus();
+    });
+    
+    $(document).on("submit", ".super-search-fm", function () {
+        var key = encodeURIComponent($(this).find(".search-key").val());
+        if (key == "") {
+            return false;
+        } else {
+            window.open($(this).attr("action") + key);
+            return false;
+        }
+    });
+
 </script>
