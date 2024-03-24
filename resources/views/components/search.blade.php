@@ -171,8 +171,6 @@
     </div>
 </div>
 
-
-
 <script>
     // Search -----------------------
     $(document).ready(function(){
