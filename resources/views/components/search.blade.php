@@ -174,10 +174,10 @@
 <script>
     // Search -----------------------
     $(document).ready(function(){
-        intoSearch();
+        superSearch();
     });
     
-    function intoSearch() {
+    function superSearch() {
         if (window.localStorage.getItem("searchlist")) {
             $(".hide-type-list input#" + window.localStorage.getItem("searchlist")).prop("checked", true);
             $(".hide-type-list input#m_" + window.localStorage.getItem("searchlist")).prop("checked", true);
