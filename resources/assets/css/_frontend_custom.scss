@@ -809,25 +809,25 @@ a {
     border-bottom-left-radius: 0
 }
 
-.search-group {
+#super-search .search-group {
     display: none;
     padding-left: 75px
 }
 
-.search-type {
+#super-search .search-type {
     padding-left: 0;
     display: block
 }
 
-.s-current {
+#super-search .s-current {
     display: block
 }
 
-#search-list {
+#super-search #search-list {
     position: relative
 }
 
-.s-type {
+#super-search .s-type {
     position: absolute;
     top: 0;
     left: 0;
@@ -835,17 +835,17 @@ a {
     width: 75px
 }
 
-.s-type:hover {
+#super-search .s-type:hover {
     height: auto
 }
 
-.s-type>span {
+#super-search .s-type>span {
     display: block;
     height: 31px;
     width: 75px
 }
 
-.s-type-list {
+#super-search .s-type-list {
     display: none;
     position: absolute;
     top: 31px;
@@ -856,7 +856,7 @@ a {
     box-shadow: 0 9px 20px rgba(0, 0, 0, .16)
 }
 
-.s-type-list:before {
+#super-search .s-type-list:before {
     position: absolute;
     top: -1pc;
     left: 20px;
@@ -868,7 +868,7 @@ a {
     border-bottom-color: #fff
 }
 
-.s-type-list label {
+#super-search .s-type-list label {
     display: block;
     font-size: 15px;
     text-align: center;
@@ -879,11 +879,11 @@ a {
     transition: .3s
 }
 
-.s-type-list label:hover {
+#super-search .s-type-list label:hover {
     background: rgba(136, 136, 136, .1)
 }
 
-.s-type-list .tile-lg {
+#super-search .s-type-list .tile-lg {
     width: 3pc;
     height: 3pc;
     font-size: 1.25rem;
@@ -893,11 +893,11 @@ a {
     margin: auto
 }
 
-.s-type:hover .s-type-list {
+#super-search .s-type:hover .s-type-list {
     display: block
 }
 
-.type-text {
+#super-search .type-text {
     position: absolute;
     left: 0;
     width: 75px;
@@ -906,27 +906,27 @@ a {
     line-height: 31px
 }
 
-.type-text:after {
+#super-search .type-text:after {
     content: "\e793";
     font-family: iconfont;
     font-size: 12px;
     margin: 0 0 0 10px
 }
 
-.search-type {
+#super-search .search-type {
     white-space: nowrap;
     margin: 0
 }
 
-.search-type label {
+#super-search .search-type label {
     margin: 0
 }
 
-.search-type li {
+#super-search .search-type li {
     display: inline-block
 }
 
-.search-type li label {
+#super-search .search-type li label {
     display: inline-block;
     padding: 0 11px;
     font-size: 14px;
@@ -935,70 +935,44 @@ a {
     cursor: pointer
 }
 
-.search-type li.menu-item a {
+#super-search .search-type li.menu-item a {
     display: inline-block;
     font-size: 14px;
     line-height: 31px;
     border-radius: 3px 3px 0 0
 }
 
-.search-type input:checked+label,
-.search-type input:hover+label {
+#super-search .search-type input:checked+label,
+#super-search .search-type input:hover+label {
     background-color: #fff
 }
 
-.search-type input[hidden] {
+#super-search .search-type input[hidden] {
     display: none !important;
 }
 
-.set-check {
+#super-search .set-check {
     margin-top: 3px;
     font-size: 9pt
 }
 
-.set-check label {
+#super-search .set-check label {
     margin-left: 3px
 }
 
-.set-check input,
-.set-check label {
+#super-search .set-check input,
+#super-search .set-check label {
     opacity: 0;
     transition: all .3s ease
 }
 
-.search-type li {
+#super-search .search-type li {
     list-style: none;
     display: inline-block
 }
 
-.search-type {
+#super-search .search-type {
     overflow: auto
-}
-
-.search-smart-tips {
-    position: absolute;
-    z-index: 20;
-    width: 100%;
-    overflow: hidden
-}
-
-.search-smart-tips ul {
-    padding: 10px 0;
-    margin: 0
-}
-
-.search-smart-tips ul li {
-    line-height: 30px;
-    font-size: 14px;
-    padding: 0 25px;
-    cursor: pointer;
-    list-style: none;
-    transition: .3s
-}
-
-.search-smart-tips ul li:hover,
-.search-smart-tips ul li.current {
-    background-color: rgba(130, 130, 130, .5)
 }
 
 @media screen and (max-width: 767.98px) {
@@ -1006,11 +980,11 @@ a {
         margin: 25px auto 15px
     }
 
-    .s-type-list label {
+    #super-search .s-type-list label {
         padding: 5px 0
     }
 
-    .search-list {
+    #super-search .search-list {
         height: 30px;
         overflow-y: hidden;
         overflow-x: scroll;
@@ -1018,20 +992,20 @@ a {
     }
 }
 
-.btn-search {
+#super-search .btn-search {
     position: relative;
     background-color: rgba(150, 150, 150, .16);
     transition: .2s ease-out
 }
 
-.btn-search:hover,
-.btn-search.current {
+#super-search .btn-search:hover,
+#super-search .btn-search.current {
     // color: #fff !important;
     background-color: #f1404b;
     box-shadow: 0 5px 20px -3px rgba(249, 100, 90, .6)
 }
 
-.btn-search.current:after {
+#super-search .btn-search.current:after {
     content: "";
     position: absolute;
     bottom: -17px;
@@ -1044,36 +1018,36 @@ a {
 }
 
 /* --------------------------------------- */
-.s-search {
+#super-search.s-search {
     margin: 0 15px
 }
 
-.s-search #search-list {
+#super-search.s-search #search-list {
     text-align: center
 }
 
-.s-search #search-list .search-group {
+#super-search.s-search #search-list .search-group {
     padding: 0;
     margin: 0 auto
 }
 
-.s-search .search-smart-tips {
+#super-search.s-search .search-smart-tips {
     width: unset;
     left: 20px;
     right: 20px
 }
 
-.s-search .search-type li label {
+#super-search.s-search .search-type li label {
     padding-top: 5px
 }
 
-.s-search .search-type input:checked+label,
-.s-search .search-type input:hover+label {
+#super-search.s-search .search-type input:checked+label,
+#super-search.s-search .search-type input:hover+label {
     position: relative;
     background: transparent !important
 }
 
-.s-search .search-type input:checked+label:before {
+#super-search.s-search .search-type input:checked+label:before {
     content: '';
     border-width: 8px 8px 0px 8px;
     border-style: solid;
@@ -1084,14 +1058,14 @@ a {
     margin-left: -8px
 }
 
-.s-search .s-type {
+#super-search.s-search .s-type {
     position: inherit;
     top: inherit;
     left: inherit;
     width: auto
 }
 
-.s-search .s-type-list {
+#super-search.s-search .s-type-list {
     position: relative !important;
     display: inline-table;
     overflow: auto;
@@ -1106,15 +1080,15 @@ a {
     box-shadow: none !important
 }
 
-.s-search:not(.no-bg) .s-type-list {
+#super-search.s-search:not(.no-bg) .s-type-list {
     
 }
 
-.s-type:hover .s-type-list.big {
+#super-search.s-search .s-type:hover .s-type-list.big {
     display: inline-table
 }
 
-.s-search .s-type-list .anchor {
+#super-search.s-search .s-type-list .anchor {
     background: #353535;
     border-radius: 100px;
     width: 10px;
@@ -1124,25 +1098,25 @@ a {
     transition: .25s
 }
 
-.s-search .s-type-list label:hover {
+#super-search.s-search .s-type-list label:hover {
     background: none
 }
 
-.s-search .s-type-list:before {
+#super-search.s-search .s-type-list:before {
     display: none
 }
 
-.s-search .s-type-list label {
+#super-search.s-search .s-type-list label {
     position: relative;
     display: inline-block
 }
 
-.s-search .s-type-list label span {
+#super-search.s-search .s-type-list label span {
     display: block;
     padding: 10px 10px
 }
 
-.s-search .s-type-list label:not(.active)::after {
+#super-search.s-search .s-type-list label:not(.active)::after {
     content: '';
     height: 4px;
     width: 4px;
@@ -1155,26 +1129,26 @@ a {
     transition: .3s
 }
 
-.s-search .s-type-list label:not(.active):hover::after {
+#super-search.s-search .s-type-list label:not(.active):hover::after {
     background-color: #353535
 }
 
-.s-search .s-type-list label:not(.active),
-.s-search:not(.no-bg) .search-type label {
+#super-search.s-search .s-type-list label:not(.active),
+#super-search.s-search:not(.no-bg) .search-type label {
     opacity: .5;
     transition: opacity .3s
 }
 
-.s-search .s-type-list label:not(.active):hover,
-.s-search:not(.no-bg) .search-type label:hover {
+#super-search.s-search .s-type-list label:not(.active):hover,
+#super-search.s-search:not(.no-bg) .search-type label:hover {
     opacity: 1
 }
 
-.s-search .search-type input:checked+label {
+#super-search.s-search .search-type input:checked+label {
     opacity: 1
 }
 
-.s-search #search-text {
+#super-search.s-search #search-text {
     width: 100%;
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, .05);
@@ -1183,7 +1157,7 @@ a {
     backdrop-filter: blur(5px);
 }
 
-.s-search form button {
+#super-search.s-search form button {
     position: absolute;
     top: 0;
     right: 0;
@@ -1194,36 +1168,36 @@ a {
     border-radius: 3px;
 }
 
-.s-search form button:active,
-.s-search form button:focus {
+#super-search.s-search form button:active,
+#super-search.s-search form button:focus {
     box-shadow: none;
     outline: none;
     border: 0 !important;
     cursor: pointer;
 }
 
-.s-search:not(.no-bg) .text-muted,
-.s-search:not(.no-bg) .search-type .menu-item a,
-.s-search:not(.no-bg) .big-title .h1 {
+#super-search.s-search:not(.no-bg) .text-muted,
+#super-search.s-search:not(.no-bg) .search-type .menu-item a,
+#super-search.s-search:not(.no-bg) .big-title .h1 {
     // color: #fff !important
 }
 
-.s-search.no-bg #search-text {
+#super-search.s-search.no-bg #search-text {
     // color: #fff;
     border: none;
     background-color: rgba(0, 0, 0, 0.2) !important
 }
 
-.s-search.no-bg .search-type input:checked+label:before {
+#super-search.s-search.no-bg .search-type input:checked+label:before {
     border-color: rgba(0, 0, 0, 0.2) transparent transparent
 }
 
-.s-search .search-type li.menu-item {
+#super-search.s-search .search-type li.menu-item {
     padding: 5px 10px 0px 10px
 }
 
 @media screen and (min-width:768px) {
-    .s-search {
+    #super-search.s-search {
         padding: 24px 0;
     }
 
@@ -1231,18 +1205,18 @@ a {
         padding-bottom: 20px
     }
 
-    .s-search .search-type li label,
-    .s-search .search-type li.menu-item {
+    #super-search.s-search .search-type li label,
+    #super-search.s-search .search-type li.menu-item {
         padding: 5px 20px
     }
 
-    .s-search .s-type-list label span {
+    #super-search.s-search .s-type-list label span {
         padding: 10px 20px
     }
 }
 
 @media screen and (min-width:992px) {
-    .s-search {
+    #super-search.s-search {
         margin: 0
     }
 }
