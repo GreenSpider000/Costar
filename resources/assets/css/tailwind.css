@@ -1627,19 +1627,14 @@ select {
     padding-bottom: 0
 }
 
+.py-\[0\.32rem\] {
+    padding-top: .32rem;
+    padding-bottom: .32rem
+}
+
 .py-1 {
     padding-top: .25rem;
     padding-bottom: .25rem
-}
-
-.py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem
-}
-
-.py-12 {
-    padding-top: 3rem;
-    padding-bottom: 3rem
 }
 
 .py-2 {
@@ -1650,11 +1645,6 @@ select {
 .py-2\.5 {
     padding-top: .625rem;
     padding-bottom: .625rem
-}
-
-.py-20 {
-    padding-top: 5rem;
-    padding-bottom: 5rem
 }
 
 .py-3 {
@@ -1682,9 +1672,19 @@ select {
     padding-bottom: 2rem
 }
 
-.py-\[0\.32rem\] {
-    padding-top: .32rem;
-    padding-bottom: .32rem
+.py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem
+}
+
+.py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem
+}
+
+.py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem
 }
 
 .pb-1 {
