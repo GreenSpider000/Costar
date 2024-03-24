@@ -713,10 +713,6 @@ a {
     width: 75px
 }
 
-.s-type input[hidden] {
-    display: none !important;
-}
-
 .s-type-list {
     display: none;
     position: absolute;
@@ -817,6 +813,10 @@ a {
 .search-type input:checked+label,
 .search-type input:hover+label {
     background-color: #fff
+}
+
+.search-type input[hidden] {
+    display: none !important;
 }
 
 .set-check {
