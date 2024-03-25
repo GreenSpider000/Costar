@@ -31,7 +31,7 @@
                 $slug = $group_data['taxon']['slug'];
                 @endphp
             	<a href="#{{$slug}}" data-href="#{{$slug}}" class="quick-navigation-item uppercase rounded font-base leading-10 text-gray-500 px-2 my-1">
-            	    {!! html_entity_decode($icon) !!} <span class="pl-1">{{$taxon_name}}</span>
+            	    {!! html_entity_decode($icon) !!} {{$taxon_name}}
             	</a>
             @endforeach
             <div class="scroll-progress-indicator rounded-lg visible">0%</div>
