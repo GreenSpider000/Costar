@@ -671,34 +671,35 @@ a {
 /**
  * ScrollManager
  */
-.quick-navigation {
-}
+.quick-navigation {}
 
-.quick-navigation-item {
+.quick-navigation-item {}
+
+.quick-navigation-link {
     text-decoration: none;
     -webkit-transition: color 0.03s;
     transition: color 0.03s;
 }
 
-.quick-navigation-item .fa {
+.quick-navigation-link .fa {
     color: rgba(37, 99, 235, 0.8);
 }
 
-.quick-navigation-item:hover {
+.quick-navigation-link:hover {
     color: rgb(37, 99, 235);
     background-color: rgba(0, 123, 255, 0.06);
 }
 
-.quick-navigation-item.current {
+.quick-navigation-link.current {
     color: #fff;
     background-color: rgba(37, 99, 235, 1);
 }
 
-.quick-navigation-item:hover .fa {
+.quick-navigation-link:hover .fa {
     color: rgba(37, 99, 235, 1);
 }
 
-.quick-navigation-item.current .fa {
+.quick-navigation-link.current .fa {
     color: #fff;
     background-color: rgb(37, 99, 235);
 }
