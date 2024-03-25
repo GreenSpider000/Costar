@@ -46,7 +46,7 @@
             @php
             $taxon_url = route('frontend.taxons.show', [encode_id($group_data['taxon']['id']), $group_data['taxon']['slug']]);
             @endphp
-            <div id="{{$group_data['taxon']['slug']}}" class="card scroll-section mb-10 px-6 py-4 bg-white border border-gray-100 rounded-lg hover:shadow-lg mb-10">
+            <div id="{{$group_data['taxon']['slug']}}" class="card scroll-section mb-6 px-6 py-4 bg-white border border-gray-100 rounded-lg hover:shadow-lg">
                 <div class="card-header flex items-center justify-between mb-3 pb-2 border-b">
                     <span class="flex items-center">
                         <svg 
