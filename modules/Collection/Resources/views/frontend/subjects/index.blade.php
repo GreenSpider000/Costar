@@ -22,18 +22,22 @@
 </section>
 
 <section class="mx-auto flex md:flex-row flex-col bg-gray-100 text-gray-600 p-8">
-    <div class="collection_sidebar quick-navigation relative flex flex-col flex-0-0-200">
-        <div class="collection_sidebar_inner flex flex-col rounded-lg p-4 bg-white border border-gray-100">
-            @foreach ($module_group_data as $group_key => $group_data)
-                @php
-                $icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder");
-                $taxon_name = $group_data['taxon']['name'];
-                $slug = $group_data['taxon']['slug'];
-                @endphp
-            	<a href="#{{$slug}}" data-href="#{{$slug}}" class="quick-navigation-item uppercase rounded font-base leading-10 text-gray-500 px-2 my-1">
-            	    {!! html_entity_decode($icon) !!} {{$taxon_name}}
-            	</a>
-            @endforeach
+    <div class="collection_sidebar relative flex flex-col flex-0-0-200">
+        <div class="collection_sidebar_inner">
+            <ul class="quick-navigation rounded-lg p-4 bg-white border border-gray-100">
+                @foreach ($module_group_data as $group_key => $group_data)
+                    @php
+                    $icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder");
+                    $taxon_name = $group_data['taxon']['name'];
+                    $slug = $group_data['taxon']['slug'];
+                    @endphp
+                    <li class="quick-navigation-item my-2">
+                    	<a href="#{{$slug}}" data-href="#{{$slug}}" class="quick-navigation-link block uppercase px-2 rounded font-base leading-10 text-gray-500">
+                    	    {!! html_entity_decode($icon) !!} {{$taxon_name}}
+                    	</a>
+                	</li>
+                @endforeach
+            </ul>
             <div class="scroll-progress-indicator rounded-lg visible">0%</div>
         </div>
     </div>
@@ -42,8 +46,8 @@
             @php
             $taxon_url = route('frontend.taxons.show', [encode_id($group_data['taxon']['id']), $group_data['taxon']['slug']]);
             @endphp
-            <div id="{{$group_data['taxon']['slug']}}" class="section-scroll-step card mb-10 px-6 py-4 bg-white border border-gray-100 rounded-lg hover:shadow-lg mb-10">
-                <div class="flex flex items-center mb-3 pb-2 border-b">
+            <div id="{{$group_data['taxon']['slug']}}" class="card scroll-section mb-10 px-6 py-4 bg-white border border-gray-100 rounded-lg hover:shadow-lg mb-10">
+                <div class="card-header flex flex items-center mb-3 pb-2 border-b">
                     <svg 
                         class="icon" 
                         viewBox="0 0 1024 1024" 
@@ -55,7 +59,7 @@
                     </svg>
                     <a class="uppercase text-xl ms-3" href="{{$taxon_url}}" ttarget="_blank">{{$group_data['taxon']['name']}}</a>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                <div class="card-body grid grid-cols-1 sm:grid-cols-4 gap-4">
                     @foreach ($group_data['subject'] as $index => $data)
                         @php
                         $detail_url = route("frontend.$module_name.show",[encode_id($data['id']), $data['slug']]);
@@ -113,13 +117,13 @@
     	//////////////////////
     
     	let scrollToTopBtn = document.querySelector('.scroll-to-top'),
-    		steps = document.querySelectorAll('.section-scroll-step'),
+    		sections = document.querySelectorAll('.scroll-section'),
     		navigationContainer = document.querySelector('.quick-navigation'),
-    		links = navigationContainer ? navigationContainer.querySelectorAll('.quick-navigation-item') : null,
+    		links = navigationContainer ? navigationContainer.querySelectorAll('.quick-navigation-link') : null,
     		progressIndicator = document.querySelector('.scroll-progress-indicator');
     
     	ScrollManager.init({
-    		steps: steps,
+    		sections: sections,
     		scrollToTopBtn: scrollToTopBtn,
     		navigationContainer: navigationContainer,
     		links: links,
@@ -137,10 +141,10 @@
     			}
     		},
     
-    		// Behavior when a step changes
+    		// Behavior when a section changes
     		// default : highlight links 
     
-    		// onStepChange: function (step) {},
+    		// onSectionChange: function (section) {},
     
     		// Customize the animation with jQuery, GSAP or velocity 
     		// default : jQuery animate()

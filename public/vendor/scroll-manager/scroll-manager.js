@@ -1,4 +1,3 @@
-
 /**
  * ScrollManager
  */
@@ -8,7 +7,7 @@
 	//////////////////////
 	function throttle(fn, delay, scope) {
 		// Default delay
-		delay = delay || 100;
+		delay = delay || 50;
 		let last, defer;
 		return function () {
 			let context = scope || this,
@@ -48,27 +47,27 @@
 
 		let defaults = {
 
-			steps: null,
+			sections: null,
 			navigationContainer: null,
 			links: null,
 			scrollToTopBtn: null,
 
 			navigationElementClass: '.quick-navigation',
-			currentStepClass: 'current',
+			currentSectionClass: 'current',
 			smoothScrollEnabled: true,
-			stepsCheckEnabled: true,
+			sectionsCheckEnabled: true,
 
 			// Callbacks
 			onScroll: null,
 
-			onStepChange: function (step) {
+			onSectionChange: function (section) {
 				var self = this;
 				var relativeLink = [].filter.call(options.links, function (link) {
-					link.classList.remove(self.currentStepClass);
-					return (link.hash === '#' + step.id) || ($(link).attr("data-href")  === '#' + step.id);
+					link.classList.remove(self.currentSectionClass);
+					return (link.hash === '#' + section.id) || ($(link).attr("data-href")  === '#' + section.id);
 				});
 				if(relativeLink[0]) {
-				    relativeLink[0].classList.add(self.currentStepClass);
+				    relativeLink[0].classList.add(self.currentSectionClass);
 				}
 			},
 
@@ -84,7 +83,7 @@
 
 		// Privates
 		let _animation = null,
-			currentStep = null,
+			currentSection = null,
 			throttledGetScrollPosition = null;
 
 		return {
@@ -95,8 +94,8 @@
 
 				options = extend(defaults, opts);
 
-				if (options.steps === null) {
-					console.warn('Smooth scrolling require some sections or steps to scroll to :)');
+				if (options.sections === null) {
+					console.warn('Smooth scrolling require some sections to scroll to :)');
 					return false;
 				}
 
@@ -128,8 +127,8 @@
 
 			getScrollPosition: function () {
 				this.scrollPosition = window.pageYOffset || window.scrollY;
-				if (options.stepsCheckEnabled) {
-				    this.checkActiveStep();
+				if (options.sectionsCheckEnabled) {
+				    this.checkActiveSection();
 				}
 				if (typeof options.onScroll === 'function') {
 				    options.onScroll(this.scrollPosition);
@@ -156,9 +155,9 @@
 				if (e.target.nodeName === 'A') {
 					e.preventDefault();
 					if (location.pathname.replace(/^\//, '') === e.target.pathname.replace(/^\//, '') && location.hostname === e.target.hostname) {
-						var targetStep = document.querySelector(e.target.hash);
-						if(targetStep) {
-						    _animation(targetStep)
+						var targetSection = document.querySelector(e.target.hash);
+						if(targetSection) {
+						    _animation(targetSection)
 						} else {
 						    console.warn('Hi! You should give an animation callback function to the Scroller module! :)');
 						}
@@ -172,22 +171,22 @@
 				}
 			},
 
-			checkActiveStep: function () {
+			checkActiveSection: function () {
 			    const scrollPosition = this.scrollPosition;
 
-				[].forEach.call(options.steps, function (step) {
-					let bBox = step.getBoundingClientRect(),
-						position = step.offsetTop,
+				[].forEach.call(options.sections, function (section) {
+					let bBox = section.getBoundingClientRect(),
+						position = section.offsetTop,
 						height = position + bBox.height;
 
-					if (scrollPosition >= position && scrollPosition < height && currentStep !== step) {
-						currentStep = step;
-						step.classList.add(options.currentStepClass);
-						if (typeof options.onStepChange === 'function') {
-						    options.onStepChange(step);
+					if (scrollPosition >= position && scrollPosition < height && currentSection !== section) {
+						currentSection = section;
+						section.classList.add(options.currentSectionClass);
+						if (typeof options.onSectionChange === 'function') {
+						    options.onSectionChange(section);
 						}
 					}
-					step.classList.remove(options.currentStepClass);
+					section.classList.remove(options.currentSectionClass);
 				});
 			},
 
