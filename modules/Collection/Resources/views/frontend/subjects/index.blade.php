@@ -27,7 +27,7 @@
             <ul class="quick-navigation rounded-lg p-4 bg-white border border-gray-100">
                 @foreach ($module_group_data as $group_key => $group_data)
                     @php
-                    $tax_icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder");
+                    $tax_icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder-open");
                     $taxon_name = $group_data['taxon']['name'];
                     $slug = $group_data['taxon']['slug'];
                     @endphp
@@ -60,7 +60,7 @@
                         </svg>
                         <span class="pl-2 text-xl font-medium">{{$group_data['taxon']['name']}}</span>
                     </span>
-                    <span class="text-sm text-gray-400">
+                    <span class="text-sm text-gray-400 hover:text-gray-500">
                         <a class="pr-1" href="{{$taxon_url}}" target="_blank">@lang('More')</a><i class="fa fal fa-angle-right"></i>
                     </span>
                 </div>
@@ -111,21 +111,17 @@
             containerSelector: ".collection_content",
             innerWrapperSelector: ".collection_sidebar_inner",
         });
-        
-        //////////////////////
-    	// END StickySidebar
-    	//////////////////////
 
 
         //////////////////////
     	// ScrollManager init
     	//////////////////////
     
-    	let scrollToTopBtn = document.querySelector('.scroll-to-top'),
-    		sections = document.querySelectorAll('.scroll-section'),
-    		navigationContainer = document.querySelector('.quick-navigation'),
+    	let navigationContainer = document.querySelector('.quick-navigation'),
     		links = navigationContainer ? navigationContainer.querySelectorAll('.quick-navigation-link') : null,
-    		progressIndicator = document.querySelector('.scroll-progress-indicator');
+    		sections = document.querySelectorAll('.scroll-section'),
+    		progressIndicator = document.querySelector('.scroll-progress-indicator'),
+    		scrollToTopBtn = document.querySelector('.scroll-to-top');
     
     	ScrollManager.init({
     		sections: sections,
@@ -135,7 +131,7 @@
     
     		// Customize onScroll behavior
     		onScroll: function () {
-    			const percentage = ScrollManager.scrollPercentage();
+    			const percentage = ScrollManager.getScrollPercentage();
     			if (percentage >= 10) {
     			    scrollToTopBtn.classList.add('visible');
     				progressIndicator.innerHTML = percentage + "%";
@@ -150,10 +146,6 @@
     		// default : highlight links 
     
     		// onSectionChange: function (section) {},
-    
-    		// Customize the animation with jQuery, GSAP or velocity 
-    		// default : jQuery animate()
-    		// Eg with GSAP scrollTo plugin
     
     		//smoothScrollAnimation: function (target) {
     		//    TweenLite.to(window, 2, {scrollTo:{y:target}, ease:Power2.easeOut});

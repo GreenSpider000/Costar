@@ -20,6 +20,10 @@
         </div>
     </div>
     <div class="relative">
-        <button class="scroll-to-top rounded-lg">{{__("Scroll To Top")}}</button>
+        <button class="scroll-to-top rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20" fill="#f0f0f0">
+                <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM377 271L273 167c-9.4-9.4-24.6-9.4-33.9 0L135 271c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l87-87 87 87c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9z"/>
+            </svg>
+        </button>
     </div>
 </footer>

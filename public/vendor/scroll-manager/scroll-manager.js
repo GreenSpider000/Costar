@@ -1,3 +1,4 @@
+
 /**
  * ScrollManager
  */
@@ -36,10 +37,6 @@
 	}
 
 	//////////////////////
-	// END Utils
-	//////////////////////
-
-	//////////////////////
 	// Scroll Module
 	//////////////////////
 
@@ -61,8 +58,8 @@
 			onScroll: null,
 
 			onSectionChange: function (section) {
-				var self = this;
-				var relativeLink = [].filter.call(options.links, function (link) {
+				let self = this;
+				let relativeLink = [].filter.call(options.links, function (link) {
 					link.classList.remove(self.currentSectionClass);
 					return (link.hash === '#' + section.id) || ($(link).attr("data-href")  === '#' + section.id);
 				});
@@ -75,15 +72,14 @@
 			smoothScrollAnimation: function (target) {
 				$('html, body').animate({
 					scrollTop: target
-				}, 'slow');
+				}, 'linear');// slow
 			}
 		};
 
 		let options = {};
 
 		// Privates
-		let _animation = null,
-			currentSection = null,
+		let currentSection = null,
 			throttledGetScrollPosition = null;
 
 		return {
@@ -94,16 +90,10 @@
 
 				options = extend(defaults, opts);
 
-				if (options.sections === null) {
+				if (!options.sections) {
 					console.warn('Smooth scrolling require some sections to scroll to :)');
 					return false;
 				}
-
-				// Allow to customize the animation engine ( jQuery / GSAP / velocity / ... )
-				_animation = function (target) {
-					target = typeof target === 'number' ? target : $(target).offset().top;
-					return options.smoothScrollAnimation(target);
-				};
 
 				// Activate smooth scrolling
 				if (options.smoothScrollEnabled) {
@@ -135,29 +125,14 @@
 				}
 			},
 
-			scrollPercentage: function () {
-				let body = document.body,
-					html = document.documentElement,
-					documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
-						html.clientHeight, html.scrollHeight, html.offsetHeight);
-
-				let percentage = Math.round(this.scrollPosition / (documentHeight - window.innerHeight) * 100);
-				if (percentage < 0) {
-				    percentage = 0;
-				}
-				if (percentage > 100) {
-				    percentage = 100;
-				}
-				return percentage;
-			},
-
 			doSmoothScroll: function (e) {
 				if (e.target.nodeName === 'A') {
 					e.preventDefault();
 					if (location.pathname.replace(/^\//, '') === e.target.pathname.replace(/^\//, '') && location.hostname === e.target.hostname) {
-						var targetSection = document.querySelector(e.target.hash);
+						const targetSection = document.querySelector(e.target.hash);
 						if(targetSection) {
-						    _animation(targetSection)
+						    const targetNum = typeof targetSection === 'number' ? targetSection : $(targetSection).offset().top;
+					        options.smoothScrollAnimation(targetNum);
 						} else {
 						    console.warn('Hi! You should give an animation callback function to the Scroller module! :)');
 						}
@@ -166,13 +141,13 @@
 			},
 
 			smoothScroll: function () {
-				if (options.navigationContainer !== null) {
+				if (options.navigationContainer) {
 				    options.navigationContainer.addEventListener('click', this.doSmoothScroll);
 				}
 			},
 
 			checkActiveSection: function () {
-			    const scrollPosition = this.scrollPosition;
+			    const scrollPosition = this.scrollPosition + 1;
 
 				[].forEach.call(options.sections, function (section) {
 					let bBox = section.getBoundingClientRect(),
@@ -190,6 +165,22 @@
 				});
 			},
 
+			getScrollPercentage: function () {
+				let body = document.body,
+					html = document.documentElement,
+					documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
+						html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+				let percentage = Math.round(this.scrollPosition / (documentHeight - window.innerHeight) * 100);
+				if (percentage < 0) {
+				    percentage = 0;
+				}
+				if (percentage > 100) {
+				    percentage = 100;
+				}
+				return percentage;
+			},
+
 			destroy: function () {
 				window.removeEventListener('scroll', throttledGetScrollPosition);
 				window.removeEventListener('resize', throttledGetScrollPosition);
@@ -199,9 +190,5 @@
 	})();
 	
 	window.ScrollManager = ScrollManager;
-
-	//////////////////////
-	// END scroll Module
-	//////////////////////
 
 })();
