@@ -119,6 +119,26 @@ a {
 }
 
 /**
+ * flex
+ */
+
+ .flex-0-0-24 {
+    flex: 0 0 100px;
+}
+
+.flex-0-0-48 {
+    flex: 0 0 48px;
+}
+
+.flex-0-0-100 {
+    flex: 0 0 100px;
+}
+
+.flex-0-0-200 {
+    flex: 0 0 200px;
+}
+
+/**
  * Button
  */
 .btn {
@@ -681,10 +701,6 @@ a {
     transition: color 0.03s;
 }
 
-.quick-navigation-link .fa {
-    color: rgba(37, 99, 235, 0.8);
-}
-
 .quick-navigation-link:hover {
     color: rgb(37, 99, 235);
     background-color: rgba(0, 123, 255, 0.06);
@@ -693,6 +709,11 @@ a {
 .quick-navigation-link.current {
     color: #fff;
     background-color: rgba(37, 99, 235, 1);
+}
+
+.quick-navigation-link .fa {
+    padding-right: 0.5rem;
+    color: rgba(37, 99, 235, 0.8);
 }
 
 .quick-navigation-link:hover .fa {
@@ -749,26 +770,6 @@ a {
 
 .scroll-to-top:hover {
     color: rgba(255, 255, 255, 0.9);
-}
-
-/**
- * flex
- */
-
-.flex-0-0-24 {
-    flex: 0 0 100px;
-}
-
-.flex-0-0-48 {
-    flex: 0 0 48px;
-}
-
-.flex-0-0-100 {
-    flex: 0 0 100px;
-}
-
-.flex-0-0-200 {
-    flex: 0 0 200px;
 }
 
 /**
