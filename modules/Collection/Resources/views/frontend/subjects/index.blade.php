@@ -23,7 +23,7 @@
 
 <section class="mx-auto flex md:flex-row flex-col bg-gray-100 text-gray-600 p-8">
     <div class="collection_sidebar quick-navigation relative flex flex-col flex-0-0-200">
-        <div class="collection_sidebar_inner flex flex-col rounded-lg p-4 bg-white border border-gray-100 text-sm">
+        <div class="collection_sidebar_inner flex flex-col rounded-lg p-4 bg-white border border-gray-100">
             @foreach ($module_group_data as $group_key => $group_data)
                 @php
                 $icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder");
@@ -63,7 +63,7 @@
                         $favicon = getFavicon($data['site']);
                         @endphp
                         <div 
-                            class="flex flex-col p-2 rounded hover:bg-light-blue"
+                            class="flex flex-col p-2 rounded-lg hover:bg-light-blue"
                             data-toggle="tooltip" 
                             data-coreui-placement="top" 
                             title="{{$data['description'] ?? $data['name']}}"
