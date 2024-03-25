@@ -52,6 +52,35 @@ return [
             ],
         ],
     ],
+    'collection' => [
+        'title' => 'Collection',
+        'desc' => 'Collection settings.',
+        'icon' => 'fas fa-cube',
+        'elements' => [
+            [
+                'type' => 'number', // input fields type
+                'data' => 'string', // data type, string, int, boolean
+                'name' => 'subject_columns', // unique name for field
+                'label' => 'Subject columns', // you know what label it is
+                'rules' => '', // validation rule of laravel
+                'class' => '', // any class for input
+                'value' => 4, // default value if you want
+            ],
+            [
+                'type' => 'radio', // input fields type
+                'data' => 'string', // data type, string, int, boolean
+                'name' => 'subject_target', // unique name for field
+                'label' => 'Subject link target', // you know what label it is
+                'rules' => '', // validation rule of laravel
+                'class' => '', // any class for input
+                'value' => '1', // default value if you want
+                'options' => [
+                    0 => 'Destination link',
+                    1 => 'Detail link'
+                ]
+            ],
+        ],
+    ],
     'meta' => [
         'title' => 'Meta ',
         'desc' => 'Application Meta Data',

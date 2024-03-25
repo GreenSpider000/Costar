@@ -69,7 +69,8 @@ class SubjectsController extends Controller
             $taxon_key = $row->id;
             
             $taxon_list = $taxon_model::findOrFail($taxon_key);
-            $subject_paginate = $taxon_list->subjects()->with('taxon')->paginate(8);
+            $page_number = setting('subject_columns') ? intval(setting('subject_columns')) * 4 : 16;
+            $subject_paginate = $taxon_list->subjects()->with('taxon')->paginate($page_number);
             
             $subject_list = array();
             foreach($subject_paginate as $item) {
