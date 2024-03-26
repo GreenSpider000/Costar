@@ -196,7 +196,7 @@ class BackendBaseController extends Controller
         $module_action = 'Store';
 
         $data = $request->all();
-        $data['slug'] = $data['slug'] ? slugify($data['slug']) : $data['name'];
+        $data['slug'] = $data['slug'] ? slugify($data['slug']) : slugify($data['name']);
 
         $$module_name_singular = $module_model::create($data);
 
