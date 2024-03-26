@@ -18,11 +18,17 @@
 
 <section class="py-10 sm:py-10 px-20 sm:px-20">
     <div class="container mx-auto flex md:flex-row flex-col">
-        <div class="w-full flex flex-row">
-            <div class="flex flex-col flex-0-0-100">
-                <img class="w-20 h-20 rounded-full" src="{{asset('images/avatars/'.rand(1, 8).'.jpg')}}" alt="image" />
+        <div class="w-full flex flex-row items-center py-10 px-10 border border-gray-200 rounded-lg">
+            <div class="flex-0-0-100 mr-4">
+                @php
+                $favicon = getFavicon($$module_name_singular->site);
+                @endphp
+                <img class="w-24 h-24 rounded-lg" src="{{getFavicon($$module_name_singular->site)}}" alt="{{$$module_name_singular->name}}" />
             </div>
             <div class="flex flex-col flex-1">
+                <div class="mb-2 uppercase text-base truncate">
+                    {{$$module_name_singular->name}}
+                </div>
                 @if($$module_name_singular->site != "")
                 <div class="mb-2 leading-relaxed">
                     <a href="{{$$module_name_singular->site}}" target="_blank">{{$$module_name_singular->site}}</a>

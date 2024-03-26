@@ -24,7 +24,7 @@
 <section class="mx-auto flex md:flex-row flex-col bg-gray-100 text-gray-600 p-8">
     <div class="collection_sidebar relative flex flex-col flex-0-0-200">
         <div class="collection_sidebar_inner">
-            <ul class="quick-navigation border border-gray-200 rounded-lg p-4 bg-white border border-gray-100">
+            <ul class="quick-navigation rounded-lg p-4 bg-white border border-gray-200">
                 @foreach ($module_group_data as $group_key => $group_data)
                     @php
                     $tax_icon = $group_data['taxon']['icon_class'] ? icon($group_data['taxon']['icon_class']) : icon("fa fa-folder-open");
@@ -46,7 +46,7 @@
             @php
             $taxon_url = route('frontend.taxons.show', [encode_id($group_data['taxon']['id']), $group_data['taxon']['slug']]);
             @endphp
-            <div id="{{$group_data['taxon']['slug']}}" class="card scroll-section border border-gray-200 mb-6 px-6 py-4 bg-white border border-gray-100 rounded-lg hover:shadow-lg">
+            <div id="{{$group_data['taxon']['slug']}}" class="card scroll-section mb-6 px-6 py-4 bg-white border border-gray-200 rounded-lg hover:shadow-lg">
                 <div class="card-header flex items-center justify-between mb-3 pb-2 border-b">
                     <span class="flex items-center">
                         <svg 
