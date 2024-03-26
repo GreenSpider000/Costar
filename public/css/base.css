@@ -1626,6 +1626,16 @@ select {
     padding-right: 2rem
 }
 
+.px-10 {
+    padding-left: 3rem;
+    padding-right: 3rem
+}
+
+.px-20 {
+    padding-left: 5rem;
+    padding-right: 5rem
+}
+
 .py-0 {
     padding-top: 0;
     padding-bottom: 0

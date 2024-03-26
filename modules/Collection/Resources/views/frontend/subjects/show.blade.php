@@ -16,7 +16,7 @@
     </div>
 </section>
 
-<section class="py-6 sm:py-10 px-6 sm:px-20">
+<section class="py-10 sm:py-10 px-20 sm:px-20">
     <div class="container mx-auto flex md:flex-row flex-col">
         <div class="w-full flex flex-row">
             <div class="flex flex-col flex-0-0-100">
