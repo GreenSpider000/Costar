@@ -174,7 +174,7 @@
     $(document).ready(function(){
         superSearch();
     });
-    
+
     /**
      * Super search
      */
@@ -221,7 +221,7 @@
                 $("#search-provider-list input#" + search_provider).parents(".search-group").addClass("s-current");
             }
         }
-    
+
         $("#search-form").attr("action", $("#search-provider-list input:radio:checked").val());
         $(".search-key").attr("placeholder", $("#search-provider-list input:radio:checked").data("placeholder"));
 
@@ -230,23 +230,23 @@
         }
 
         toTarget($(".s-type-list"), false, false);
-        
-        
+
+
         /**
          * Change search type
          */
         $(document).on("click", ".s-type-list label", function (event) {
             //event.preventDefault();
-            
+
             $(".s-type-list label").removeClass("active");
             $(this).addClass("active");
-            
+
             const parent = $(this).parents(".s-search");
             parent.find(".search-group").removeClass("s-current");
             parent.find("#" + $(this).attr("for")).parents(".search-group").addClass("s-current");
-    
+
             toTarget($(this).parents(".s-type-list"), false, false);
-    
+
             window.localStorage.setItem("search_group_id", $(this).data("id"));
         });
 
