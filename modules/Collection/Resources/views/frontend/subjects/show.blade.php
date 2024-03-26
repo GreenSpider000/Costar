@@ -18,7 +18,7 @@
 
 <section class="py-10 sm:py-10 px-20 sm:px-20">
     <div class="container mx-auto flex md:flex-row flex-col">
-        <div class="w-full flex flex-row items-center py-10 px-10 border border-gray-200 rounded-lg">
+        <div class="w-full flex flex-row items-center py-10 px-10">
             <div class="flex-0-0-100 mr-4">
                 @php
                 $favicon = getFavicon($$module_name_singular->site);
