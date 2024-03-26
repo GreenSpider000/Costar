@@ -857,22 +857,22 @@ a {
   }
   
   /* search-form */
-  #super-search form.search-form {
+  #super-search form#search-form {
     position: relative;
   }
   
-  #super-search.s-search form.search-form #search-text {
+  #super-search.s-search form#search-form #search-text {
     width: 100%;
     border-radius: 50px;
     padding: 8px 20px;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
   }
-  #super-search.s-search.no-bg form.search-form #search-text {
+  #super-search.s-search.no-bg form#search-form #search-text {
     /**/
   }
   
-  #super-search.s-search form.search-form button.submit {
+  #super-search.s-search form#search-form button.submit {
     position: absolute;
     top: 0;
     right: 0;
@@ -883,14 +883,14 @@ a {
     border-radius: 3px;
   }
   
-  #super-search.s-search form.search-form button.submit:active,
-  #super-search.s-search form.search-form button.submit:focus {
+  #super-search.s-search form#search-form button.submit:active,
+  #super-search.s-search form#search-form button.submit:focus {
     box-shadow: none;
     outline: none;
     cursor: pointer;
   }
   
-  #super-search form.search-form button.submit i {
+  #super-search form#search-form button.submit i {
     color: #6c757d;
     font-size: 18px;
   }

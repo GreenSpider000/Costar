@@ -1,9 +1,9 @@
 <div id="super-search" class="s-search mx-auto">
-    <div id="search-type-list" class="hide-type-list">
+    <div id="search-type-list">
         <div class="s-type text-center">
-            <div class="s-type-list big">
+            <div class="s-type-list">
                 <div class="anchor" style="position: absolute; left: 50%; opacity: 0"></div>
-                <label for="type-baidu" data-id="group-a"><span>常用</span></label>
+                <label for="type-baidu" data-id="group-a" class="active"><span>常用</span></label>
                 <label for="type-baidu1" data-id="group-b"><span>搜索</span></label>
                 <label for="type-whois" data-id="group-c"><span>工具</span></label>
                 <label for="type-zhihu" data-id="group-d"><span>社区</span></label>
@@ -12,12 +12,12 @@
             </div>
         </div>
     </div>
-    <form class="search-form" action="https://www.baidu.com?s=" method="get" target="_blank">
+    <form id="search-form" action="https://www.baidu.com?s=" method="get" target="_blank">
         <input id="search-text" class="form-control search-key" type="text" placeholder="输入关键字搜索" autocomplete="off" />
         <button class="submit" type="submit"><i class="fa fa-search"></i></button>
     </form>
-    <div id="search-provider-list" class="hide-type-list">
-        <div class="search-group group-a">
+    <div id="search-provider-list">
+        <div class="search-group group-a s-current">
             <ul class="search-provider">
                 <li>
                     <input type="radio" name="provider" hidden checked="checked" id="type-baidu" value="https://www.baidu.com/s?wd=" data-placeholder="百度一下，你就知道" />
@@ -72,16 +72,16 @@
         <div class="search-group group-c">
             <ul class="search-provider">
                 <li>
+                    <input type="radio" name="provider" hidden id="type-whois" value="https://who.is/whois/" data-placeholder="请输入网址(不带 https://)" />
+                    <label for="type-whois"><span class="text-muted">域名信息查询</span></label>
+                </li>
+                <li>
                     <input type="radio" name="provider" hidden id="type-br" value="https://rank.chinaz.com/all/" data-placeholder="请输入网址(不带 https://)" />
                     <label for="type-br"><span class="text-muted">权重查询</span></label>
                 </li>
                 <li>
                     <input type="radio" name="provider" hidden id="type-links" value="https://link.chinaz.com/" data-placeholder="请输入网址(不带 https://)" />
                     <label for="type-links"><span class="text-muted">友链检测</span></label>
-                </li>
-                <li>
-                    <input type="radio" name="provider" hidden id="type-whois" value="https://who.is/whois/" data-placeholder="请输入网址(不带 https://)" />
-                    <label for="type-whois"><span class="text-muted">域名信息查询</span></label>
                 </li>
                 <li>
                     <input type="radio" name="provider" hidden id="type-ping" value="https://ping.chinaz.com/" data-placeholder="请输入网址(不带 https://)" />
@@ -170,102 +170,118 @@
 
 
 <script>
-    // Search -----------------------
+    // Search
     $(document).ready(function(){
         superSearch();
     });
     
+    /**
+     * Super search
+     */
     function superSearch() {
-        if (window.localStorage.getItem("searchlist")) {
-            $(".hide-type-list input#" + window.localStorage.getItem("searchlist")).prop("checked", true);
-            $(".hide-type-list input#m_" + window.localStorage.getItem("searchlist")).prop("checked", true);
-        }
-        if (window.localStorage.getItem("searchlistmenu")) {
-            $(".s-type-list.big label").removeClass("active");
-            $(".s-type-list [data-id=" + window.localStorage.getItem("searchlistmenu") + "]").addClass("active");
-        }
-        toTarget($(".s-type-list.big"), false, false);
-        $(".hide-type-list .s-current").removeClass("s-current");
-        $('.hide-type-list input:radio[name="provider"]:checked').parents(".search-group").addClass("s-current");
-    
-        $(".search-form").attr("action", $(".hide-type-list input:radio:checked").val());
-        $(".search-key").attr("placeholder", $(".hide-type-list input:radio:checked").data("placeholder"));
-        if (window.localStorage.getItem("searchlist") == "type-zhannei") {
-            $(".search-key").attr("zhannei", "true");
-        }
-    }
-    
-    function toTarget(menu, padding, isMult) {
-        var slider = menu.children(".anchor");
-        var target = menu.children(".hover").first();
-        if (target && 0 < target.length) {
-            //
-        } else {
-            if (isMult) {
-                target = menu.find(".active").parent();
+        function toTarget(menu, padding, isMult) {
+            let anchor = menu.children(".anchor");
+            let target = menu.find(".active");
+            if (0 < target.length) {
+                if (padding) {
+                    anchor.css({
+                        left: target.position().left + target.scrollLeft() + "px",
+                        width: target.outerWidth() + "px",
+                        opacity: "1",
+                    });
+                } else {
+                    anchor.css({
+                        left: target.position().left + target.scrollLeft() + target.outerWidth() / 4 + "px",
+                        width: target.outerWidth() / 2 + "px",
+                        opacity: "1",
+                    });
+                }
             } else {
-                target = menu.find(".active");
-            }
-        }
-        if (0 < target.length) {
-            if (padding) {
-                slider.css({
-                    left: target.position().left + target.scrollLeft() + "px",
-                    width: target.outerWidth() + "px",
-                    opacity: "1",
-                });
-            } else {
-                slider.css({
-                    left: target.position().left + target.scrollLeft() + target.outerWidth() / 4 + "px",
-                    width: target.outerWidth() / 2 + "px",
-                    opacity: "1",
+                anchor.css({
+                    opacity: "0",
                 });
             }
-        } else {
-            slider.css({
-                opacity: "0",
-            });
         }
-    }
-    
-    $(document).on("click", ".s-type-list label", function (event) {
-        //event.preventDefault();
-        $(".s-type-list.big label").removeClass("active");
-        $(this).addClass("active");
-        window.localStorage.setItem("searchlistmenu", $(this).data("id"));
-        var parent = $(this).parents(".s-search");
-        parent.find(".search-group").removeClass("s-current");
-        parent
-            .find("#" + $(this).attr("for"))
-            .parents(".search-group")
-            .addClass("s-current");
-        toTarget($(this).parents(".s-type-list"), false, false);
-    });
-    
-    $(".hide-type-list .search-group input").on("click", function () {
-        var parent = $(this).parents(".s-search");
-        window.localStorage.setItem("searchlist", $(this).attr("id").replace("m_", ""));
-        parent.children(".search-form").attr("action", $(this).val());
-        parent.find(".search-key").attr("placeholder", $(this).data("placeholder"));
-    
-        if ($(this).attr("id") == "type-zhannei" || $(this).attr("id") == "m_type-zhannei") {
-            parent.find(".search-key").attr("zhannei", "true");
-        } else {
-            parent.find(".search-key").attr("zhannei", "");
-        }
-    
-        parent.find(".search-key").select();
-        parent.find(".search-key").focus();
-    });
-    
-    $(document).on("submit", ".search-form", function () {
-        var key = encodeURIComponent($(this).find(".search-key").val());
-        if (key == "") {
-            return false;
-        } else {
-            window.open($(this).attr("action") + key);
-            return false;
-        }
-    });
 
+        /**
+         * Initialization
+         */
+        const search_provider = window.localStorage.getItem("search_provider");
+        const search_group_id = window.localStorage.getItem("search_group_id");
+
+        if (search_group_id) {
+            $(".s-type-list label").removeClass("active");
+            $(".s-type-list [data-id=" + search_group_id + "]").addClass("active");
+        }
+
+        if (search_provider) {
+            $("#search-provider-list .search-group").removeClass("s-current");
+            $("#search-provider-list input#" + search_provider).prop("checked", true);
+            if($("#search-provider-list input#" + search_provider).parents(".search-group")) {
+                $("#search-provider-list input#" + search_provider).parents(".search-group").addClass("s-current");
+            }
+        }
+    
+        $("#search-form").attr("action", $("#search-provider-list input:radio:checked").val());
+        $(".search-key").attr("placeholder", $("#search-provider-list input:radio:checked").data("placeholder"));
+
+        if (search_provider == "type-internal") {
+            $(".search-key").attr("internal", "true");
+        }
+
+        toTarget($(".s-type-list"), false, false);
+        
+        
+        /**
+         * Change search type
+         */
+        $(document).on("click", ".s-type-list label", function (event) {
+            //event.preventDefault();
+            
+            $(".s-type-list label").removeClass("active");
+            $(this).addClass("active");
+            
+            const parent = $(this).parents(".s-search");
+            parent.find(".search-group").removeClass("s-current");
+            parent.find("#" + $(this).attr("for")).parents(".search-group").addClass("s-current");
+    
+            toTarget($(this).parents(".s-type-list"), false, false);
+    
+            window.localStorage.setItem("search_group_id", $(this).data("id"));
+        });
+
+        /**
+         * Change search provider
+         */
+        $("#search-provider-list .search-group input").on("click", function () {
+            const parent = $(this).parents(".s-search");
+    
+            parent.children("#search-form").attr("action", $(this).val());
+            parent.find(".search-key").attr("placeholder", $(this).data("placeholder"));
+        
+            if ($(this).attr("id") == "type-internal") {
+                parent.find(".search-key").attr("internal", "true");
+            } else {
+                parent.find(".search-key").attr("internal", "");
+            }
+    
+            window.localStorage.setItem("search_provider", $(this).attr("id"));
+        
+            parent.find(".search-key").select();
+            parent.find(".search-key").focus();
+        });
+
+        /**
+         * Handle search submit
+         */
+        $(document).on("submit", "#search-form", function () {
+            const key = encodeURIComponent($(this).find(".search-key").val());
+            if (key) {
+                window.open($(this).attr("action") + key);
+                return false;
+            } else {
+                return false;
+            }
+        });
+    }
 </script>
