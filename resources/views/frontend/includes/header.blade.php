@@ -89,7 +89,7 @@
                             <i class="fas fa-cogs fa-fw"></i>&nbsp;{{__('Settings')}}
                         </a>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-600 hover:bg-orange-600 hover:text-white" role="menuitem">
-                            {{__('Logout')}}
+                            <i class="fa-solid fa-right-from-bracket"></i>&nbsp;{{__('Logout')}}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
