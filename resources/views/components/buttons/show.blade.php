@@ -1,4 +1,4 @@
-@props(["route"=>"", "icon"=>"fas fa-desktop", "title", "small"=>"", "class"=>""])
+@props(["route"=>"", "icon"=>"fas fa-desktop", "title"=>"", "small"=>"", "class"=>""])
 
 @if($route)
 <a href='{{$route}}'
