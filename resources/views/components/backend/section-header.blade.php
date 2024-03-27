@@ -29,15 +29,15 @@
     @else
     <div class="btn-toolbar d-block text-end" role="toolbar" aria-label="Toolbar with buttons">
         @if (Str::endsWith(Route::currentRouteName(), 'create'))
-        <x-backend.buttons.return-back small="true" />
+        <x-buttons.return-back small="true" />
         <a href='{{ route("backend.$module_name.index") }}' class="btn btn-secondary btn-sm ms-1" data-toggle="tooltip" title="{{ __($module_title) }} {{ __('List') }}"><i class="fas fa-list-ul"></i> @lang("List")</a>
 
         @elseif (Str::endsWith(Route::currentRouteName(), 'edit'))
-        <x-backend.buttons.return-back small="true" />
+        <x-buttons.return-back small="true" />
         <x-buttons.show route='{!!route("backend.$module_name.show", $data)!!}' title="{{__('Show')}} {{ ucwords(Str::singular($module_name)) }}" class="ms-1" small="true" />
 
         @elseif (Str::endsWith(Route::currentRouteName(), 'show'))
-        <x-backend.buttons.return-back small="true" />
+        <x-buttons.return-back small="true" />
         @can('edit_'.$module_name)
         <x-buttons.edit route='{!!route("backend.$module_name.edit", $data)!!}' title="{{__('Edit')}} {{ ucwords(Str::singular($module_name)) }}" class="m-1" small="true" />
         @endcan

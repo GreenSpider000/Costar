@@ -17,7 +17,7 @@
 
                 <div class="row">
                     <div class="col-4 mt-4">
-                        <x-backend.buttons.save />
+                        <x-buttons.save />
                     </div>
 
                     <div class="col-8 mt-4">
@@ -25,7 +25,7 @@
                             @can('delete_'.$module_name)
                             <a href='{{route("backend.$module_name.destroy", $data)}}' class="btn btn-danger" data-method="DELETE" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('Delete')}}"><i class="fas fa-trash-alt"></i></a>
                             @endcan
-                            <x-backend.buttons.cancel />
+                            <x-buttons.cancel />
                         </div>
                     </div>
                 </div>

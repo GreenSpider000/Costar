@@ -19,8 +19,10 @@
                 @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
             </x-slot>
             <x-slot name="toolbar">
-                <x-backend.buttons.return-back />
-                <a href='{{ route("backend.$module_name.index") }}' class="btn btn-secondary" data-toggle="tooltip" title="{{ __($module_name) }} {{ __('List') }}"><i class="fas fa-list"></i> @lang("List")</a>
+                <x-buttons.return-back />
+                <a href='{{ route("backend.$module_name.index") }}' class="btn btn-secondary" data-toggle="tooltip" title="{{ __($module_name) }} {{ __('List') }}">
+                    <i class="fas fa-list"></i> @lang("List")
+                </a>
             </x-slot>
         </x-backend.section-header>
 
@@ -69,7 +71,9 @@
                                 {{ $module_name_singular->created_by }}
                             </td>
                             <td class="text-end">
-                                <a href="{{route("backend.$module_name.restore", $module_name_singular)}}" class="btn btn-warning btn-sm" data-method="PATCH" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.restore')}}"><i class='fas fa-undo'></i> {{__('labels.backend.restore')}}</a>
+                                <a href="{{route("backend.$module_name.restore", $module_name_singular)}}" class="btn btn-warning btn-sm" data-method="PATCH" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.restore')}}">
+                                    <i class='fas fa-undo'></i> {{__('labels.backend.restore')}}
+                                </a>
                             </td>
                         </tr>
                         @endforeach

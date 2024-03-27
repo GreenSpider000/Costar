@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-<x-backend.layouts.edit :data="$user">
+<x-backend.layouts-edit :data="$user">
     <x-backend.section-header>
         <i class="{{ $module_icon }}"></i> {{ __($module_title) }} <small class="text-muted">{{ __($module_action) }}</small>
 
@@ -21,7 +21,7 @@
             @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
         </x-slot>
         <x-slot name="toolbar">
-            <x-backend.buttons.return-back />
+            <x-buttons.return-back />
             <x-buttons.show route='{!!route("backend.$module_name.show", $$module_name_singular)!!}' title="{{__('Show')}} {{ ucwords(Str::singular($module_name)) }}" class="ms-1" />
         </x-slot>
     </x-backend.section-header>
@@ -197,7 +197,7 @@
             <div class="row mb-3">
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <x-backend.buttons.save />
+                        <x-buttons.save />
                     </div>
                 </div>
 
@@ -215,7 +215,7 @@
                         @if($$module_name_singular->id != 1)
                         <a href="{{route("backend.$module_name.destroy", $$module_name_singular)}}" class="btn btn-danger" data-method="DELETE" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i> Delete</a>
                         @endif
-                        <x-backend.buttons.return-back>@lang('Cancel')</x-backend.buttons.return-back>
+                        <x-buttons.return-back>@lang('Cancel')</x-buttons.return-back>
                     </div>
                 </div>
             </div>

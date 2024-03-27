@@ -13,7 +13,7 @@
 @endsection
 
 @section('content')
-<x-backend.layouts.show :data="$user">
+<x-backend.layouts-show :data="$user">
 
     <x-backend.section-header>
         <i class="{{ $module_icon }}"></i> {{ __($module_title) }} <small class="text-muted">{{ __($module_action) }}</small>
@@ -22,7 +22,7 @@
             @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
         </x-slot>
         <x-slot name="toolbar">
-            <x-backend.buttons.return-back />
+            <x-buttons.return-back />
             <a href="{{ route('backend.users.index') }}" class="btn btn-primary m-1" data-toggle="tooltip" title="List"><i class="fas fa-list"></i> @lang("List")</a>
             <a href="{{ route('backend.users.profile', $user->id) }}" class="btn btn-primary m-1" data-toggle="tooltip" title="Profile"><i class="fas fa-user"></i> Profile</a>
             <x-buttons.edit route='{!!route("backend.$module_name.edit", $$module_name_singular)!!}' title="{{__('Edit')}} {{ ucwords(Str::singular($module_name)) }}" />

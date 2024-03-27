@@ -30,7 +30,7 @@ $module_icon = "fa-solid fa-list-check";
 
             <div class="col-4">
                 <div class="btn-toolbar float-end" role="toolbar" aria-label="Toolbar with button groups">
-                    <x-backend.buttons.return-back />
+                    <x-buttons.return-back />
                 </div>
             </div>
         </div>

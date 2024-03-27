@@ -17,11 +17,11 @@
 
                 <div class="row">
                     <div class="col-6">
-                        <x-backend.buttons.create>{{__('Create')}}</x-backend.buttons.create>
+                        <x-buttons.create>{{__('Create')}}</x-buttons.create>
                     </div>
                     <div class="col-6">
                         <div class="float-end">
-                            <x-backend.buttons.cancel />
+                            <x-buttons.cancel />
                         </div>
                     </div>
                 </div>

@@ -10,5 +10,4 @@
         {{ $text }}
     </span>
     @endif
-
 </span>

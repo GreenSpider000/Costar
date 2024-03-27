@@ -16,7 +16,7 @@
 @endsection
 
 @section('content')
-<x-backend.layouts.edit :data="$user">
+<x-backend.layouts-edit :data="$user">
     <x-backend.section-header>
         <i class="{{ $module_icon }}"></i> {{ __('Profile') }} <small class="text-muted">{{ __($module_action) }}</small>
 
@@ -24,7 +24,7 @@
             @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
         </x-slot>
         <x-slot name="toolbar">
-            <x-backend.buttons.return-back />
+            <x-buttons.return-back />
         </x-slot>
     </x-backend.section-header>
 
@@ -170,10 +170,10 @@
             </div>
             <div class="row mt-4">
                 <div class="col-6">
-                    <x-backend.buttons.save />
+                    <x-buttons.save />
                 </div>
                 <div class="col-6 text-end">
-                    <x-backend.buttons.cancel />
+                    <x-buttons.cancel />
                 </div>
             </div>
             {{ html()->closeModelForm() }}

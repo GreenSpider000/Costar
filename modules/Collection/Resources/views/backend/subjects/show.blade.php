@@ -22,7 +22,7 @@
                 @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
             </x-slot>
             <x-slot name="toolbar">
-                <x-backend.buttons.return-back />
+                <x-buttons.return-back />
                 <a href="{{ route('backend.subjects.index') }}" class="btn btn-secondary" data-toggle="tooltip" title="{{ __($module_name) }} {{ __('List') }}"><i class="fas fa-list"></i> @lang("List")</a>
                 @can('edit_'.$module_name)
                 <x-buttons.edit route='{!!route("backend.$module_name.edit", $$module_name_singular)!!}' title="{{__('Edit')}} {{ ucwords(Str::singular($module_name)) }}" class="ms-1" />
@@ -41,7 +41,9 @@
             <div class="col-12">
 
                 <div class="text-center">
-                    <a href="{{route("frontend.$module_name.show", [encode_id($$module_name_singular->id), $$module_name_singular->slug])}}" class="btn btn-success" target="_blank"><i class="fas fa-link"></i> Public View</a>
+                    <a href="{{route("frontend.$module_name.show", [encode_id($$module_name_singular->id), $$module_name_singular->slug])}}" class="btn btn-success" target="_blank">
+                        <i class="fas fa-link"></i> @lang("Public View")
+                    </a>
                 </div>
                 <hr>
 

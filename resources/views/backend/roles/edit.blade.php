@@ -22,7 +22,7 @@
                 @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
             </x-slot>
             <x-slot name="toolbar">
-                <x-backend.buttons.return-back />
+                <x-buttons.return-back />
                 <x-buttons.show route='{!!route("backend.$module_name.show", $$module_name_singular)!!}' title="{{__('Show')}} {{ ucwords(Str::singular($module_name)) }}" class="ms-1" />
             </x-slot>
         </x-backend.section-header>
@@ -81,14 +81,14 @@
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
-                            <x-backend.buttons.save />
+                            <x-buttons.save />
                         </div>
                     </div>
 
                     <div class="col-8">
                         <div class="float-end">
                             <a href="{{route("backend.$module_name.destroy", $$module_name_singular)}}" class="btn btn-danger" data-method="DELETE" data-token="{{csrf_token()}}" data-toggle="tooltip" title="{{__('labels.backend.delete')}}"><i class="fas fa-trash-alt"></i></a>
-                            <x-backend.buttons.return-back>Cancel</x-backend.buttons.return-back>
+                            <x-buttons.return-back>Cancel</x-buttons.return-back>
                         </div>
                     </div>
                 </div>

@@ -19,8 +19,10 @@
                 @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
             </x-slot>
             <x-slot name="toolbar">
-                <x-backend.buttons.return-back />
-                <a href='{{ route("backend.$module_name.index") }}' class="btn btn-secondary ms-1" data-toggle="tooltip" title="{{ __($module_title) }} {{ __('List') }}"><i class="fas fa-list-ul"></i> @lang("List")</a>
+                <x-buttons.return-back />
+                <a href='{{ route("backend.$module_name.index") }}' class="btn btn-secondary ms-1" data-toggle="tooltip" title="{{ __($module_title) }} {{ __('List') }}">
+                    <i class="fas fa-list-ul"></i> @lang("List")
+                </a>
             </x-slot>
         </x-backend.section-header>
 
@@ -41,7 +43,7 @@
                     <div class="col-6">
                         <div class="float-end">
                             <div class="form-group">
-                                <button type="button" class="btn btn-warning" onclick="history.back(-1)"><i class="fas fa-reply"></i> Cancel</button>
+                                <button type="button" class="btn btn-warning" onclick="history.back(-1)"><i class="fas fa-reply"></i> @lang("Cancel")</button>
                             </div>
                         </div>
                     </div>
