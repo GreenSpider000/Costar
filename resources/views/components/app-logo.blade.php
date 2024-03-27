@@ -1,4 +1,4 @@
-@props(['image', 'class'])
+@props(['image' => '', 'class' => ''])
 
 @if ($image)
     <img src="{{$image}}" class="{{$class}}" style="height: 50px;" />
