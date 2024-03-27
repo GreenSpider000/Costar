@@ -334,5 +334,5 @@
 </script>
 @endpush
 
-<!-- Summernote editor -->
-<x-library.summernote />
+<!-- TinyMce editor -->
+<x-library.tinymce selector="#content" />
