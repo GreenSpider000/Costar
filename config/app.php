@@ -121,8 +121,8 @@ return [
     */
 
     'available_locales' => [
-        'zh_CN' => 'Chinese (ZH_CN)',
-        'en' => 'English (EN)',
+        'zh_CN' => 'Chinese',
+        'en' => 'English',
     ],
 
     /*

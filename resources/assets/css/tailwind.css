@@ -2342,14 +2342,25 @@ select {
     background-color: rgb(30 64 175 / var(--tw-bg-opacity))
 }
 
+.hover\:bg-gray-50:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity))
+}
+
 .hover\:bg-gray-100:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity))
 }
 
-.hover\:bg-gray-50:hover {
+.hover\:bg-gray-200:hover {
     --tw-bg-opacity: 1;
-    background-color: rgb(249 250 251 / var(--tw-bg-opacity))
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity))
+}
+
+
+.hover\:bg-gray-600:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(75 85 99 / var(--tw-bg-opacity))
 }
 
 .hover\:bg-gray-700:hover {
