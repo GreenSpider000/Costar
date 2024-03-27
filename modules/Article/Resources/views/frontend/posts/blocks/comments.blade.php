@@ -1,5 +1,5 @@
 <div class="container mx-auto" x-data="{ commentBlock: false }">
-    <h3 class="text-xl">
+    <h3 class="text-xl my-2">
         @if($$module_name_singular->comments->count())
         <span class="mr-2">{{$$module_name_singular->comments->count()}}</span>
         @endif
@@ -14,7 +14,7 @@
     </div>
     @else
     <div class="flex mx-auto">
-        <button class="btn btn-primary" @click="commentBlock = !commentBlock">{{__('Write a comment')}}</button>
+        <button class="btn btn-light" @click="commentBlock = !commentBlock">{{__('Write a comment')}}</button>
     </div>
 
     <div x-show="commentBlock" x-collapse>
@@ -66,7 +66,12 @@
             ?>
             {{ html()->hidden($field_name)->value(encode_id(auth()->user()->id))->attributes(["$required"]) }}
 
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <button 
+                type="submit" 
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+                @lang("Submit")
+            </button>
             {{ html()->form()->close() }}
         </div>
 
