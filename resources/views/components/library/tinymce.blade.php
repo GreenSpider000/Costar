@@ -1,14 +1,19 @@
 <!-- TinyMce -->
 @props(["selector"=>""])
 
+@php
+$lang = strtoupper(App::getLocale()) === "ZH_CN" ? "zh_CN" : "en";
+@endphp
+
 @if($selector)
     @push('after-scripts')
     <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
     <script type="module">
+        console.log("lang: {{App::getLocale()}}")
         tinymce.init({
             selector: '{{$selector}}',
             // skin:'oxide-dark',
-            language:'zh_CN',
+            language: '{{$lang}}',
             plugins: [
                 'print',
                 'preview',
@@ -50,7 +55,7 @@
                 '/static/css.css',
             ],*/
             fontsize_formats: '12px 14px 16px 18px 24px 36px 48px 56px 72px',
-            font_formats: 'Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;PingFang SC,Microsoft YaHei,sans-serif;simsun,serif;FangSong,serif;SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;',
+            font_formats: 'Microsoft YaHei,Helvetica Neue,PingFang SC,sans-serif;PingFang SC,Microsoft YaHei,sans-serif;宋体=simsun,serif;FangSong,serif;SimHei,sans-serif;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;',
             link_list: [
                 { title: 'Preset link', value: 'https://www.tiny.cloud' },
                 { title: 'Preset link', value: 'https://www.tiny.cloud' }
