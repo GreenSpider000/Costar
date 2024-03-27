@@ -3,8 +3,8 @@
 @section ('title', ucfirst($module_name) . ' ' . ucfirst($module_action))
 
 @section('breadcrumbs')
-<x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item type="active" icon='{{ $module_icon }}'>{{ __($module_title) }}</x-backend-breadcrumb-item>
+<x-backend.breadcrumbs>
+    <x-backend.breadcrumb-item type="active" icon='{{ $module_icon }}'>{{ __($module_title) }}</x-backend-breadcrumb-item>
 </x-backend-breadcrumbs>
 @endsection
 

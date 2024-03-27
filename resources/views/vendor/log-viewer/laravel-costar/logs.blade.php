@@ -6,11 +6,11 @@ $module_icon = "fa-solid fa-list-check";
 @section('title') {{ __('Log Viewer Dashboard') }} @endsection
 
 @section('breadcrumbs')
-<x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item route="{{ route('log-viewer::dashboard') }}" icon='{{ $module_icon }}'>
+<x-backend.breadcrumbs>
+    <x-backend.breadcrumb-item route="{{ route('log-viewer::dashboard') }}" icon='{{ $module_icon }}'>
         {{ __('Log Viewer Dashboard') }}
     </x-backend-breadcrumb-item>
-    <x-backend-breadcrumb-item type="active">{{ __('Logs by Date') }}</x-backend-breadcrumb-item>
+    <x-backend.breadcrumb-item type="active">{{ __('Logs by Date') }}</x-backend-breadcrumb-item>
 </x-backend-breadcrumbs>
 @endsection
 
