@@ -10,10 +10,10 @@ $module_icon = "fa-solid fa-list-check";
 <x-backend.breadcrumbs>
     <x-backend.breadcrumb-item route="{{ route('log-viewer::dashboard') }}" icon='{{ $module_icon }}'>
         {{ __('Log Viewer Dashboard') }}
-    </x-backend-breadcrumb-item>
-    <x-backend.breadcrumb-item route="{{ route('log-viewer::logs.list') }}">{{ __('Logs by Date') }}</x-backend-breadcrumb-item>
-    <x-backend.breadcrumb-item type="active">@lang('Log') [{{ $log->date }}]</x-backend-breadcrumb-item>
-</x-backend-breadcrumbs>
+    </x-backend.breadcrumb-item>
+    <x-backend.breadcrumb-item route="{{ route('log-viewer::logs.list') }}">{{ __('Logs by Date') }}</x-backend.breadcrumb-item>
+    <x-backend.breadcrumb-item type="active">@lang('Log') [{{ $log->date }}]</x-backend.breadcrumb-item>
+</x-backend.breadcrumbs>
 @endsection
 
 @section('content')

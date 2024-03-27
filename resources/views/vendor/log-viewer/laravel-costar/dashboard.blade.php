@@ -10,8 +10,8 @@ $module_icon = "fa-solid fa-list-check";
 <x-backend.breadcrumbs>
     <x-backend.breadcrumb-item type="active" icon='{{ $module_icon }}'>
         @lang('Log Viewer')
-    </x-backend-breadcrumb-item>
-</x-backend-breadcrumbs>
+    </x-backend.breadcrumb-item>
+</x-backend.breadcrumbs>
 @endsection
 
 @section('content')

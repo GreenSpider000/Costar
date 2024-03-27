@@ -66,7 +66,7 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-nav-link-responsive :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+            </x-nav-link-responsive>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -86,7 +86,7 @@
                         onclick="event.preventDefault();this.closest('form').submit();"
                     >
                         {{ __('Log Out') }}
-                    </x-responsive-nav-link>
+                    </x-nav-link-responsive>
                 </form>
             </div>
         </div>

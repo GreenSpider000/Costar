@@ -30,10 +30,10 @@
             </div>
 
             <div class="flex justify-end mt-4">
-                <x-button>
+                <x-buttons.default>
                     {{ __('Confirm') }}
-                </x-button>
+                </x-buttons.default>
             </div>
         </form>
-    </x-auth-card>
+    </x-auth.card>
 </x-guest-layout>

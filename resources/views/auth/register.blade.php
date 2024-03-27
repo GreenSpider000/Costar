@@ -61,7 +61,7 @@
 
                 <x-buttons.default class="ml-4">
                     {{ __('Register') }}
-                </x-button>
+                </x-buttons.default>
             </div>
         </form>
 
@@ -70,5 +70,5 @@
                 Already have an account? <a href="{{ route('login') }}" class="underline hover:text-gray-900">Login</a>.
             </p>
         </x-slot>
-    </x-auth-card>
+    </x-auth.card>
 </x-auth-layout>

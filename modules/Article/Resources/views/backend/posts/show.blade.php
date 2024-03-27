@@ -6,9 +6,9 @@
 <x-backend.breadcrumbs>
     <x-backend.breadcrumb-item route='{{route("backend.posts.index")}}' icon='{{ $module_icon }}'>
         {{ __($module_title) }}
-    </x-backend-breadcrumb-item>
-    <x-backend.breadcrumb-item type="active">{{ __($module_action) }}</x-backend-breadcrumb-item>
-</x-backend-breadcrumbs>
+    </x-backend.breadcrumb-item>
+    <x-backend.breadcrumb-item type="active">{{ __($module_action) }}</x-backend.breadcrumb-item>
+</x-backend.breadcrumbs>
 @endsection
 
 @section('content')

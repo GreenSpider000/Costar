@@ -53,7 +53,7 @@
 
                 <x-buttons.default class="ml-3">
                     {{ __('Log in') }}
-                </x-button>
+                </x-buttons.default>
             </div>
         </form>
 
@@ -64,5 +64,5 @@
             </p>
             @endif
         </x-slot>
-    </x-auth-card>
+    </x-auth.card>
 </x-auth-layout>
